@@ -3,22 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="橋本佑介研究室 - 東北大学学際科学フロンティア研究所でマテリアルズインフォマティクス、スピントロニクス、研究DXで革新的研究を展開">
+  <meta name="description" content="橋本佑介 - 東北大学特任准教授、マテリアルズインフォマティクス・スピントロニクス研究者。材料科学とデータサイエンスを融合した革新的研究を展開">
   <meta name="keywords" content="橋本佑介,マテリアルズインフォマティクス,スピントロニクス,機械学習,材料科学,研究DX,東北大学">
   <meta name="author" content="Yusuke Hashimoto">
   <!-- Open Graph -->
-  <meta property="og:title" content="橋本佑介研究室 | 東北大学">
-  <meta property="og:description" content="材料科学とデータサイエンスを融合した革新的研究で材料開発を加速">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://hashimoto-lab.jp/">
-  <meta property="og:image" content="https://hashimoto-lab.jp/assets/ogp.jpg">
-  <meta property="og:site_name" content="橋本佑介研究室">
+  <meta property="og:title" content="橋本佑介 | 材料科学研究者">
+  <meta property="og:description" content="東北大学特任准教授。材料科学とデータサイエンスを融合した革新的研究">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://yusuke-hashimoto.jp/">
+  <meta property="og:image" content="https://yusuke-hashimoto.jp/assets/ogp.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="橋本佑介">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="橋本佑介研究室 | 東北大学">
-  <meta name="twitter:description" content="材料科学とデータサイエンスを融合した革新的研究">
-  <meta name="twitter:image" content="https://hashimoto-lab.jp/assets/ogp.jpg">
-  <title>橋本佑介研究室 | 材料科学 × データサイエンス × 研究DX</title>
+  <meta name="twitter:title" content="橋本佑介 | 材料科学研究者">
+  <meta name="twitter:description" content="東北大学特任准教授。材料科学とデータサイエンス融合研究">
+  <meta name="twitter:image" content="https://yusuke-hashimoto.jp/assets/ogp.jpg">
+  <meta name="twitter:image:width" content="1200">
+  <meta name="twitter:image:height" content="630">
+  <title>橋本佑介 | 材料科学研究者 - 東北大学特任准教授</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="home-styles.css">
 
   <style>
     *, *::before, *::after { 
@@ -117,7 +124,7 @@
     }
 
     nav a:hover, nav a[aria-current="page"] {
-      background: #34495e;
+      background: #4a5f7a;
       color: #fff;
     }
 
@@ -181,6 +188,13 @@
       font-weight: 400;
       letter-spacing: -0.8px;
       line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1200px) {
+      #hero h2 {
+        font-size: 2.8rem;
+      }
     }
 
     .hero-description {
@@ -581,7 +595,9 @@
       }
 
       #hero h2 {
-        font-size: 2.8rem;
+        font-size: 2.6rem;
+        white-space: normal;
+        line-height: 1.3;
       }
 
       .hero-description {
@@ -595,8 +611,9 @@
       }
 
       #hero h2 {
-        font-size: 2.2rem;
-        line-height: 1.3;
+        font-size: 2rem;
+        line-height: 1.4;
+        white-space: normal;
       }
 
       .hero-description {
@@ -658,8 +675,10 @@
       }
 
       #hero h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         margin-bottom: 1rem;
+        white-space: normal;
+        line-height: 1.4;
       }
 
       .hero-description {
@@ -719,9 +738,10 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
   <header>
     <div class="header-content">
-      <h1>Hashimoto Research Laboratory</h1>
+      <h1>Yusuke Hashimoto, PhD</h1>
       <nav role="navigation" aria-label="Main navigation">
         <a href="index.html" aria-current="page">Home</a>
         <a href="research.html">Research</a>
@@ -731,13 +751,13 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- Hero Section -->
     <section id="hero" aria-label="研究室紹介">
       <div class="hero-content">
         <div class="hero-text">
           <h2>Materials Science × Data Science × Innovation</h2>
-          <p class="hero-description">東北大学学際科学フロンティア研究所特任准教授として、磁性体の光励起ダイナミクスから始まり、独自の測定技術開発、マテリアルズ・インフォマティクス、研究DX、そして技術移転まで、幅広い分野で革新的な研究を推進しています。</p>
+          <p class="hero-description">東北大学学際科学フロンティア研究所特任准教授。磁性体の光励起ダイナミクスから始まり、独自の測定技術開発、マテリアルズ・インフォマティクス、研究DX、そして技術移転まで、幅広い分野で革新的な研究を推進しています。</p>
           <div class="hero-stats">
             <div class="stat-item">
               <span class="stat-number" aria-label="29件の論文">29</span>
@@ -788,7 +808,7 @@
     <section class="research-areas-section" aria-label="研究分野">
       <div class="section-header">
         <h2>Research Areas</h2>
-        <p>最先端材料科学とデータサイエンスを融合した学際的研究で次世代材料開発を加速</p>
+        <p>材料科学とデータサイエンスを融合した学際的研究で次世代材料開発を推進</p>
       </div>
       <div class="research-grid">
         <div class="research-area-card primary">
@@ -833,7 +853,7 @@
       <div class="impact-grid">
         <div class="impact-card">
           <h3>技術移転・産業応用</h3>
-          <p>特任准教授として最先端研究を推進し、ベンチャー創業経験を活かした研究成果の社会実装を推進</p>
+          <p>最先端研究の推進とベンチャー創業経験を活かした研究成果の社会実装を推進</p>
           <div class="impact-list">
             <div class="impact-item">
               <span class="impact-icon">💼</span>
@@ -852,7 +872,7 @@
         
         <div class="impact-card">
           <h3>国際連携・学術実績</h3>
-          <p>オランダ・ラドバウド大学、NHK技研等との国際連携とh-index 11の高い研究実績</p>
+          <p>オランダ・ラドバウド大学、NHK技研等との国際連携。h-index 11、総被引用数600+回の研究実績</p>
           <div class="impact-list">
             <div class="impact-item">
               <span class="impact-icon">🌍</span>
@@ -873,7 +893,7 @@
   </main>
 
   <footer role="contentinfo">
-    <p>© 2025 橋本佑介研究室, 東北大学 学際科学フロンティア研究所</p>
+    <p>© 2025 橋本佑介 (Yusuke Hashimoto), 東北大学 学際科学フロンティア研究所</p>
     <address>
       <a href="mailto:yusuke.hashimoto.b8@tohoku.ac.jp" aria-label="メールでお問い合わせ">
         yusuke.hashimoto.b8@tohoku.ac.jp

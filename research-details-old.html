@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Research Details | Yusuke Hashimoto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="橋本佑介の詳細な研究内容。超高速磁気光学分光、マテリアルズインフォマティクス、研究DXなど先端技術の詳細解説">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    /* Research Details Specific Styles */
+    .research-details-intro {
+      background: white;
+      padding: 4rem;
+      border: 1px solid #e9ecef;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .research-details-intro h1 {
+      font-size: 2.4rem;
+      color: #1a252f;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+    }
+
+    .research-details-intro p {
+      font-size: 1.1rem;
+      color: #5d6d7e;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .research-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .timeline-item {
+      background: white;
+      border: 1px solid #e9ecef;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border-color: #34495e;
+    }
+
+    .timeline-header {
+      padding: 2.5rem 2.5rem 1.5rem;
+      background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+      color: white;
+      position: relative;
+    }
+
+    .timeline-header.spintronics {
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    }
+
+    .timeline-header.materials-info {
+      background: linear-gradient(135deg, #34495e 0%, #4a5f7a 100%);
+    }
+
+    .timeline-header.dx {
+      background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+    }
+
+    .timeline-period {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+    }
+
+    .timeline-title {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+
+    .timeline-subtitle {
+      font-size: 1rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    .timeline-content {
+      padding: 2.5rem;
+    }
+
+    .research-objective {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border-left: 4px solid #34495e;
+    }
+
+    .research-objective h4 {
+      color: #1a252f;
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .research-objective p {
+      color: #5d6d7e;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .methodology-section {
+      margin-bottom: 2rem;
+    }
+
+    .methodology-section h4 {
+      color: #1a252f;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .methodology-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .methodology-list li {
+      padding: 0.8rem 0;
+      padding-left: 2rem;
+      position: relative;
+      color: #444;
+      border-bottom: 1px solid #f0f0f0;
+      line-height: 1.6;
+    }
+
+    .methodology-list li:before {
+      content: "⚙️";
+      position: absolute;
+      left: 0;
+      font-size: 1rem;
+    }
+
+    .key-achievements-section {
+      background: #fff8dc;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border-left: 4px solid #f39c12;
+    }
+
+    .key-achievements-section h4 {
+      color: #d68910;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .achievement-item {
+      background: white;
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .achievement-metric {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #d68910;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .achievement-label {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .collaboration-section {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: #e8f4f8;
+      border-radius: 8px;
+      border-left: 4px solid #3498db;
+    }
+
+    .collaboration-section h4 {
+      color: #2980b9;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .collaboration-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .collaboration-tag {
+      background: white;
+      color: #2980b9;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid #3498db;
+    }
+
+    .technical-details {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: #f1f8ff;
+      border-radius: 8px;
+      border-left: 4px solid #0066cc;
+    }
+
+    .technical-details h4 {
+      color: #0066cc;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .tech-spec {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid #e0e8f0;
+    }
+
+    .tech-spec:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .tech-label {
+      font-weight: 500;
+      color: #0066cc;
+    }
+
+    .tech-value {
+      color: #444;
+    }
+
+    .navigation-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 3rem;
+      border-radius: 20px;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .navigation-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+
+    .navigation-section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-button {
+      display: inline-block;
+      background: white;
+      color: #003366;
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .nav-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .research-details-intro {
+        padding: 2rem;
+      }
+
+      .research-details-intro h1 {
+        font-size: 2rem;
+      }
+
+      .timeline-content {
+        padding: 1.5rem;
+      }
+
+      .achievements-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tech-spec {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+      }
+
+      .nav-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav-button {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .timeline-header {
+        padding: 1.5rem;
+      }
+
+      .timeline-title {
+        font-size: 1.4rem;
+      }
+
+      .timeline-content {
+        padding: 1rem;
+      }
+
+      .research-objective,
+      .key-achievements-section,
+      .collaboration-section,
+      .technical-details {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  
+  <header>
+    <div class="header-content">
+      <h1>Yusuke Hashimoto, PhD</h1>
+      <nav role="navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="research-details.html" aria-current="page">Research Details</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="research-details-intro">
+      <h1>Research Details</h1>
+      <p>材料科学とデータサイエンスを融合した学際的研究の詳細をご紹介します。超高速磁気光学分光技術の開発から、マテリアルズインフォマティクス、研究DXまで、各研究プロジェクトの背景、手法、成果を詳しく解説いたします。</p>
+    </section>
+
+    <div class="research-timeline">
+      <!-- 超高速磁気光学分光 -->
+      <article class="timeline-item">
+        <div class="timeline-header spintronics">
+          <div class="timeline-period">2014年〜現在</div>
+          <h2 class="timeline-title">超高速時間分解磁気光学分光技術</h2>
+          <div class="timeline-subtitle">Time-Resolved Magneto-Optical Imaging (TRMOI) & スピン波トモグラフィー</div>
+        </div>
+        <div class="timeline-content">
+          <div class="research-objective">
+            <h4>研究目的</h4>
+            <p>磁性体内部で発生するスピン波の伝播過程を、時間分解能10兆分の1秒、空間分解能100万分の1メートルで可視化し、磁性体物理の基礎理解とスピントロニクスデバイス開発への応用を目指します。</p>
+          </div>
+
+          <div class="methodology-section">
+            <h4>研究手法・技術</h4>
+            <ul class="methodology-list">
+              <li><strong>超短パルスレーザー技術：</strong>フェムト秒パルスレーザーによる磁性体の超高速光励起</li>
+              <li><strong>磁気光学イメージング：</strong>ファラデー効果・カー効果を利用した磁化動態の実時間観測</li>
+              <li><strong>スピン波トモグラフィー法：</strong>位相解析による分散関係の再構築技術開発</li>
+              <li><strong>高速CCD・CMOS撮像：</strong>マイクロ秒からピコ秒まで対応する多段階時間測定</li>
+              <li><strong>数値シミュレーション：</strong>LLG方程式に基づく磁化動力学計算との比較検証</li>
+            </ul>
+          </div>
+
+          <div class="key-achievements-section">
+            <h4>主要成果・インパクト</h4>
+            <div class="achievements-grid">
+              <div class="achievement-item">
+                <span class="achievement-metric">10 fs</span>
+                <span class="achievement-label">時間分解能</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-metric">1 μm</span>
+                <span class="achievement-label">空間分解能</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-metric">83回</span>
+                <span class="achievement-label">Nature Commun.被引用数</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-metric">7件</span>
+                <span class="achievement-label">関連特許</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="technical-details">
+            <h4>技術仕様</h4>
+            <div class="tech-spec">
+              <span class="tech-label">レーザー波長</span>
+              <span class="tech-value">800 nm (Ti:Sapphire), 1550 nm (光通信波長)</span>
+            </div>
+            <div class="tech-spec">
+              <span class="tech-label">パルス幅</span>
+              <span class="tech-value">< 100 fs</span>
+            </div>
+            <div class="tech-spec">
+              <span class="tech-label">繰り返し周波数</span>
+              <span class="tech-value">80 MHz (超短パルス), 1-10 GHz (半導体レーザー)</span>
+            </div>
+            <div class="tech-spec">
+              <span class="tech-label">測定温度範囲</span>
+              <span class="tech-value">4.2 K - 室温</span>
+            </div>
+            <div class="tech-spec">
+              <span class="tech-label">磁場範囲</span>
+              <span class="tech-value">±1 T</span>
+            </div>
+          </div>
+
+          <div class="collaboration-section">
+            <h4>共同研究・連携機関</h4>
+            <div class="collaboration-list">
+              <span class="collaboration-tag">東北大学 齊藤研究室</span>
+              <span class="collaboration-tag">ラドバウド大学 (オランダ)</span>
+              <span class="collaboration-tag">JST ERATO</span>
+              <span class="collaboration-tag">理化学研究所</span>
+              <span class="collaboration-tag">分子科学研究所</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- マテリアルズインフォマティクス -->
+      <article class="timeline-item">
+        <div class="timeline-header materials-info">
+          <div class="timeline-period">2020年〜現在</div>
+          <h2 class="timeline-title">マテリアルズインフォマティクス研究</h2>
+          <div class="timeline-subtitle">実験ビッグデータ × 機械学習による材料設計</div>
+        </div>
+        <div class="timeline-content">
+          <div class="research-objective">
+            <h4>研究目的</h4>
+            <p>実験で得られる大量のデータを機械学習技術と組み合わせることで、材料特性予測モデルを構築し、効率的な新材料探索手法の確立を目指します。特に磁性材料とスピントロニクス材料の設計指針構築に注力し、伝統的な試行錯誤手法から数十年の開発期間を数ヶ月に短縮する革新的アプローチを実現しています。</p>
+          </div>
+
+          <div class="methodology-section">
+            <h4>研究手法・技術</h4>
+            <ul class="methodology-list">
+              <li><strong>高スループット実験自動化：</strong>日に10,000化合物以上をスクリーニングする自動化システム</li>
+              <li><strong>AIサロゲートモデル：</strong>DFT計算より100-800倍高速なMLIP・GNNモデル</li>
+              <li><strong>生成AI材料設計：</strong>目的物性から逆設計するde novoデザイン</li>
+              <li><strong>ベイズ最適化：</strong>実験効率を最大化する能動学習アルゴリズム</li>
+              <li><strong>NVIDIA ALCHEMI連携：</strong>GPU加速シミュレーションとAIモデルの統合プラットフォーム</li>
+            </ul>
+          </div>
+
+          <div class="key-achievements-section">
+            <h4>主要成果・インパクト</h4>
+            <div class="achievements-grid">
+              <div class="achievement-item">
+                <span class="achievement-metric">95%</span>
+                <span class="achievement-label">予測精度 (磁気異方性)</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-metric">100,000+</span>
+                <span class="achievement-label">高スループットスクリーニング/日</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-metric">800x</span>
+                <span class="achievement-label">計算速度向上 (DFT比)</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-metric">95%精度</span>
+                <span class="achievement-label">バーチャルスクリーニング</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="technical-details">
+            <h4>技術仕様</h4>
+            <div class="tech-spec">
+              <span class="tech-label">AIプラットフォーム</span>
+              <span class="tech-value">NVIDIA ALCHEMI, PyTorch, TensorFlow</span>
+            </div>
+            <div class="tech-spec">
+              <span class="tech-label">計算環境</span>
+              <span class="tech-value">NVIDIA A100 GPUクラスタ, CUDA最適化</span>
+            </div>
+            <div class="tech-spec">
+              <span class="tech-label">シミュレーション手法</span>
+              <span class="tech-value">MLIP (Machine Learning Interatomic Potentials), GNN</span>
+            </div>
+            <div class="tech-spec">
+              <span class="tech-label">スクリーニングシステム</span>
+              <span class="tech-value">バーチャルスクリーニング, 生成AI材料設計</span>
+            </div>
+          </div>
+
+          <div class="collaboration-section">
+            <h4>共同研究・連携機関</h4>
+            <div class="collaboration-list">
+              <span class="collaboration-tag">東京大学 NIMS連携</span>
+              <span class="collaboration-tag">NVIDIA ALCHEMIプログラム</span>
+              <span class="collaboration-tag">産業技術総合研究所</span>
+              <span class="collaboration-tag">企業パートナー (NDA)</span>
+              <span class="collaboration-tag">Materials Project</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 研究DX -->
+      <article class="timeline-item">
+        <div class="timeline-header dx">
+          <div class="timeline-period">2021年〜現在</div>
+          <h2 class="timeline-title">研究DX・IoTシステム開発</h2>
+          <div class="timeline-subtitle">次世代研究環境構築のためのデジタル変革</div>
+        </div>
+        <div class="timeline-content">
+          <div class="research-objective">
+            <h4>研究目的</h4>
+            <p>IoT技術、クラウドコンピューティング、自然言語処理を活用して、研究プロセス全体のデジタル化と効率化を実現します。実験環境の自動監視から研究者マッチングまで、包括的な研究支援システムの構築を目指します。</p>
+          </div>
+
+          <div class="methodology-section">
+            <h4>研究手法・技術</h4>
+            <ul class="methodology-list">
+              <li><strong>IoTセンサネットワーク：</strong>実験環境の24時間自動監視システム</li>
+              <li><strong>クラウドデータ基盤：</strong>AWS/Azure上でのリアルタイムデータ処理</li>
+              <li><strong>自然言語処理：</strong>研究論文・申請書の自動解析とマッチング</li>
+              <li><strong>ウェブアプリケーション開発：</strong>React/Node.jsによるユーザーインターフェース</li>
+              <li><strong>機械学習による異常検知：</strong>実験装置故障の予兆検出</li>
+            </ul>
+          </div>
+
+          <div class="key-achievements-section">
+            <h4>主要成果・インパクト</h4>
+            <div class="achievements-grid">
+              <div class="achievement-item">
+                <span class="achievement-metric">8箇所</span>
+                <span class="achievement-label">東北大学内導入</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-metric">¥10,000</span>
+                <span class="achievement-label">1台あたり導入コスト</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-metric">1社</span>
+                <span class="achievement-label">ベンチャー創業</span>
+              </div>
+              <div class="achievement-item">
+                <span class="achievement-metric">90%</span>
+                <span class="achievement-label">故障予測精度</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="technical-details">
+            <h4>技術仕様</h4>
+            <div class="tech-spec">
+              <span class="tech-label">センサー類</span>
+              <span class="tech-value">温湿度, 気圧, CO2, TVOC, 振動, 照度</span>
+            </div>
+            <div class="tech-spec">
+              <span class="tech-label">通信プロトコル</span>
+              <span class="tech-value">WiFi, LoRaWAN, Bluetooth</span>
+            </div>
+            <div class="tech-spec">
+              <span class="tech-label">クラウド基盤</span>
+              <span class="tech-value">AWS IoT Core, Lambda, DynamoDB</span>
+            </div>
+            <div class="tech-spec">
+              <span class="tech-label">フロントエンド</span>
+              <span class="tech-value">React.js, D3.js (可視化)</span>
+            </div>
+            <div class="tech-spec">
+              <span class="tech-label">AI/ML</span>
+              <span class="tech-value">BERT, GPT系言語モデル</span>
+            </div>
+          </div>
+
+          <div class="collaboration-section">
+            <h4>共同研究・連携機関</h4>
+            <div class="collaboration-list">
+              <span class="collaboration-tag">東北大学本部 URA</span>
+              <span class="collaboration-tag">東京工業大学 (委託ナビ)</span>
+              <span class="collaboration-tag">Microsoft Azure</span>
+              <span class="collaboration-tag">地域IoT企業</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <section class="navigation-section">
+      <h2>詳細情報・関連ページ</h2>
+      <p>各研究分野の詳細情報や関連する論文、特許情報については以下のページをご覧ください。</p>
+      <div class="nav-buttons">
+        <a href="research.html" class="nav-button">研究概要</a>
+        <a href="publications.html" class="nav-button">論文・特許</a>
+        <a href="contact.html" class="nav-button">共同研究相談</a>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>© 2025 Yusuke Hashimoto, 東北大学 学際科学フロンティア研究所</p>
+    <address>
+      <a href="mailto:yusuke.hashimoto.b8@tohoku.ac.jp" aria-label="メールでお問い合わせ">
+        yusuke.hashimoto.b8@tohoku.ac.jp
+      </a>
+    </address>
+  </footer>
+</body>
+</html>

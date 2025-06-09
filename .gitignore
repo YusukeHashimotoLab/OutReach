@@ -1,6 +1,9 @@
 # Private data folder - not to be committed to GitHub
 private_data/
 
+# Project documentation (moved to private_data)
+CLAUDE.md
+
 # OS generated files
 .DS_Store
 .DS_Store?
