@@ -1,0 +1,38 @@
+# Private data folder - not to be committed to GitHub
+private_data/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Backup files
+*.bak
+*.backup
+
+# Research data and drafts
+/drafts/
+/raw_data/
+/personal_notes/
+
+# Configuration files with sensitive information
+config.json
+secrets.json
+.env
+.env.local
