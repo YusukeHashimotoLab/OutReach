@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Publications | Hashimoto Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      line-height: 1.7;
+      color: #2c3e50;
+      background: #f8f9fa;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #1a252f;
+      color: #fff;
+      padding: 2rem 0;
+      border-bottom: 3px solid #34495e;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ecf0f1;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    nav a:hover, nav a[aria-current="page"] {
+      background: #34495e;
+      color: #fff;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .publications-intro {
+      background: white;
+      padding: 4rem;
+      border: 1px solid #e9ecef;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .publications-intro h1 {
+      font-size: 2.4rem;
+      color: #1a252f;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+    }
+
+    .publications-intro p {
+      font-size: 1.1rem;
+      color: #5d6d7e;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .publication-section {
+      background: white;
+      border: 1px solid #e9ecef;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 3rem;
+      overflow: hidden;
+    }
+
+    .section-header {
+      padding: 2.5rem 2.5rem 1.5rem;
+      background: #1a252f;
+      color: white;
+    }
+
+    .section-header.materials {
+      background: #34495e;
+    }
+
+    .section-header.spintronics {
+      background: #2c3e50;
+    }
+
+    .section-header h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+
+    .section-header .subtitle {
+      font-size: 1rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    .publications-list {
+      padding: 2.5rem;
+    }
+
+    ol {
+      list-style: none;
+      counter-reset: publication-counter;
+    }
+
+    ol li {
+      counter-increment: publication-counter;
+      margin-bottom: 2rem;
+      padding: 2rem;
+      background: #f8f9fa;
+      border-left: 4px solid #34495e;
+      position: relative;
+      line-height: 1.7;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    ol li:hover {
+      background: #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    ol li::before {
+      content: counter(publication-counter);
+      position: absolute;
+      left: -2rem;
+      top: 2rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      background: #34495e;
+      color: white;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    ol li i {
+      color: #5d6d7e;
+      font-style: italic;
+    }
+
+    ol li b {
+      color: #1a252f;
+      font-weight: 600;
+    }
+
+    .doi-link {
+      display: inline-block;
+      margin-top: 0.8rem;
+      padding: 0.4rem 1rem;
+      background: #34495e;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .doi-link:hover {
+      background: #2c3e50;
+    }
+
+    footer {
+      background: #1a252f;
+      color: #ecf0f1;
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-top: 5rem;
+      border-top: 3px solid #34495e;
+    }
+
+    @media (max-width: 768px) {
+      .publications-intro {
+        padding: 2rem;
+      }
+
+      .publications-intro h1 {
+        font-size: 2rem;
+      }
+
+      .publications-list {
+        padding: 1.5rem;
+      }
+
+      ol li::before {
+        left: -1.5rem;
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.8rem;
+      }
+
+      nav {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-content">
+    <h1>Hashimoto Research Laboratory</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="publications.html" aria-current="page">Publications</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="publications-intro">
+    <h1>Publications</h1>
+    <p>材料科学とスピントロニクス分野における研究成果をご紹介します。データ駆動型材料探索から先端スピン波技術まで、幅広い分野で国際的な研究を展開しています。<br>
+    <strong>h-index: 11, 総引用数: 600+</strong> (最新データ)</p>
+  </section>
+
+  <div class="publication-section">
+    <div class="section-header materials">
+      <h2>Materials Informatics</h2>
+      <div class="subtitle">データ駆動型材料探索・機械学習・材料設計</div>
+    </div>
+    <div class="publications-list">
+      <p style="text-align: center; padding: 2rem; color: #5d6d7e; font-style: italic;">論文は後日追加予定</p>
+    </div>
+  </div>
+
+  <div class="publication-section">
+    <div class="section-header spintronics">
+      <h2>Spintronics</h2>
+      <div class="subtitle">スピン波制御・マグノニクス・スピントロニクス</div>
+    </div>
+    <div class="publications-list">
+      <ol reversed>
+        <li>Composition-tunable magnon-polaron anomalies in spin Seebeck effects in epitaxial Bi<sub>x</sub>Y<sub>3-x</sub>Fe<sub>5</sub>O<sub>12</sub> films, Takashi Kikkawa, Koichi Oyanagi, Tomosato Hioki, Masahiko Ishida, Zhiyong Qiu, Rafael Ramos, <b>Yusuke Hashimoto</b>, Eiji Saitoh, <i>Phys. Rev. Mater.</i> <b>6</b>(10) 104402 (2022) [被引用: 7回]</li>
+        <li>Coherent oscillation between phonons and magnons, Tomosato Hioki, <b>Yusuke Hashimoto</b>, Eiji Saitoh, <i>Commun. Phys.</i> <b>5</b>(1) (2022) [被引用: 28回]</li>
+        <li>Bi-reflection of spin waves, Tomosato Hioki, <b>Yusuke Hashimoto</b>, Eiji Saitoh, <i>Commun. Phys.</i> <b>3</b>(1) (2020) [被引用: 19回]</li>
+        <li>Snell's law for spin waves at a 90-degree magnetic domain wall, Tomosato Hioki, Rei Tsuboi, Tom H. Johansen, <b>Yusuke Hashimoto</b>, and Eiji Saitoh, <i>Appl. Phys. Lett.</i> <b>116</b>(11) (2020) [被引用: 13回]</li>
+        <li>Room temperature and low-field resonant enhancement of spin Seebeck effect in partially compensated magnets, R. Ramos, T. Hioki, <b>Y. Hashimoto</b>, T. Kikkawa, P. Frey, A. J. E. Kreil, V. I. Vasyuchka, A. A. Serga, B. Hillebrands, E. Saitoh, <i>Nat. Commun.</i> <b>10</b> 5162 (2019) [被引用: 27回]</li>
+        <li>Time-Resolved Imaging of Magnetoelastic Waves by the Cotton-Mouton Effect, T. Hioki, <b>Y. Hashimoto</b>, T. H. Johansen, E. Saitoh, <i>Phys. Rev. Applied</i> <b>11</b> 061007 (2019) [被引用: 8回]</li>
+        <li>180°-phase shift of magnetoelastic waves observed by phase-resolved spin-wave tomography, <b>Y. Hashimoto</b>, T. H. Johansen, and E. Saitoh, <i>Appl. Phys. Lett.</i> <b>112</b> 232403 (2018) [被引用: 6回]</li>
+        <li>Frequency and wavenumber selective excitation of spin waves through coherent energy transfer from elastic waves, <b>Y. Hashimoto</b>, D. Bossini, T. H. Johansen, E. Saitoh, A. Kirilyuk, and T. Rasing, <i>Phys. Rev. B</i> <b>97</b> 140404(R) (2018) [被引用: 40回]</li>
+        <li>Phase-resolved spin-wave tomography, <b>Y. Hashimoto</b>, T. H. Johansen, and E. Saitoh, <i>Appl. Phys. Lett.</i> <b>112</b> 072410 (2018) [被引用: 7回]</li>
+        <li>All-optical observation and reconstruction of spin wave dispersion, <b>Y. Hashimoto</b>, S. Daimon, R. Iguchi, Y. Oikawa, K. Shen, K. Sato, D. Bossini, Y. Tabuchi, T. Satoh, B. Hillebrands, G. E. W. Bauer, T. H. Johansen, A. Kirilyuk, T. Rasing, and E. Saitoh, <i>Nat. Commun.</i> <b>8</b> 15859 (2017) [被引用: 83回]</li>
+        <li>Macrospin Dynamics in Antiferromagnets Triggered by Sub-20 femtosecond Injection of Nanomagnons, D. Bossini, S. Dal Conte, <b>Y. Hashimoto</b>, A. Secchi, R. V. Pisarev, T. Rasing, G. Cerullo, and A. V. Kimel, <i>Nat. Commun.</i> <b>7</b> 10645 (2015) [被引用: 96回]</li>
+        <li>Ultrafast time-resolved magneto-optical imaging of all-optical switching in GdFeCo with femtosecond time-resolution and a μm spatial-resolution, <b>Y. Hashimoto</b>, A. R. Khorsand, M. Savoini, B. Koene, D. Bossini, A. Tsukamoto, A. Itoh, Y. Ohtsuka, K. Aoshima, A. V Kimel, A. Kirilyuk, and T. Rasing, <i>Rev. Sci. Instrum.</i> <b>85</b> 063702 (2014) [被引用: 39回]</li>
+        <li>Spin transfer switching of current-perpendicular-to-plane giant magnetoresistance with various Gd-Fe free-layer compositions, K. Aoshima, <b>Y. Hashimoto</b>, N. Funabashi, K. Machida, K. Kuga, H. Kikuchi, N. Shimidzu, and T. Ishibashi, <i>J. Appl. Phys.</i> <b>111</b> 07C911 (2012) [被引用: 8回]</li>
+        <li>Experimental investigation of controlling light polarization in optical waveguides with magneto-optical materials, K. Nishibayashi, H. Yoneda, A. Laosunthara, K. Suda, K. Kuga, <b>Y. Hashimoto</b>, and H. Munekata, <i>J. Magn. Soc. Jpn.</i> <b>36</b>(1_2) 74-77 (2012) [被引用: 0回]</li>
+        <li>Spin transfer switching of current-perpendicular-to-plane giant magnetoresistance devices with Gd--Fe free layers and Ag-spacer materials for light modulator applications, K. Aoshima, Y. Ohtsuka, <b>Y. Hashimoto</b>, N. Funabashi, K. Machida, K. Kuga, H. Kikuchi, and N. Shimidzu, <i>J. Appl. Phys.</i> <b>109</b> 07C917 (2011) [被引用: 5回]</li>
+        <li>Investigation of an effective anisotropy field involved in photoinduced precession of magnetization in (Ga,Mn)As, S. Kobayashi, <b>Y. Hashimoto</b>, and H. Munekata, <i>J. Appl. Phys.</i> <b>105</b> 07C519 (2009) [被引用: 8回]</li>
+        <li>Mapping a magnetization switching field in Ga<sub>0.98</sub>Mn<sub>0.02</sub>As microbars with a scanning laser magneto-optical microscope, J. Aoyama, <b>Y. Hashimoto</b>, S. Kobayashi, and H. Munekata, <i>J. Appl. Phys.</i> <b>105</b> 07C518 (2009) [被引用: 6回]</li>
+        <li>Coherent manipulation of magnetization precession in ferromagnetic semiconductor (Ga,Mn)As with successive optical pumping, <b>Y. Hashimoto</b> and H. Munekata, <i>Appl. Phys. Lett.</i> <b>93</b> 202506 (2008) [被引用: 26回]</li>
+        <li>Photo-induced precession of magnetization in ferromagnetic (Ga,Mn)As, <b>Y. Hashimoto</b>, S. Kobayashi, and H. Munekata, <i>Phys. Rev. Lett.</i> <b>100</b> 067202 (2008) [被引用: 100回]</li>
+        <li>Ultrafast Magneto-Optics in Ferromagnetic III-V Semiconductors (topical review), J. Wang, C. Sun, <b>Y. Hashimoto</b>, J. Kono, G. A. Khodaparast, L. Cywinski, L. J. Sham, G. D. Sanders, C. J. Stanton, and H. Munekata, <i>J. Phys.: Condens. Matter</i> <b>18</b> R501-R530 (2006) [被引用: 96回]</li>
+        <li>Propagating Coherent Acoustic Phonon Wavepackets in InMnAs/GaSb, J. Wang, <b>Y. Hashimoto</b>, J. Kono, A. Oiwa, H. Munekata, G. D. Sanders, and C. J. Stanton, <i>Phys. Rev. B</i> <b>72</b> 153311 (2005) [被引用: 36回]</li>
+        <li>Electronic structure near the Fermi level in the ferromagnetic semiconductor GaMnAs studied by ultrafast time-resolved light-induced reflectivity measurements, T. Ishii, T. Kawazoe, <b>Y. Hashimoto</b>, H. Terada, I. Muneta, M. Ohtsu, M. Tanaka, and S. Ohya, <i>Phys. Rev. B</i> <b>93</b> 241303(R) (2016) [被引用: 11回]</li>
+        <li>Photo-induced Faraday rotation in GaAs / AlGaAs multiple quantum wells, T. Kuroda, <b>Y. Hashimoto</b>, F. Minami, <i>J. Luminescence</i> <b>94-95</b> 551-554 (2001) [被引用: 4回]</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="publication-section">
+    <div class="section-header">
+      <h2>Others</h2>
+      <div class="subtitle">カーボンナノチューブ・イオン液体・材料物性</div>
+    </div>
+    <div class="publications-list">
+      <ol reversed>
+        <li>Tracking Structural Changes of Carbon Nanotube Electrodes for Lithium-Air Batteries by Time-Resolved Operando Wide- and Small- Angle X-ray Scattering, Yoshikiyo Hatakeyama, Mana Sugimoto, Akifumi Suga, Haruka Naito, Shuntaro Sugimoto, Iori Sakaguchi, <b>Yusuke Hashimoto</b>, Soshi Shiraishi, <i>J. Phys. Chem. C</i> <b>126</b>(36) 15094-15103 (2022) [被引用: 4回]</li>
+        <li>Unique phase behavior of a room-temperature ionic liquid, trimethylpropylammonium bis(fluorosulfonyl)amide: surface melting and its crystallization, Keiko Nishikawa, Kozo Fujii, <b>Yusuke Hashimoto</b>, Ken-ichi Tozaki, <i>Phys. Chem. Chem. Phys.</i> <b>22</b>(36) 20634-20642 (2020) [被引用: 3回]</li>
+        <li>Anisotropic Decay Dynamics of Photoexcited Aligned Carbon Nanotube Bundles, <b>Y. Hashimoto</b>, Y. Murakami, S. Maruyama, and J. Kono, <i>Phys. Rev. B</i> <b>75</b> 245408 (2007) [被引用: 12回]</li>
+      </ol>
+    </div>
+  </div>
+</main>
+
+<footer>© 2025 Hashimoto Lab, Tohoku University</footer>
+</body>
+</html>

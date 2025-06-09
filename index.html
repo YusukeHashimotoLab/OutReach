@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hashimoto Lab – Materials Informatics & Research DX, Tohoku University">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Hashimoto Research Laboratory">
+  <meta property="og:description" content="Materials × Data × DX – Accelerating materials discovery.">
+  <meta property="og:image" content="https://hashimoto-lab.jp/assets/ogp.jpg">
+  <title>Hashimoto Lab | Materials × Data × DX</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      line-height: 1.7;
+      color: #2c3e50;
+      background: #f8f9fa;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #1a252f;
+      color: #fff;
+      padding: 2rem 0;
+      border-bottom: 3px solid #34495e;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ecf0f1;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    nav a:hover, nav a[aria-current="page"] {
+      background: #34495e;
+      color: #fff;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    #hero {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-text {
+      text-align: left;
+    }
+
+    #hero h2 {
+      font-size: 3.2rem;
+      color: #1a252f;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      letter-spacing: -0.8px;
+      line-height: 1.2;
+    }
+
+    .hero-description {
+      font-size: 1.3rem;
+      color: #5d6d7e;
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 4px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #1a252f;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: #5d6d7e;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1.2rem 2.5rem;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-primary {
+      background: #34495e;
+      color: #fff;
+      border: 2px solid #34495e;
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: #34495e;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #34495e;
+      border: 2px solid #34495e;
+    }
+
+    .btn-secondary:hover {
+      background: #34495e;
+      color: #fff;
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .research-highlight {
+      background: #fff;
+      padding: 2.5rem;
+      border: 1px solid #e9ecef;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      width: 100%;
+    }
+
+    .research-highlight h4 {
+      color: #1a252f;
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .highlight-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid #f1f3f4;
+    }
+
+    .highlight-item:last-child {
+      border-bottom: none;
+    }
+
+    .journal {
+      font-weight: 500;
+      color: #2c3e50;
+    }
+
+    .citations {
+      font-size: 0.9rem;
+      color: #5d6d7e;
+      background: #f8f9fa;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+    }
+
+    .research-areas-section {
+      padding: 6rem 0;
+      background: #fff;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 2rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      color: #1a252f;
+      margin-bottom: 1rem;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+    }
+
+    .section-header p {
+      font-size: 1.2rem;
+      color: #5d6d7e;
+    }
+
+    .research-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .research-area-card {
+      background: white;
+      padding: 3rem;
+      border: 1px solid #e9ecef;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .research-area-card:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border-color: #34495e;
+    }
+
+    .research-area-card.primary {
+      border-color: #34495e;
+      box-shadow: 0 8px 25px rgba(52, 73, 94, 0.1);
+    }
+
+    .area-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 0 1.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 4px;
+    }
+
+    .research-area-card h3 {
+      font-size: 1.5rem;
+      color: #1a252f;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+
+    .research-area-card p {
+      color: #5d6d7e;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .key-achievements {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .key-achievements li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: #2c3e50;
+      font-size: 0.95rem;
+    }
+
+    .key-achievements li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #34495e;
+      font-weight: bold;
+    }
+
+    .impact-section {
+      padding: 6rem 0;
+      background: #f8f9fa;
+    }
+
+    .impact-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 3rem;
+    }
+
+    .impact-card {
+      background: white;
+      padding: 3rem;
+      border: 1px solid #e9ecef;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .impact-card h3 {
+      font-size: 1.5rem;
+      color: #1a252f;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .impact-card p {
+      color: #5d6d7e;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .impact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .impact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: #f8f9fa;
+      border-radius: 4px;
+    }
+
+    .impact-icon {
+      font-size: 1.2rem;
+    }
+
+    footer {
+      background: #1a252f;
+      color: #ecf0f1;
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-top: 5rem;
+      border-top: 3px solid #34495e;
+    }
+
+    footer address a {
+      color: #bdc3c7;
+      text-decoration: none;
+    }
+
+    footer address a:hover {
+      color: #ecf0f1;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 968px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #hero h2 {
+        font-size: 2.5rem;
+      }
+
+      .hero-description {
+        font-size: 1.1rem;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 1.5rem;
+      }
+
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+      }
+
+      .research-area-card,
+      .impact-card {
+        padding: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #hero h2 {
+        font-size: 2rem;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Hashimoto Research Laboratory</h1>
+      <nav>
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h2>Materials Science × Data Science × Innovation</h2>
+          <p class="hero-description">磁性体の光励起ダイナミクスから始まり、独自の測定技術開発、マテリアルズ・インフォマティクス、研究DX、そして技術移転まで、幅広い分野で革新的な研究を推進しています。</p>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">26</span>
+              <span class="stat-label">論文</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">600+</span>
+              <span class="stat-label">被引用数</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">11</span>
+              <span class="stat-label">h-index</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">4</span>
+              <span class="stat-label">特許</span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="research.html">研究内容を見る</a>
+            <a class="btn btn-secondary" href="contact.html">共同研究について</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="research-highlight">
+            <h4>最新の研究成果</h4>
+            <div class="highlight-item">
+              <span class="journal">Nature Communications</span>
+              <span class="citations">83回被引用</span>
+            </div>
+            <div class="highlight-item">
+              <span class="journal">Physical Review Letters</span>
+              <span class="citations">100回被引用</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Areas Section -->
+    <section class="research-areas-section">
+      <div class="section-header">
+        <h2>Research Areas</h2>
+        <p>7つの主要研究分野で最先端の材料科学研究を展開</p>
+      </div>
+      <div class="research-grid">
+        <div class="research-area-card primary">
+          <div class="area-icon">🔬</div>
+          <h3>超高速磁気光学分光</h3>
+          <p>TRMOI技術とスピン波トモグラフィー法による磁性体ダイナミクス解明</p>
+          <ul class="key-achievements">
+            <li>10兆分の1秒時間分解能</li>
+            <li>100万分の1メートル空間分解能</li>
+            <li>JST ERATOプロジェクト中核技術</li>
+          </ul>
+        </div>
+        
+        <div class="research-area-card">
+          <div class="area-icon">📊</div>
+          <h3>Materials Informatics</h3>
+          <p>実験ビッグデータと機械学習を融合した材料特性予測モデル構築</p>
+          <ul class="key-achievements">
+            <li>実践教育コンテンツ開発</li>
+            <li>産学連携研究推進</li>
+            <li>東北大学内知識共有促進</li>
+          </ul>
+        </div>
+
+        <div class="research-area-card">
+          <div class="area-icon">🤖</div>
+          <h3>Research DX & IoT</h3>
+          <p>次世代研究環境構築のための包括的デジタル変革支援</p>
+          <ul class="key-achievements">
+            <li>東北大学8箇所でIoT運用</li>
+            <li>研究室DX化サポート</li>
+            <li>自然言語処理マッチングシステム</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact & Collaboration Section -->
+    <section class="impact-section">
+      <div class="impact-grid">
+        <div class="impact-card">
+          <h3>技術移転・産業応用</h3>
+          <p>ベンチャー企業「委託ナビ」共同創業の経験を活かし、研究成果の社会実装を推進</p>
+          <div class="impact-list">
+            <div class="impact-item">
+              <span class="impact-icon">💼</span>
+              <span>産学連携プロジェクト</span>
+            </div>
+            <div class="impact-item">
+              <span class="impact-icon">🏢</span>
+              <span>企業との共同研究</span>
+            </div>
+            <div class="impact-item">
+              <span class="impact-icon">🔬</span>
+              <span>設備シェアリング事業</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="impact-card">
+          <h3>国際連携・共同研究</h3>
+          <p>オランダ・ラドバウド大学、NHK放送技術研究所等との国際的な研究ネットワーク</p>
+          <div class="impact-list">
+            <div class="impact-item">
+              <span class="impact-icon">🌍</span>
+              <span>国際共同研究</span>
+            </div>
+            <div class="impact-item">
+              <span class="impact-icon">📺</span>
+              <span>NHK技研との連携</span>
+            </div>
+            <div class="impact-item">
+              <span class="impact-icon">🇳🇱</span>
+              <span>ラドバウド大学</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Hashimoto Lab, Tohoku University
+    <address><a href="mailto:yusuke.hashimoto.b8@tohoku.ac.jp">yusuke.hashimoto.b8@tohoku.ac.jp</a></address>
+  </footer>
+</body>
+</html>

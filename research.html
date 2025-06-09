@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Research | Hashimoto Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      line-height: 1.7;
+      color: #2c3e50;
+      background: #f8f9fa;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #1a252f;
+      color: #fff;
+      padding: 2rem 0;
+      border-bottom: 3px solid #34495e;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ecf0f1;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    nav a:hover, nav a[aria-current="page"] {
+      background: #34495e;
+      color: #fff;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .research-intro {
+      background: white;
+      padding: 4rem;
+      border: 1px solid #e9ecef;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .research-intro h1 {
+      font-size: 2.4rem;
+      color: #1a252f;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+    }
+
+    .research-intro p {
+      font-size: 1.1rem;
+      color: #5d6d7e;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .research-card {
+      background: white;
+      border: 1px solid #e9ecef;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .research-card:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border-color: #34495e;
+    }
+
+    .card-header {
+      padding: 2.5rem 2rem;
+      background: #1a252f;
+      color: white;
+      position: relative;
+    }
+
+    .card-header.spintronics {
+      background: #2c3e50;
+    }
+
+    .card-header.materials {
+      background: #34495e;
+    }
+
+    .card-header.dx {
+      background: #1a252f;
+    }
+
+    .card-header h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+
+    .card-header .subtitle {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    .card-content {
+      padding: 2.5rem;
+    }
+
+    .card-content p {
+      margin-bottom: 1.8rem;
+      color: #5d6d7e;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .key-points {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .key-points li {
+      padding: 0.8rem 0;
+      padding-left: 2rem;
+      position: relative;
+      color: #444;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .key-points li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #28a745;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .applications {
+      background: #f8f9ff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+      border-left: 4px solid #003366;
+    }
+
+    .applications h4 {
+      color: #003366;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .applications ul {
+      list-style: none;
+    }
+
+    .applications li {
+      padding: 0.3rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: #555;
+    }
+
+    .applications li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #003366;
+      font-weight: bold;
+    }
+
+    .collaboration-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 3rem;
+      border-radius: 20px;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .collaboration-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+
+    .collaboration-section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: white;
+      color: #003366;
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      background: #1a252f;
+      color: #ecf0f1;
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-top: 5rem;
+      border-top: 3px solid #34495e;
+    }
+
+    @media (max-width: 768px) {
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .research-intro {
+        padding: 2rem;
+      }
+
+      .research-intro h1 {
+        font-size: 2rem;
+      }
+
+      .card-content {
+        padding: 1.5rem;
+      }
+
+      nav {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-content">
+    <h1>Hashimoto Research Laboratory</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="research.html" aria-current="page">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="research-intro">
+    <h1>Research Areas</h1>
+    <p>材料科学とデータサイエンスを融合した最先端研究を推進しています。磁性体の光励起ダイナミクスから始まり、独自の測定技術開発、マテリアルズ・インフォマティクス、そして研究DXまで、幅広い分野で革新的なアプローチを展開しています。</p>
+  </section>
+
+  <div class="research-grid">
+    <div class="research-card">
+      <div class="card-header spintronics">
+        <h2>超高速時間分解磁気光学分光</h2>
+        <div class="subtitle">TRMOI & スピン波トモグラフィー</div>
+      </div>
+      <div class="card-content">
+        <p>10兆分の1秒の時間分解能と100万分の1メートルの空間分解能を有する究極のビデオカメラ（TRMOI）を独自開発。これをベースに磁性体励起伝播過程の分散関係を実験データから再構築するスピン波トモグラフィー法（SWaT）を確立しました。</p>
+
+        <ul class="key-points">
+          <li>世界最高レベルの時空間分解能を実現</li>
+          <li>スピン波分散関係の全光学的再構築</li>
+          <li>磁気光学イメージング技術の革新</li>
+          <li>スピンゼーベック効果の異常現象解明</li>
+        </ul>
+
+        <div class="applications">
+          <h4>主要成果</h4>
+          <ul>
+            <li>Nature Communications誌に掲載（83回被引用）</li>
+            <li>Review of Scientific Instruments誌に掲載</li>
+            <li>磁気光学測定装置に関する特許取得</li>
+            <li>JST ERATOプロジェクトでの中核技術</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="card-header materials">
+        <h2>高繰り返し超短パルス半導体レーザー分光</h2>
+        <div class="subtitle">簡便な磁気分光法の開発</div>
+      </div>
+      <div class="card-content">
+        <p>従来の複雑な測定系を簡素化し、高繰り返し超短パルス半導体レーザーと磁性体光励起過程の繰り返し同期現象を用いた革新的な磁気分光法を考案・実証しました。</p>
+
+        <ul class="key-points">
+          <li>測定系の大幅な簡素化を実現</li>
+          <li>シミュレーションによる原理実証</li>
+          <li>スピントロニクスデバイス評価への応用</li>
+          <li>産業界での実用化を見据えた設計</li>
+        </ul>
+
+        <div class="applications">
+          <h4>知的財産</h4>
+          <ul>
+            <li>4報の特許を取得</li>
+            <li>NHK放送技術研究所との共同研究</li>
+            <li>光変調素子への応用技術</li>
+            <li>磁性体特性評価の簡便化</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="card-header dx">
+        <h2>マテリアルズ・インフォマティクス</h2>
+        <div class="subtitle">実験ビッグデータ × 機械学習</div>
+      </div>
+      <div class="card-content">
+        <p>実験ビッグデータと機械学習を組み合わせた材料特性モデルの構築手法を開発。東北大学におけるマテリアルズ・インフォマティクス研究の振興・強化に貢献しています。</p>
+
+        <ul class="key-points">
+          <li>実験データ活用型機械学習モデル構築</li>
+          <li>材料特性予測精度の向上</li>
+          <li>実践的教育コンテンツの開発</li>
+          <li>産学連携研究の推進</li>
+        </ul>
+
+        <div class="applications">
+          <h4>教育・啓蒙活動</h4>
+          <ul>
+            <li>「実験材料研究者のための実践マテリアルズインフォマティクス入門」公開</li>
+            <li>最新研究動向調査・発信</li>
+            <li>具体的研究サポートの提供</li>
+            <li>東北大学学内での知識共有促進</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="card-header">
+        <h2>IoT実験環境ログシステム</h2>
+        <div class="subtitle">データ科学 × 実験研究</div>
+      </div>
+      <div class="card-content">
+        <p>実験結果の再現性担保を目的とした、IoTデバイスによる安価かつ高精度な実験環境ログシステムを開発。1台1万円ほどで全自動環境計測を実現しています。</p>
+
+        <ul class="key-points">
+          <li>温度・湿度・気圧・CO2・有機化合物濃度の自動計測</li>
+          <li>低価格での高精度モニタリング</li>
+          <li>クラウドベースデータ管理</li>
+          <li>異常検知・アラート機能</li>
+        </ul>
+
+        <div class="applications">
+          <h4>導入実績</h4>
+          <ul>
+            <li>東北大学内8か所で試験運用中</li>
+            <li>水漏れ・空調故障などの異常検知</li>
+            <li>実験環境データの自動収集</li>
+            <li>研究再現性向上への貢献</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="card-header materials">
+        <h2>研究室運営DX化サポート</h2>
+        <div class="subtitle">次世代研究環境の構築</div>
+      </div>
+      <div class="card-content">
+        <p>新研究室立ち上げ支援として、デジタル実験ノート、IoT環境計測、実験自動化技術を統合した包括的な研究DXシステムを設計・開発しています。</p>
+
+        <ul class="key-points">
+          <li>デジタル実験ノートシステム導入</li>
+          <li>IoT実験環境ログ統合</li>
+          <li>研究データの一元デジタル管理</li>
+          <li>機械学習モデル開発への直接活用</li>
+        </ul>
+
+        <div class="applications">
+          <h4>システム効果</h4>
+          <ul>
+            <li>研究効率の飛躍的向上</li>
+            <li>研究室内知識共有の促進</li>
+            <li>データ分析アクセシビリティ向上</li>
+            <li>次世代研究者育成環境整備</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="card-header spintronics">
+        <h2>自然言語処理研究マッチング</h2>
+        <div class="subtitle">NLP × 研究費データベース</div>
+      </div>
+      <div class="card-content">
+        <p>自然言語処理技術と研究費データベースを活用して東北大学の研究特性モデルを構築。共同研究者マッチングや研究費公募最適化システムを開発しています。</p>
+
+        <ul class="key-points">
+          <li>大学研究特性の定量的モデル化</li>
+          <li>研究者間マッチング精度向上</li>
+          <li>研究費申請最適化支援</li>
+          <li>大学本部との連携システム構築</li>
+        </ul>
+
+        <div class="applications">
+          <h4>開発システム</h4>
+          <ul>
+            <li>共同研究者マッチングシステム</li>
+            <li>研究費公募最適化システム</li>
+            <li>東北大学本部との協力体制</li>
+            <li>産学連携促進への貢献</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="card-header dx">
+        <h2>ベンチャー創業・技術移転</h2>
+        <div class="subtitle">研究開発施設シェアリング</div>
+      </div>
+      <div class="card-content">
+        <p>東京工業大学OBと共同で研究開発施設シェアリング推進ベンチャー「委託ナビ」を創業。コンセプト設計やウェブデザインサポートを担当し、技術移転への知見を蓄積しました。</p>
+
+        <ul class="key-points">
+          <li>研究設備の効率的活用推進</li>
+          <li>ベンチャー創業・運営ノウハウ</li>
+          <li>技術移転プロセスの実践経験</li>
+          <li>産学連携の新たなモデル構築</li>
+        </ul>
+
+        <div class="applications">
+          <h4>創業経験</h4>
+          <ul>
+            <li>東京工業大学OBとの共同創業</li>
+            <li>コンセプト設計・ウェブデザイン担当</li>
+            <li>研究開発施設シェアリング事業</li>
+            <li>東工大発ベンチャー創出への貢献可能性</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="collaboration-section">
+    <h2>共同研究・産学連携</h2>
+    <p>企業・研究機関との共同研究を積極的に推進しています。材料開発、データ解析、研究DXに関するお悩みやご相談がございましたら、お気軽にお声がけください。</p>
+    <a href="contact.html" class="cta-button">共同研究のご相談</a>
+  </section>
+</main>
+
+<footer>© 2025 Hashimoto Lab, Tohoku University</footer>
+</body>
+</html>
