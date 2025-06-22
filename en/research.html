@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Research | Yusuke Hashimoto</title>
+  <meta name="description" content="Research areas of Dr. Yusuke Hashimoto focusing on materials informatics, IoT systems, research DX, and ultrafast magneto-optical spectroscopy at Tohoku University.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="materials informatics, IoT systems, research DX, magneto-optical spectroscopy, spintronics, machine learning">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../lang-switcher.js" defer></script>
+  
+  <!-- SEO hreflang tags -->
+  <link rel="alternate" hreflang="en" href="research.html">
+  <link rel="alternate" hreflang="ja" href="../research.html">
+  <link rel="alternate" hreflang="x-default" href="research.html">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      line-height: 1.7;
+      color: #2c3e50;
+      background: #f8f9fa;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #1a252f;
+      color: #fff;
+      padding: 2rem 0;
+      border-bottom: 3px solid #34495e;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ecf0f1;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    nav a:hover, nav a[aria-current="page"] {
+      background: #4a5f7a;
+      color: #fff;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .research-intro {
+      background: white;
+      padding: 4rem;
+      border: 1px solid #e9ecef;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .research-intro h1 {
+      font-size: 2.4rem;
+      color: #1a252f;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+    }
+
+    .research-intro p {
+      font-size: 1.1rem;
+      color: #5d6d7e;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .research-card {
+      background: white;
+      border: 1px solid #e9ecef;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .research-card:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border-color: #34495e;
+    }
+
+    .card-header {
+      padding: 2.5rem 2rem;
+      background: #1a252f;
+      color: white;
+      position: relative;
+    }
+
+    .card-header.spintronics {
+      background: #2c3e50;
+    }
+
+    .card-header.materials {
+      background: #34495e;
+    }
+
+    .card-header.dx {
+      background: #1a252f;
+    }
+
+    .card-header h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+
+    .card-header .subtitle {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+
+    .card-content {
+      padding: 2.5rem;
+    }
+
+    .card-content p {
+      margin-bottom: 1.8rem;
+      color: #5d6d7e;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .key-points {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .key-points li {
+      padding: 0.8rem 0;
+      padding-left: 2rem;
+      position: relative;
+      color: #444;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .key-points li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #28a745;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .applications {
+      background: #f8f9ff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+      border-left: 4px solid #003366;
+    }
+
+    .applications h4 {
+      color: #003366;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .applications ul {
+      list-style: none;
+    }
+
+    .applications li {
+      padding: 0.3rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: #555;
+    }
+
+    .applications li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #003366;
+      font-weight: bold;
+    }
+
+    .collaboration-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 3rem;
+      border-radius: 20px;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .collaboration-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+
+    .collaboration-section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: white;
+      color: #003366;
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      background: #1a252f;
+      color: #ecf0f1;
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-top: 5rem;
+      border-top: 3px solid #34495e;
+    }
+
+    @media (max-width: 768px) {
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .research-intro {
+        padding: 2rem;
+      }
+
+      .research-intro h1 {
+        font-size: 2rem;
+      }
+
+      .card-content {
+        padding: 1.5rem;
+      }
+
+      nav {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+<header>
+  <div class="header-content">
+    <h1>Yusuke Hashimoto, PhD</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="research.html" aria-current="page">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="research-intro">
+    <h1>Research Areas</h1>
+    <p>As a Specially Appointed Associate Professor at the Institute for Interdisciplinary Research, Tohoku University, I advance research that bridges materials science and data science. My work spans from magneto-optical dynamics in magnetic materials to the development of novel measurement techniques, materials informatics, and research digitalization (DX), employing innovative approaches across diverse fields.</p>
+  </section>
+
+  <div class="research-grid">
+    <div class="research-card">
+      <div class="card-header dx">
+        <h2>Materials Informatics</h2>
+        <div class="subtitle">Experimental Big Data × Machine Learning</div>
+      </div>
+      <div class="card-content">
+        <p>Developing methodologies for constructing material property models by combining experimental big data with machine learning. Contributing to the promotion and strengthening of materials informatics research at Tohoku University.</p>
+
+        <ul class="key-points">
+          <li>Experimental data-driven machine learning model development</li>
+          <li>Enhanced accuracy in material property prediction</li>
+          <li>Development of practical educational content</li>
+          <li>Promotion of industry-academia collaborations</li>
+        </ul>
+
+        <div class="applications">
+          <h4>Educational & Outreach Activities</h4>
+          <ul>
+            <li>Published "Practical Materials Informatics for Experimental Materials Researchers"</li>
+            <li>Latest research trend surveys and dissemination</li>
+            <li>Providing concrete research support</li>
+            <li>Promoting knowledge sharing within Tohoku University</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="card-header">
+        <h2>IoT Experimental Environment Logging System</h2>
+        <div class="subtitle">Data Science × Experimental Research</div>
+      </div>
+      <div class="card-content">
+        <p>Development of cost-effective, high-precision experimental environment logging systems using IoT devices to ensure experimental reproducibility. Achieving fully automated environmental monitoring for approximately 10,000 yen per unit.</p>
+
+        <ul class="key-points">
+          <li>Automatic measurement of temperature, humidity, pressure, CO2, and organic compound concentrations</li>
+          <li>High-precision monitoring at low cost</li>
+          <li>Cloud-based data management</li>
+          <li>Anomaly detection and alert functions</li>
+        </ul>
+
+        <div class="applications">
+          <h4>Implementation Results</h4>
+          <ul>
+            <li>Trial operation at 8 locations within Tohoku University</li>
+            <li>Detection of anomalies such as water leaks and HVAC failures</li>
+            <li>Automated collection of experimental environment data</li>
+            <li>Contribution to improved research reproducibility</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="card-header materials">
+        <h2>Research Laboratory DX Support</h2>
+        <div class="subtitle">Next-Generation Research Environment Construction</div>
+      </div>
+      <div class="card-content">
+        <p>Designing and developing comprehensive research digitalization (DX) systems that integrate digital lab notebooks, IoT environmental monitoring, and experimental automation technologies to support new laboratory establishment.</p>
+
+        <ul class="key-points">
+          <li>Digital laboratory notebook system implementation</li>
+          <li>Integration of IoT experimental environment logging</li>
+          <li>Centralized digital management of research data</li>
+          <li>Direct utilization for machine learning model development</li>
+        </ul>
+
+        <div class="applications">
+          <h4>System Benefits</h4>
+          <ul>
+            <li>Dramatic improvement in research efficiency</li>
+            <li>Enhanced knowledge sharing within laboratories</li>
+            <li>Improved accessibility to data analysis</li>
+            <li>Next-generation researcher training environment setup</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="card-header spintronics">
+        <h2>Natural Language Processing Research Matching</h2>
+        <div class="subtitle">NLP × Research Funding Database</div>
+      </div>
+      <div class="card-content">
+        <p>Constructing research characteristic models for Tohoku University using natural language processing technologies and research funding databases. Developing collaborative researcher matching and research funding proposal optimization systems.</p>
+
+        <ul class="key-points">
+          <li>Quantitative modeling of university research characteristics</li>
+          <li>Enhanced precision in researcher matching</li>
+          <li>Research funding application optimization support</li>
+          <li>Collaborative system construction with university administration</li>
+        </ul>
+
+        <div class="applications">
+          <h4>Developed Systems</h4>
+          <ul>
+            <li>Collaborative researcher matching system</li>
+            <li>Research funding proposal optimization system</li>
+            <li>Cooperation framework with Tohoku University administration</li>
+            <li>Contribution to industry-academia collaboration promotion</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="card-header dx">
+        <h2>Venture Creation & Technology Transfer</h2>
+        <div class="subtitle">Research Facility Sharing</div>
+      </div>
+      <div class="card-content">
+        <p>Co-founded a venture company "ITAKU-NAVI" with Tokyo Institute of Technology alumni to promote research facility sharing. Responsible for concept design and web design support, accumulating insights into technology transfer processes.</p>
+
+        <ul class="key-points">
+          <li>Promoting efficient utilization of research equipment</li>
+          <li>Venture creation and management expertise</li>
+          <li>Practical experience in technology transfer processes</li>
+          <li>Construction of new industry-academia collaboration models</li>
+        </ul>
+
+        <div class="applications">
+          <h4>Entrepreneurial Experience</h4>
+          <ul>
+            <li>Co-founding with Tokyo Institute of Technology alumni</li>
+            <li>Responsible for concept design and web design</li>
+            <li>Research facility sharing business</li>
+            <li>Potential contribution to Tokyo Tech venture creation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="card-header spintronics">
+        <h2>Ultrafast Time-Resolved Magneto-Optical Spectroscopy</h2>
+        <div class="subtitle">TRMOI & Spin Wave Tomography</div>
+      </div>
+      <div class="card-content">
+        <p>Independently developed an ultimate video camera (TRMOI) with 10 picosecond temporal resolution and 1 micrometer spatial resolution. Based on this technology, established the Spin Wave Tomography (SWaT) method to reconstruct dispersion relations of magnetic excitation propagation processes from experimental data.</p>
+
+        <ul class="key-points">
+          <li>Achieved world-class spatiotemporal resolution</li>
+          <li>All-optical reconstruction of spin wave dispersion relations</li>
+          <li>Innovation in magneto-optical imaging technology</li>
+          <li>Elucidation of anomalous phenomena in spin Seebeck effects</li>
+        </ul>
+
+        <div class="applications">
+          <h4>Major Achievements</h4>
+          <ul>
+            <li>Published in Nature Communications (83 citations)</li>
+            <li>Published in Review of Scientific Instruments</li>
+            <li>Patent obtained for magneto-optical measurement apparatus</li>
+            <li>Core technology in JST ERATO project</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="card-header materials">
+        <h2>High-Repetition-Rate Ultrashort Pulse Semiconductor Laser Spectroscopy</h2>
+        <div class="subtitle">Development of Simplified Magnetic Spectroscopy</div>
+      </div>
+      <div class="card-content">
+        <p>Conceived and demonstrated an innovative magnetic spectroscopy method using high-repetition-rate ultrashort pulse semiconductor lasers and repetitive synchronization phenomena of magneto-optical excitation processes, significantly simplifying conventional complex measurement systems.</p>
+
+        <ul class="key-points">
+          <li>Achieved significant simplification of measurement systems</li>
+          <li>Principle verification through simulation</li>
+          <li>Applications to spintronic device evaluation</li>
+          <li>Design oriented toward industrial practical implementation</li>
+        </ul>
+
+        <div class="applications">
+          <h4>Intellectual Property</h4>
+          <ul>
+            <li>7 patents obtained and filed</li>
+            <li>Joint research with NHK Science & Technology Research Laboratories</li>
+            <li>Application technology for optical modulation devices</li>
+            <li>Simplification of magnetic material property evaluation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="collaboration-section">
+    <h2>Collaborative Research & Industry-Academia Partnerships</h2>
+    <p>I actively promote collaborative research with companies and research institutions. If you have inquiries regarding material development, data analysis, or research digitalization (DX), please feel free to contact me.</p>
+    <a href="contact.html" class="cta-button">Collaborative Research Inquiries</a>
+  </section>
+</main>
+
+<footer>© 2025 Yusuke Hashimoto, Tohoku University</footer>
+</body>
+</html>
