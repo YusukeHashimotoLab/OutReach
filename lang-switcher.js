@@ -2,6 +2,11 @@
 (function() {
     'use strict';
     
+    // Try to use config if available, otherwise use defaults
+    const baseUrl = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.baseUrl) 
+        ? SITE_CONFIG.baseUrl 
+        : 'https://yusukehashimotolab.github.io/OutReach';
+    
     // Detect current language from URL
     function getCurrentLanguage() {
         const path = window.location.pathname;
