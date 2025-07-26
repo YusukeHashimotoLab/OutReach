@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Talks & Presentations | Yusuke Hashimoto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="橋本佑介の講演予定・招待講演・学会発表の一覧。マテリアルズインフォマティクス、スピントロニクス、研究DXに関する最新の講演情報">
+  <meta name="keywords" content="橋本佑介,講演,学会発表,招待講演,マテリアルズインフォマティクス,スピントロニクス,研究DX">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎤</text></svg>">
+  <!-- Language alternates for SEO -->
+  <link rel="alternate" hreflang="ja" href="https://yusukehashimotolab.github.io/OutReach/jp/talks.html">
+  <link rel="alternate" hreflang="en" href="https://yusukehashimotolab.github.io/OutReach/en/talks.html">
+  <link rel="alternate" hreflang="x-default" href="https://yusukehashimotolab.github.io/OutReach/jp/talks.html">
+  <link rel="stylesheet" href="../all-styles.css">
+  <script src="../lang-switcher.js" defer></script>
+  <style>
+    /* Talks page specific styles */
+    main {
+      margin: 3rem auto;
+    }
+
+    .talks-intro {
+      background: white;
+      padding: 4rem;
+      border: 1px solid #e9ecef;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .talks-intro h1 {
+      font-size: 2.4rem;
+      color: #1a252f;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+    }
+
+    .talks-intro p {
+      font-size: 1.1rem;
+      color: #5d6d7e;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .talks-section {
+      margin-bottom: 4rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      color: #1a252f;
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+
+    .section-header.upcoming h2 {
+      color: #2563eb;
+    }
+
+    .section-header.past h2 {
+      color: #6b7280;
+    }
+
+    .talks-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .talk-card {
+      background: white;
+      border: 1px solid #e9ecef;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .talk-card:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border-color: #34495e;
+    }
+
+    .talk-card.upcoming {
+      border-left: 4px solid #2563eb;
+    }
+
+    .talk-card.past {
+      border-left: 4px solid #6b7280;
+      opacity: 0.9;
+    }
+
+    .talk-header {
+      padding: 2rem 2rem 1rem 2rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .talk-date {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+
+    .talk-title {
+      font-size: 1.4rem;
+      color: #1a252f;
+      margin-bottom: 1rem;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .talk-event {
+      font-size: 1.1rem;
+      color: #2563eb;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .talk-venue {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .talk-content {
+      padding: 1.5rem 2rem 2rem 2rem;
+    }
+
+    .talk-description {
+      color: #5d6d7e;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .talk-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .talk-link {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #f8f9fa;
+      color: #34495e;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .talk-link:hover {
+      background: #34495e;
+      color: white;
+    }
+
+    .talk-type {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .talk-type.invited {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .talk-type.contributed {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .talk-type.keynote {
+      background: #fecaca;
+      color: #dc2626;
+    }
+
+    .no-talks {
+      text-align: center;
+      padding: 3rem;
+      color: #6b7280;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      .page-intro {
+        padding: 2rem;
+      }
+
+      .page-intro h1 {
+        font-size: 2rem;
+      }
+
+      .talk-header {
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
+      }
+
+      .talk-content {
+        padding: 1rem 1.5rem 1.5rem 1.5rem;
+      }
+
+      .talk-links {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+<header>
+  <div class="header-content">
+    <h1>Yusuke Hashimoto, PhD</h1>
+    <nav role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="research-dx.html">Research DX</a>
+      <a href="publications.html">Publications</a>
+      <a href="talks.html" aria-current="page">Talks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="talks-intro">
+    <h1>Talks & Presentations</h1>
+    <p>学会発表、招待講演、セミナーなどの講演予定と実績です。マテリアルズインフォマティクス、スピントロニクス、研究DXに関する最新の研究成果を発信しています。</p>
+  </section>
+
+  <!-- Upcoming Talks -->
+  <section class="talks-section">
+    <div class="section-header upcoming">
+      <h2>今後の講演予定</h2>
+    </div>
+    <div class="talks-timeline">
+      <!-- Laboratory Automation月例勉強会 -->
+      <div class="talk-card upcoming">
+        <div class="talk-type contributed">一般講演</div>
+        <div class="talk-header">
+          <div class="talk-date">2025年6月28日</div>
+          <div class="talk-title">1から作る化学自動実験</div>
+          <div class="talk-event">Laboratory Automation月例勉強会</div>
+          <div class="talk-venue">オンサイト開催</div>
+        </div>
+        <div class="talk-content">
+          <div class="talk-description">
+            実験自動化・研究DXに関する月例勉強会にて講演予定です。詳細は決定次第更新いたします。
+          </div>
+          <div class="talk-links">
+            <a href="https://laboratoryautomation.connpass.com/event/347664/" class="talk-link" target="_blank" rel="noopener noreferrer">イベント詳細</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第86回応用物理学会秋季学術講演会 -->
+      <div class="talk-card upcoming">
+        <div class="talk-type contributed">一般講演</div>
+        <div class="talk-header">
+          <div class="talk-date">2025年9月7日-10日</div>
+          <div class="talk-title">講演タイトル未定</div>
+          <div class="talk-event">第86回応用物理学会秋季学術講演会</div>
+          <div class="talk-venue">会場未定</div>
+        </div>
+        <div class="talk-content">
+          <div class="talk-description">
+            応用物理学会の秋季学術講演会にて講演予定です。詳細は決定次第更新いたします。
+          </div>
+          <div class="talk-links">
+            <a href="https://meeting.jsap.or.jp/" class="talk-link" target="_blank" rel="noopener noreferrer">応用物理学会</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 現在予定なしの場合のメッセージ -->
+      <!-- <div class="no-talks">
+        現在、確定している講演予定はありません。<br>
+        新しい講演予定が決まり次第、こちらに掲載いたします。
+      </div> -->
+    </div>
+  </section>
+
+  <!-- Past Talks -->
+  <section class="talks-section">
+    <div class="section-header past">
+      <h2>過去の講演実績</h2>
+    </div>
+    <div class="talks-timeline">
+      <div class="no-talks">
+        過去の講演実績は今後追加予定です。
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2025 Yusuke Hashimoto, Tohoku University</footer>
+</body>
+</html>

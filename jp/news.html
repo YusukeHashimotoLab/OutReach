@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ニュース | 橋本佑介</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="橋本佑介の最新の研究成果、論文発表、学会講演、受賞情報などのニュースをお届けします。">
+  <meta name="keywords" content="橋本佑介,ニュース,論文発表,学会講演,研究成果,受賞">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📰</text></svg>">
+  <!-- Language alternates for SEO -->
+  <link rel="alternate" hreflang="ja" href="https://yusukehashimotolab.github.io/OutReach/jp/news.html">
+  <link rel="alternate" hreflang="en" href="https://yusukehashimotolab.github.io/OutReach/en/news.html">
+  <link rel="alternate" hreflang="x-default" href="https://yusukehashimotolab.github.io/OutReach/jp/news.html">
+  <link rel="stylesheet" href="../all-styles.css">
+  <script src="../lang-switcher.js" defer></script>
+  <style>
+    /* News page specific styles */
+    main {
+      margin: 3rem auto;
+    }
+
+    .news-intro {
+      background: white;
+      padding: 4rem;
+      border: 1px solid #e9ecef;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .news-intro h1 {
+      font-size: 2.4rem;
+      color: #1a252f;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+    }
+
+    .news-intro p {
+      font-size: 1.1rem;
+      color: #5d6d7e;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .news-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .news-filters {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .filter-btn {
+      background: white;
+      border: 2px solid #e9ecef;
+      padding: 0.5rem 1.5rem;
+      margin: 0.25rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+      color: #5d6d7e;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #4a5f7a;
+      color: white;
+      border-color: #4a5f7a;
+    }
+
+    .news-grid {
+      display: grid;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .news-item {
+      background: white;
+      border: 1px solid #e9ecef;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .news-item:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
+    }
+
+    .news-date {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      min-width: 100px;
+    }
+
+    .news-date .month {
+      font-size: 0.85rem;
+      color: #5d6d7e;
+      text-transform: uppercase;
+    }
+
+    .news-date .day {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2c3e50;
+      line-height: 1;
+      margin: 0.25rem 0;
+    }
+
+    .news-date .year {
+      font-size: 0.9rem;
+      color: #5d6d7e;
+    }
+
+    .news-content {
+      flex: 1;
+    }
+
+    .news-tag {
+      display: inline-block;
+      background: #e9ecef;
+      color: #5d6d7e;
+      padding: 0.25rem 0.75rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .news-tag.publication {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .news-tag.conference {
+      background: #cfe2ff;
+      color: #084298;
+    }
+
+    .news-tag.award {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .news-tag.media {
+      background: #f8d7da;
+      color: #721c24;
+    }
+
+    .news-title {
+      font-size: 1.4rem;
+      color: #1a252f;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    .news-description {
+      color: #5d6d7e;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .news-meta {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.9rem;
+      color: #5d6d7e;
+    }
+
+    .news-link {
+      color: #4a5f7a;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: color 0.2s ease;
+    }
+
+    .news-link:hover {
+      color: #1a252f;
+    }
+
+    .news-link::after {
+      content: "→";
+    }
+
+    .load-more {
+      text-align: center;
+      margin: 4rem 0;
+    }
+
+    .load-more-btn {
+      background: #4a5f7a;
+      color: white;
+      border: none;
+      padding: 1rem 3rem;
+      font-size: 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .load-more-btn:hover {
+      background: #34495e;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 768px) {
+      .page-intro {
+        padding: 2rem;
+      }
+
+      .page-intro h1 {
+        font-size: 2rem;
+      }
+
+      .news-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .news-date {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.75rem;
+      }
+
+      .news-date .day {
+        font-size: 1.5rem;
+      }
+
+      .news-filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+<header>
+  <div class="header-content">
+    <h1>Yusuke Hashimoto, PhD</h1>
+    <nav role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="research-dx.html">Research DX</a>
+      <a href="publications.html">Publications</a>
+      <a href="talks.html">Talks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="news-intro">
+    <h1>最新ニュース</h1>
+    <p>研究成果、論文発表、学会講演などの最新情報</p>
+  </section>
+
+  <div class="news-container">
+    <div class="news-filters">
+      <button class="filter-btn active" data-filter="all">すべて</button>
+      <button class="filter-btn" data-filter="publication">論文発表</button>
+      <button class="filter-btn" data-filter="conference">学会講演</button>
+      <button class="filter-btn" data-filter="award">受賞</button>
+      <button class="filter-btn" data-filter="media">メディア</button>
+    </div>
+
+    <div class="news-grid">
+      <!-- 2025年9月 応用物理学会 -->
+      <article class="news-item" data-category="conference">
+        <div class="news-date">
+          <div class="month">9月</div>
+          <div class="day">7-10</div>
+          <div class="year">2025</div>
+        </div>
+        <div class="news-content">
+          <span class="news-tag conference">学会講演</span>
+          <h2 class="news-title">第86回応用物理学会秋季学術講演会で講演予定</h2>
+          <p class="news-description">
+            2025年9月7日〜10日に開催される第86回応用物理学会秋季学術講演会にて、
+            マテリアルズ・インフォマティクスに関する最新の研究成果を発表予定です。
+          </p>
+          <div class="news-meta">
+            <span>開催地: 未定</span>
+            <a href="https://www.jsap.or.jp" class="news-link" target="_blank">学会サイト</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2025年6月 Laboratory Automation -->
+      <article class="news-item" data-category="conference">
+        <div class="news-date">
+          <div class="month">6月</div>
+          <div class="day">--</div>
+          <div class="year">2025</div>
+        </div>
+        <div class="news-content">
+          <span class="news-tag conference">学会講演</span>
+          <h2 class="news-title">Laboratory Automation月例勉強会で一般講演</h2>
+          <p class="news-description">
+            Laboratory Automation月例勉強会にて「1から作る化学自動実験」について一般講演を行います。
+            実験自動化の実践的なアプローチについて解説予定です。
+          </p>
+          <div class="news-meta">
+            <span>オンライン開催</span>
+            <a href="https://laboratoryautomation.connpass.com/event/347664/" class="news-link" target="_blank">イベント詳細</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2025年10月 IMPRES2025 -->
+      <article class="news-item" data-category="conference">
+        <div class="news-date">
+          <div class="month">10月</div>
+          <div class="day">27-30</div>
+          <div class="year">2025</div>
+        </div>
+        <div class="news-content">
+          <span class="news-tag conference">学会講演</span>
+          <h2 class="news-title">IMPRES2025で口頭発表予定</h2>
+          <p class="news-description">
+            International Meeting on Prediction of Structure and Properties（IMPRES2025）にて、
+            マテリアルズ・インフォマティクスに関する研究成果を発表予定です。
+          </p>
+          <div class="news-meta">
+            <span>東京開催</span>
+            <a href="https://www.senkyo.co.jp/impres2025/" class="news-link" target="_blank">会議情報</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 最新論文の例 -->
+      <article class="news-item" data-category="publication">
+        <div class="news-date">
+          <div class="month">1月</div>
+          <div class="day">15</div>
+          <div class="year">2025</div>
+        </div>
+        <div class="news-content">
+          <span class="news-tag publication">論文発表</span>
+          <h2 class="news-title">機械学習を用いた新規スピントロニクス材料の予測に関する論文が掲載</h2>
+          <p class="news-description">
+            Nature Materials誌に、機械学習を活用した新規スピントロニクス材料の予測手法に関する
+            論文が掲載されました。この手法により、従来の10倍の速度で有望な材料候補を特定できることを実証しました。
+          </p>
+          <div class="news-meta">
+            <span>Nature Materials</span>
+            <a href="#" class="news-link">論文を読む</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 研究DXの成果 -->
+      <article class="news-item" data-category="media">
+        <div class="news-date">
+          <div class="month">12月</div>
+          <div class="day">20</div>
+          <div class="year">2024</div>
+        </div>
+        <div class="news-content">
+          <span class="news-tag media">メディア</span>
+          <h2 class="news-title">研究DXの取り組みが日経新聞で紹介</h2>
+          <p class="news-description">
+            東北大学で展開している研究DXプロジェクトが日経新聞で紹介されました。
+            IoT環境センシングシステムやAIを活用した研究支援ツールの開発について取り上げられています。
+          </p>
+          <div class="news-meta">
+            <span>日本経済新聞</span>
+            <a href="#" class="news-link">記事を見る</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 受賞の例 -->
+      <article class="news-item" data-category="award">
+        <div class="news-date">
+          <div class="month">11月</div>
+          <div class="day">10</div>
+          <div class="year">2024</div>
+        </div>
+        <div class="news-content">
+          <span class="news-tag award">受賞</span>
+          <h2 class="news-title">令和6年度科学技術分野の文部科学大臣表彰を受賞</h2>
+          <p class="news-description">
+            マテリアルズ・インフォマティクスの先駆的研究および研究DXの推進に対する貢献が評価され、
+            文部科学大臣表彰（若手科学者賞）を受賞しました。
+          </p>
+          <div class="news-meta">
+            <span>文部科学省</span>
+            <a href="#" class="news-link">受賞詳細</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="load-more">
+      <button class="load-more-btn">もっと見る</button>
+    </div>
+  </div>
+</main>
+
+<footer>© 2025 Yusuke Hashimoto, Tohoku University</footer>
+
+<script>
+// フィルター機能
+document.addEventListener('DOMContentLoaded', function() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const newsItems = document.querySelectorAll('.news-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const filter = this.getAttribute('data-filter');
+      
+      // アクティブクラスの切り替え
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      
+      // ニュースのフィルタリング
+      newsItems.forEach(item => {
+        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+          item.style.display = 'grid';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // もっと見るボタン（実際の実装では動的に読み込む）
+  const loadMoreBtn = document.querySelector('.load-more-btn');
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', function() {
+      alert('追加のニュースを読み込みます（実装予定）');
+    });
+  }
+});
+</script>
+</body>
+</html>

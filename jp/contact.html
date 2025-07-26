@@ -6,67 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
   <!-- Language alternates for SEO -->
-  <link rel="alternate" hreflang="ja" href="https://yusukehashimotolab.github.io/OutReach/contact.html">
+  <link rel="alternate" hreflang="ja" href="https://yusukehashimotolab.github.io/OutReach/jp/contact.html">
   <link rel="alternate" hreflang="en" href="https://yusukehashimotolab.github.io/OutReach/en/contact.html">
-  <link rel="alternate" hreflang="x-default" href="https://yusukehashimotolab.github.io/OutReach/contact.html">
-  <link rel="stylesheet" href="styles.css">
-  <script src="lang-switcher.js" defer></script>
+  <link rel="alternate" hreflang="x-default" href="https://yusukehashimotolab.github.io/OutReach/jp/contact.html">
+  <link rel="stylesheet" href="../all-styles.css">
+  <script src="../lang-switcher.js" defer></script>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Georgia', 'Times New Roman', serif;
-      line-height: 1.7;
-      color: #2c3e50;
-      background: #f8f9fa;
-      min-height: 100vh;
-    }
-
-    header {
-      background: #1a252f;
-      color: #fff;
-      padding: 2rem 0;
-      border-bottom: 3px solid #34495e;
-    }
-
-    .header-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      font-weight: 400;
-      letter-spacing: 0.5px;
-    }
-
-    nav {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: #ecf0f1;
-      text-decoration: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 4px;
-      transition: all 0.3s ease;
-      font-weight: 500;
-      letter-spacing: 0.3px;
-    }
-
-    nav a:hover, nav a[aria-current="page"] {
-      background: #4a5f7a;
-      color: #fff;
-    }
-
+    /* Contact page specific styles */
     main {
-      max-width: 1200px;
       margin: 3rem auto;
-      padding: 0 2rem;
     }
 
     .contact-intro {
@@ -232,34 +180,21 @@
       text-decoration: underline;
     }
 
-    footer {
-      background: #1a252f;
-      color: #ecf0f1;
-      text-align: center;
-      padding: 3rem 2rem;
-      margin-top: 5rem;
-      border-top: 3px solid #34495e;
-    }
-
     @media (max-width: 768px) {
       .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .contact-intro {
+      .page-intro {
         padding: 2rem;
       }
 
-      .contact-intro h1 {
+      .page-intro h1 {
         font-size: 2rem;
       }
 
       .form-content, .info-content {
         padding: 1.5rem;
-      }
-
-      nav {
-        justify-content: center;
       }
     }
   </style>
@@ -269,10 +204,12 @@
 <header>
   <div class="header-content">
     <h1>Yusuke Hashimoto, PhD</h1>
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="research.html">Research</a>
+      <a href="research-dx.html">Research DX</a>
       <a href="publications.html">Publications</a>
+      <a href="talks.html">Talks</a>
       <a href="contact.html" aria-current="page">Contact</a>
     </nav>
   </div>

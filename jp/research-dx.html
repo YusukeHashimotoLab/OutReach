@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Research DX | Yusuke Hashimoto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="橋本佑介の研究DX（デジタルトランスフォーメーション）への取り組み。IoT実験環境ログ、デジタル実験ノート、研究室運営効率化など、研究プロセスの革新的なデジタル化を推進">
+  <meta name="keywords" content="研究DX,デジタルトランスフォーメーション,IoT,実験自動化,デジタル実験ノート,研究効率化,橋本佑介">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <!-- Language alternates for SEO -->
+  <link rel="alternate" hreflang="ja" href="https://yusukehashimotolab.github.io/OutReach/jp/research-dx.html">
+  <link rel="alternate" hreflang="en" href="https://yusukehashimotolab.github.io/OutReach/en/research-dx.html">
+  <link rel="alternate" hreflang="x-default" href="https://yusukehashimotolab.github.io/OutReach/jp/research-dx.html">
+  <link rel="stylesheet" href="../all-styles.css">
+  <script src="../lang-switcher.js" defer></script>
+  <style>
+    /* Research DX specific styles */
+    main {
+      margin: 3rem auto;
+    }
+
+    .dx-intro {
+      background: white;
+      padding: 4rem;
+      border: 1px solid #e9ecef;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .dx-intro h1 {
+      font-size: 2.4rem;
+      color: #1a252f;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+    }
+
+    .dx-intro .subtitle {
+      font-size: 1.3rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+
+    .dx-intro p {
+      font-size: 1.1rem;
+      color: #5d6d7e;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .pillars-section {
+      padding: 4rem 2rem;
+      background: #f8f9fa;
+    }
+
+    .pillars-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #1a252f;
+      margin-bottom: 3rem;
+      font-weight: 400;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .pillar-card {
+      background: white;
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: all 0.3s ease;
+      border-top: 4px solid;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .pillar-card.automation {
+      border-top-color: #4a5f7a;
+    }
+
+    .pillar-card.data-driven {
+      border-top-color: #5d6d7e;
+    }
+
+    .pillar-card.collaboration {
+      border-top-color: #34495e;
+    }
+
+    .pillar-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .pillar-title {
+      font-size: 1.5rem;
+      color: #1a252f;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .pillar-description {
+      color: #5d6d7e;
+      line-height: 1.7;
+    }
+
+    .projects-section {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    .projects-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .project-card {
+      background: #f8f9fa;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transform: translateY(-3px);
+    }
+
+    .project-header {
+      padding: 2rem;
+      background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+      color: white;
+    }
+
+    .project-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-subtitle {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .project-content {
+      padding: 2rem;
+    }
+
+    .project-description {
+      color: #5d6d7e;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-features {
+      list-style: none;
+    }
+
+    .project-features li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: #444;
+    }
+
+    .project-features li:before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #4a5f7a;
+      font-weight: bold;
+    }
+
+    .impact-section {
+      padding: 4rem 2rem;
+      background: #f8f9fa;
+    }
+
+    .impact-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .impact-item {
+      text-align: center;
+    }
+
+    .impact-number {
+      font-size: 3rem;
+      color: #2c3e50;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .impact-label {
+      font-size: 1.1rem;
+      color: #5d6d7e;
+    }
+
+    .tech-section {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    .tech-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .tech-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .tech-category {
+      text-align: center;
+    }
+
+    .tech-category h3 {
+      font-size: 1.3rem;
+      color: #1a252f;
+      margin-bottom: 1rem;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .tech-tag {
+      background: #e9ecef;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .cta-section {
+      padding: 4rem 2rem;
+      background: #1a252f;
+      color: white;
+      text-align: center;
+    }
+
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-description {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: white;
+      color: #1a252f;
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 768px) {
+      .dx-intro h1 {
+        font-size: 2rem;
+      }
+
+      .dx-intro .subtitle {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .pillars-grid,
+      .projects-grid,
+      .tech-categories {
+        grid-template-columns: 1fr;
+      }
+
+      .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+<header>
+  <div class="header-content">
+    <h1>Yusuke Hashimoto, PhD</h1>
+    <nav role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="research-dx.html" aria-current="page">Research DX</a>
+      <a href="publications.html">Publications</a>
+      <a href="talks.html">Talks</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <!-- Introduction Section -->
+  <section class="dx-intro">
+    <h1>Research DX</h1>
+    <div class="subtitle">研究の未来を創る、デジタル変革</div>
+    <p>
+      研究プロセスのデジタル化・自動化により、研究効率を飛躍的に向上させ、
+      新たな科学的発見を加速します。
+    </p>
+  </section>
+
+  <!-- Three Pillars Section -->
+  <section class="pillars-section">
+    <div class="pillars-container">
+      <h2 class="section-title">研究DXの3つの柱</h2>
+      <div class="pillars-grid">
+        <div class="pillar-card automation">
+          <div class="pillar-icon">🤖</div>
+          <h3 class="pillar-title">自動化</h3>
+          <p class="pillar-description">
+            実験プロセスの自動化により、人的エラーを削減し、
+            研究者がより創造的な活動に集中できる環境を実現
+          </p>
+        </div>
+        
+        <div class="pillar-card data-driven">
+          <div class="pillar-icon">📊</div>
+          <h3 class="pillar-title">データ駆動</h3>
+          <p class="pillar-description">
+            IoTセンサーによるリアルタイムデータ収集と、
+            機械学習を活用した高度な分析で新たな知見を発見
+          </p>
+        </div>
+        
+        <div class="pillar-card collaboration">
+          <div class="pillar-icon">🔗</div>
+          <h3 class="pillar-title">連携・共有</h3>
+          <p class="pillar-description">
+            デジタルプラットフォームによる研究者間の
+            シームレスな知識共有と効率的なコラボレーション
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects-section">
+    <div class="projects-container">
+      <h2 class="section-title">実施プロジェクト</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">IoT実験環境ログシステム</h3>
+            <div class="project-subtitle">環境データの自動収集・可視化</div>
+          </div>
+          <div class="project-content">
+            <p class="project-description">
+              実験環境の温度・湿度・気圧・CO2濃度を24時間365日自動モニタリング。
+              異常検知機能により研究の再現性と安全性を大幅に向上。
+            </p>
+            <ul class="project-features">
+              <li>1台1万円の低コスト実現</li>
+              <li>東北大学内8箇所で稼働中</li>
+              <li>クラウドベースのデータ管理</li>
+              <li><a href="https://www.tfc.tohoku.ac.jp/jp/rdx/labdx/iot.html" target="_blank">詳細情報（東北大学内限定）</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">デジタル実験ノート</h3>
+            <div class="project-subtitle">研究記録のデジタル化・検索可能化</div>
+          </div>
+          <div class="project-content">
+            <p class="project-description">
+              手書きノートからの脱却により、研究データの検索性・共有性が飛躍的に向上。
+              タイムスタンプ機能で研究の証跡管理も万全。
+            </p>
+            <ul class="project-features">
+              <li>音声・画像・動画の統合管理</li>
+              <li>全文検索機能</li>
+              <li>バージョン管理システム</li>
+              <li>共同研究者との即時共有</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">研究室運営DX化サポート</h3>
+            <div class="project-subtitle">新研究室の効率的な立ち上げ支援</div>
+          </div>
+          <div class="project-content">
+            <p class="project-description">
+              新PI向けに研究室運営のデジタル化を包括的にサポート。
+              最新のツールと効率的なワークフローで研究生産性を最大化。
+            </p>
+            <ul class="project-features">
+              <li>デジタルツールの選定・導入</li>
+              <li>ワークフロー最適化</li>
+              <li>データ管理体制の構築</li>
+              <li>メンバー向けトレーニング</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">自然言語処理研究マッチング</h3>
+            <div class="project-subtitle">AI活用による共同研究促進</div>
+          </div>
+          <div class="project-content">
+            <p class="project-description">
+              研究内容をAIが分析し、最適な共同研究者や研究費情報を自動提案。
+              学際的な研究連携を効率的に推進。
+            </p>
+            <ul class="project-features">
+              <li>研究内容の自動分類</li>
+              <li>類似研究者の推薦</li>
+              <li>研究費公募の最適化</li>
+              <li>東北大学本部との連携</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">研究論文ニュースレター</h3>
+            <div class="project-subtitle">最新論文の自動収集・翻訳・配信</div>
+          </div>
+          <div class="project-content">
+            <p class="project-description">
+              指定キーワードに関連する論文をCrossref、arXiv、bioRxiv、ChemRxivから自動収集。
+              AIによる概要生成と翻訳で、最新研究動向を効率的に把握。
+            </p>
+            <ul class="project-features">
+              <li>4つの主要データベースから論文収集</li>
+              <li>AIによる論文要約・翻訳</li>
+              <li>リアルタイム配信システム</li>
+              <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfxPHUTD6KPCwhpBzGGO3cwC1E-VSDmLv4aRs4bolQUsd3TGQ/viewform?usp=dialog" target="_blank">登録フォーム（東北大学内限定）</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">研究助成金推薦システム</h3>
+            <div class="project-subtitle">LLMによる公募情報の自動フィルタリング</div>
+          </div>
+          <div class="project-content">
+            <p class="project-description">
+              研究者の専門分野や興味に合わせて研究公募情報を自動的にフィルタリング。
+              毎週火曜・金曜に大規模言語モデルが関連性の高い公募を選別・通知。
+            </p>
+            <ul class="project-features">
+              <li>生成AIによる高精度マッチング</li>
+              <li>締切日に基づく優先表示</li>
+              <li>週2回の定期配信</li>
+              <li><a href="https://www.tfc.tohoku.ac.jp/jp/rdx/labdx/grantmail.html" target="_blank">詳細情報（東北大学内限定）</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">研究データ・アーカイブシステム</h3>
+            <div class="project-subtitle">全自動データ保全・タイムスタンプ付与</div>
+          </div>
+          <div class="project-content">
+            <p class="project-description">
+              研究データのハッシュ値（SHA-256）を自動計算し、簡易タイムスタンプを付与。
+              データの改ざん防止と研究公正性の確保を全自動で実現。
+            </p>
+            <ul class="project-features">
+              <li>SHA-256によるデータ完全性保証</li>
+              <li>自動ZIP圧縮・RAID保存</li>
+              <li>メールによるタイムスタンプ機能</li>
+              <li>研究不正防止対策の自動化</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Section -->
+  <section class="impact-section">
+    <div class="impact-container">
+      <h2 class="section-title">導入効果</h2>
+      <div class="impact-grid">
+        <div class="impact-item">
+          <div class="impact-number">40%</div>
+          <div class="impact-label">実験準備時間削減</div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-number">3x</div>
+          <div class="impact-label">データ処理速度向上</div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-number">95%</div>
+          <div class="impact-label">エラー削減率</div>
+        </div>
+        <div class="impact-item">
+          <div class="impact-number">12+</div>
+          <div class="impact-label">実施プロジェクト数</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack Section -->
+  <section class="tech-section">
+    <div class="tech-container">
+      <h2 class="section-title">技術スタック</h2>
+      <div class="tech-categories">
+        <div class="tech-category">
+          <h3>IoT・センサー</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">Raspberry Pi</span>
+            <span class="tech-tag">Arduino</span>
+            <span class="tech-tag">BME280</span>
+            <span class="tech-tag">MH-Z19</span>
+          </div>
+        </div>
+        <div class="tech-category">
+          <h3>データ分析</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">TensorFlow</span>
+            <span class="tech-tag">pandas</span>
+            <span class="tech-tag">scikit-learn</span>
+          </div>
+        </div>
+        <div class="tech-category">
+          <h3>クラウド・DB</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">AWS</span>
+            <span class="tech-tag">Firebase</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">InfluxDB</span>
+          </div>
+        </div>
+        <div class="tech-category">
+          <h3>自動化ツール</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">GitHub Actions</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Jupyter</span>
+            <span class="tech-tag">Airflow</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2 class="cta-title">研究DXを始めませんか？</h2>
+      <p class="cta-description">
+        研究プロセスのデジタル化に関するご相談、
+        システム導入のご検討など、お気軽にお問い合わせください。
+      </p>
+      <a href="contact.html" class="cta-button">お問い合わせ</a>
+    </div>
+  </section>
+</main>
+
+<footer>© 2025 Yusuke Hashimoto, Tohoku University</footer>
+</body>
+</html>

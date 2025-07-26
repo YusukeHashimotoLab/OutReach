@@ -1,3 +1,9 @@
+/* Note: For better compatibility, include these files directly in HTML:
+   <link rel="stylesheet" href="../variables.css">
+   <link rel="stylesheet" href="../components.css">
+   <link rel="stylesheet" href="../styles.css">
+*/
+
 /* Common Base Styles */
 *, *::before, *::after { 
   margin: 0; 
@@ -62,29 +68,12 @@ body {
 
 /* Header Styles */
 header {
-  background: linear-gradient(135deg, #1a252f 0%, #2c3e50 50%, #34495e 100%);
+  background: #1a252f;
   color: #fff;
   padding: 2rem 0;
   border-bottom: 3px solid #34495e;
   position: relative;
   overflow: visible;
-}
-
-header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-  animation: headerShine 3s ease-in-out infinite;
-}
-
-@keyframes headerShine {
-  0% { left: -100%; }
-  50% { left: 100%; }
-  100% { left: 100%; }
 }
 
 .header-content {
@@ -103,8 +92,9 @@ header h1 {
 
 nav {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 nav[role="navigation"] {
@@ -114,16 +104,16 @@ nav[role="navigation"] {
 nav a {
   color: #ecf0f1;
   text-decoration: none;
-  padding: 0.8rem 1.5rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 4px;
   transition: all 0.3s ease;
   font-weight: 500;
   letter-spacing: 0.3px;
   min-height: 44px;
-  min-width: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
 }
 
 nav a:hover, nav a[aria-current="page"] {
@@ -141,6 +131,52 @@ main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+/* Common Page Introduction Styles */
+.page-intro {
+  background: white;
+  padding: 4rem;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.page-intro h1 {
+  font-size: 2.4rem;
+  color: #1a252f;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+
+.page-intro p {
+  font-size: 1.1rem;
+  color: #5d6d7e;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.page-intro .subtitle {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .page-intro {
+    padding: 2rem;
+  }
+  
+  .page-intro h1 {
+    font-size: 2rem;
+  }
+  
+  .page-intro .subtitle {
+    font-size: 1.1rem;
+  }
 }
 
 /* Button Styles */
@@ -311,13 +347,21 @@ input[required]:focus, textarea[required]:focus {
 
 /* Mobile Navigation Improvements */
 @media (max-width: 768px) {
+  header {
+    padding: 1.5rem 0;
+  }
+  
+  header h1 {
+    font-size: 1.8rem;
+  }
+  
   nav {
     justify-content: center;
-    gap: 1rem;
+    gap: 0.5rem;
   }
 
   nav a {
-    padding: 0.6rem 1rem;
+    padding: 0.5rem 0.8rem;
     font-size: 0.9rem;
   }
   
@@ -330,16 +374,38 @@ input[required]:focus, textarea[required]:focus {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   nav {
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: center;
+    gap: 0.3rem;
+  }
+  
+  nav a {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 1.2rem 0;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    justify-content: center;
   }
 
   nav a {
-    width: 100%;
+    flex: 1 0 auto;
+    min-width: 75px;
     text-align: center;
-    padding: 0.8rem;
+    padding: 0.5rem 0.6rem;
+    font-size: 0.85rem;
   }
 }

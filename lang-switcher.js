@@ -22,8 +22,18 @@
             return currentPath;
         }
         
+        // Check if this is a nanomaterial page
+        if (currentPath.includes('/nanomaterial/')) {
+            const nanomaterialMatch = currentPath.match(/^(.*\/nanomaterial\/)(?:jp\/|en\/)(.*)$/);
+            if (nanomaterialMatch) {
+                const basePath = nanomaterialMatch[1];
+                const fileName = nanomaterialMatch[2];
+                return `${basePath}${targetLang}/${fileName}`;
+            }
+        }
+        
         // Extract the base path (handles both local and GitHub Pages)
-        const pathMatch = currentPath.match(/^(.*\/OutReach\/)(?:en\/)?(.*)$/);
+        const pathMatch = currentPath.match(/^(.*\/OutReach\/)(?:jp\/|en\/)?(.*)$/);
         if (!pathMatch) {
             console.error('Unable to parse path:', currentPath);
             return currentPath;
@@ -37,7 +47,7 @@
             return `${basePath}en/${fileName}`;
         } else {
             // Convert English URL to Japanese
-            return `${basePath}${fileName}`;
+            return `${basePath}jp/${fileName}`;
         }
     }
     
