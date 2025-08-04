@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ニュース | 寄付研究部門：ナノ材料プロセスデータ科学</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="東北大学寄付研究部門「ナノ材料プロセスデータ科学」の最新ニュース。研究成果、シンポジウム、実験自動化の取り組みなど。">
+  <meta name="keywords" content="ニュース,寄付研究部門,ナノ材料,実験自動化,ロボットアーム,東北大学">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📰</text></svg>">
+  <!-- Language alternates for SEO -->
+  <link rel="alternate" hreflang="ja" href="https://yusukehashimotolab.github.io/OutReach/nanomaterial/jp/nanomaterial-news.html">
+  <link rel="alternate" hreflang="en" href="https://yusukehashimotolab.github.io/OutReach/nanomaterial/en/nanomaterial-news.html">
+  <link rel="alternate" hreflang="x-default" href="https://yusukehashimotolab.github.io/OutReach/nanomaterial/jp/nanomaterial-news.html">
+  <link rel="stylesheet" href="../../all-styles.css">
+  <style>
+    /* Navigation styles */
+    .endowed-nav {
+      background: #2c3e50;
+      padding: 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .endowed-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .endowed-nav li {
+      margin: 0;
+    }
+
+    .endowed-nav a {
+      display: block;
+      padding: 1rem 1.5rem;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .endowed-nav a:hover {
+      background: #34495e;
+    }
+
+    .endowed-nav .active {
+      background: #1a252f;
+    }
+
+    /* Page specific styles */
+    .endowed-header {
+      background: #1a252f;
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .endowed-header h1 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    .main-content {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .news-intro {
+      background: #f8f9fa;
+      padding: 3rem 2rem;
+      margin-bottom: 3rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .news-intro h2 {
+      font-size: 2rem;
+      color: #1a252f;
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+
+    .news-intro p {
+      font-size: 1.1rem;
+      color: #5d6d7e;
+      line-height: 1.8;
+    }
+
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .news-item {
+      background: white;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .news-item:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
+    }
+
+    .news-header {
+      background: #4a5f7a;
+      color: white;
+      padding: 1.5rem 2rem;
+    }
+
+    .news-date {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+    }
+
+    .news-title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .news-content {
+      padding: 2rem;
+    }
+
+    .news-content p {
+      color: #2c3e50;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .news-content a {
+      color: #4a5f7a;
+      text-decoration: none;
+      border-bottom: 1px solid #4a5f7a;
+      transition: all 0.3s ease;
+    }
+
+    .news-content a:hover {
+      color: #2c3e50;
+      border-bottom-color: #2c3e50;
+    }
+
+    .news-image {
+      max-width: 100%;
+      height: auto;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .news-video {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      margin: 1.5rem auto;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    footer {
+      background: #1a252f;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .endowed-nav ul {
+        flex-direction: column;
+      }
+
+      .news-header {
+        padding: 1rem 1.5rem;
+      }
+
+      .news-title {
+        font-size: 1.2rem;
+      }
+
+      .news-content {
+        padding: 1.5rem;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="endowed-header">
+    <h1>寄付研究部門：ナノ材料プロセスデータ科学</h1>
+  </header>
+
+  <nav class="endowed-nav">
+    <ul>
+      <li><a href="nanomaterial-data-science.html">トップ</a></li>
+      <li><a href="nanomaterial-news.html" class="active">ニュース</a></li>
+      <li><a href="nanomaterial-purpose.html">研究目的</a></li>
+      <li><a href="nanomaterial-members.html">メンバー</a></li>
+      <li><a href="nanomaterial-location.html">所在地・連絡先</a></li>
+      <li><a href="nanomaterial-access.html">アクセス</a></li>
+      <li class="nav-lang-switch"><a href="../en/nanomaterial-news.html">EN</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-content">
+    <section class="news-intro">
+      <h2>最新ニュース</h2>
+      <p>寄付研究部門「ナノ材料プロセスデータ科学」の最新情報、研究成果、イベント開催報告をお届けします。</p>
+    </section>
+
+    <div class="news-list">
+      <!-- Robot Innovation Week 2024 -->
+      <article class="news-item">
+        <div class="news-header">
+          <div class="news-date">2024年12月11日</div>
+          <h3 class="news-title">Robot Innovation Week 2024にて橋本特任准教授が講演</h3>
+        </div>
+        <div class="news-content">
+          <p>TechShare社の招待により、ロボットアームを使った実験自動化に関する講演を行いました。</p>
+          <p>講演では、研究室で開発している実験自動化システムの実例や、低コストで実現可能な自動化手法について紹介しました。</p>
+          <p><a href="https://techshare.co.jp/riw2024-top/dobot-user-conference2024/" target="_blank" rel="noopener noreferrer">イベント詳細はこちら</a></p>
+        </div>
+      </article>
+
+      <!-- 自動実験装置の開発 -->
+      <article class="news-item">
+        <div class="news-header">
+          <div class="news-date">2024年11月1日</div>
+          <h3 class="news-title">自動実験装置の開発</h3>
+        </div>
+        <div class="news-content">
+          <p>本研究室では、約20万円で購入可能な安価なロボットアームと電動ピペットを組み合わせた自動実験装置を開発しています。</p>
+          
+          <p>初号機では、ベルトコンベアと連動したハイスループットかつ容易な混合システムを構築しました。</p>
+          <img src="../images/image.png" alt="自動実験装置初号機" class="news-image">
+          
+          <p>現在、電子天秤とマグネットスターラーを組み合わせた2号機を開発中です。</p>
+          <video controls class="news-video">
+            <source src="../images/20241027_16%E5%80%8D%E9%80%9F.mp4" type="video/mp4">
+            お使いのブラウザは動画タグをサポートしていません。
+          </video>
+          
+          <p>動作確認として、赤と青の比率を系統的に変化させた色水の全自動混合に成功しました。</p>
+          <img src="../images/image%201.png" alt="色水混合実験結果" class="news-image">
+          
+          <p>今後、本装置をさまざまな化学実験に活用していく予定です。どうぞご期待ください！</p>
+        </div>
+      </article>
+
+      <!-- 設立記念シンポジウム -->
+      <article class="news-item">
+        <div class="news-header">
+          <div class="news-date">2024年8月4日</div>
+          <h3 class="news-title">学際科学フロンティア研究所内寄附研究部門設立記念シンポジウムを開催</h3>
+        </div>
+        <div class="news-content">
+          <p>学際科学フロンティア研究所内寄附研究部門設立記念シンポジウムを開催しました。</p>
+          <p>シンポジウムでは、本研究部門の設立趣旨や今後の研究方針について発表を行い、多くの参加者と活発な議論を交わしました。</p>
+          <p>材料プロセスデータ科学という新しい学際的分野の創成に向けて、産学連携の重要性についても確認されました。</p>
+        </div>
+      </article>
+
+      <!-- ロボットアームによる東北大学ロゴ描画 -->
+      <article class="news-item">
+        <div class="news-header">
+          <div class="news-date">2024年6月22日</div>
+          <h3 class="news-title">ロボットアームによる東北大学ロゴの自動描画</h3>
+        </div>
+        <div class="news-content">
+          <p>笘居研究室では、ロボットアームなどを使った実験自動化を進めています。</p>
+          <p>4年生の学生さんが、ロボットアームの練習として東北大学のロゴを描いてくれました。精密な制御技術の向上により、複雑な図形も正確に描画できるようになっています。</p>
+          <p><a href="https://youtu.be/bAKQEyDEoZ4" target="_blank" rel="noopener noreferrer">動画はこちらでご覧いただけます</a></p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>© 2025 東北大学 寄付研究部門：ナノ材料プロセスデータ科学</footer>
+  
+  <script src="../../navigation.js" defer></script>
+</body>
+</html>

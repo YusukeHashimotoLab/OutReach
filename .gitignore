@@ -39,3 +39,4 @@ config.json
 secrets.json
 .env
 .env.local
+/nanomaterial/movies

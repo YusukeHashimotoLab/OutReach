@@ -12,7 +12,6 @@
   <link rel="alternate" hreflang="en" href="https://yusukehashimotolab.github.io/OutReach/nanomaterial/en/nanomaterial-data-science.html">
   <link rel="alternate" hreflang="x-default" href="https://yusukehashimotolab.github.io/OutReach/nanomaterial/jp/nanomaterial-data-science.html">
   <link rel="stylesheet" href="../../all-styles.css">
-  <script src="../../lang-switcher.js" defer></script>
   <style>
     /* Navigation styles */
     .endowed-nav {
@@ -48,6 +47,24 @@
 
     .endowed-nav .active {
       background: #1a252f;
+    }
+
+    .nav-lang-switch {
+      margin-left: auto;
+    }
+
+    .nav-lang-switch a {
+      background: transparent;
+      border: 2px solid white;
+      border-radius: 20px;
+      padding: 0.5rem 1rem !important;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .nav-lang-switch a:hover {
+      background: white;
+      color: #2c3e50;
     }
 
     /* Page specific styles */
@@ -269,19 +286,21 @@
 <body>
   <a href="#main-content" class="skip-to-content">Skip to content</a>
   
+  <header class="endowed-header">
+    <h1>寄付研究部門：ナノ材料プロセスデータ科学</h1>
+  </header>
+
   <nav class="endowed-nav">
     <ul>
       <li><a href="nanomaterial-data-science.html" class="active">トップ</a></li>
+      <li><a href="nanomaterial-news.html">ニュース</a></li>
       <li><a href="nanomaterial-purpose.html">研究目的</a></li>
       <li><a href="nanomaterial-members.html">メンバー</a></li>
       <li><a href="nanomaterial-location.html">所在地・連絡先</a></li>
       <li><a href="nanomaterial-access.html">アクセス</a></li>
+      <li class="nav-lang-switch"><a href="../en/nanomaterial-data-science.html">EN</a></li>
     </ul>
   </nav>
-
-  <header class="endowed-header">
-    <h1>寄付研究部門：ナノ材料プロセスデータ科学</h1>
-  </header>
 
   <main id="main-content" class="main-content">
     <!-- Purpose Section -->
@@ -367,5 +386,7 @@
   </main>
 
   <footer>© 2025 東北大学 寄付研究部門：ナノ材料プロセスデータ科学</footer>
+  
+  <script src="../../navigation.js" defer></script>
 </body>
 </html>

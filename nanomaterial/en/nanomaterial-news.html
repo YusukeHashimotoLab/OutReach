@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>News | Endowed Research Division: Nanomaterial Process Data Science</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Latest news from Tohoku University Endowed Research Division of Nanomaterial Process Data Science. Research achievements, symposiums, and laboratory automation initiatives.">
+  <meta name="keywords" content="News,Endowed Research,Nanomaterials,Laboratory Automation,Robot Arm,Tohoku University">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📰</text></svg>">
+  <!-- Language alternates for SEO -->
+  <link rel="alternate" hreflang="ja" href="https://yusukehashimotolab.github.io/OutReach/nanomaterial/jp/nanomaterial-news.html">
+  <link rel="alternate" hreflang="en" href="https://yusukehashimotolab.github.io/OutReach/nanomaterial/en/nanomaterial-news.html">
+  <link rel="alternate" hreflang="x-default" href="https://yusukehashimotolab.github.io/OutReach/nanomaterial/jp/nanomaterial-news.html">
+  <link rel="stylesheet" href="../../all-styles.css">
+  <style>
+    /* Navigation styles */
+    .endowed-nav {
+      background: #2c3e50;
+      padding: 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .endowed-nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .endowed-nav li {
+      margin: 0;
+    }
+
+    .endowed-nav a {
+      display: block;
+      padding: 1rem 1.5rem;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .endowed-nav a:hover {
+      background: #34495e;
+    }
+
+    .endowed-nav .active {
+      background: #1a252f;
+    }
+
+    .nav-lang-switch {
+      margin-left: auto;
+    }
+
+    .nav-lang-switch a {
+      background: transparent;
+      border: 2px solid white;
+      border-radius: 20px;
+      padding: 0.5rem 1rem !important;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .nav-lang-switch a:hover {
+      background: white;
+      color: #2c3e50;
+    }
+
+    /* Page specific styles */
+    .endowed-header {
+      background: #1a252f;
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .endowed-header h1 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    .main-content {
+      max-width: 1000px;
+      margin: 0 auto 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .news-intro {
+      background: #f8f9fa;
+      padding: 3rem 2rem;
+      margin-bottom: 3rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .news-intro h2 {
+      font-size: 2rem;
+      color: #1a252f;
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+
+    .news-intro p {
+      font-size: 1.1rem;
+      color: #5d6d7e;
+      line-height: 1.8;
+    }
+
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .news-item {
+      background: white;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .news-item:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
+    }
+
+    .news-header {
+      background: #4a5f7a;
+      color: white;
+      padding: 1.5rem 2rem;
+    }
+
+    .news-date {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+    }
+
+    .news-title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .news-content {
+      padding: 2rem;
+    }
+
+    .news-content p {
+      color: #2c3e50;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .news-content a {
+      color: #4a5f7a;
+      text-decoration: none;
+      border-bottom: 1px solid #4a5f7a;
+      transition: all 0.3s ease;
+    }
+
+    .news-content a:hover {
+      color: #2c3e50;
+      border-bottom-color: #2c3e50;
+    }
+
+    .news-image {
+      max-width: 100%;
+      height: auto;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .news-video {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      margin: 1.5rem auto;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    footer {
+      background: #1a252f;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .endowed-nav ul {
+        flex-direction: column;
+      }
+
+      .news-header {
+        padding: 1rem 1.5rem;
+      }
+
+      .news-title {
+        font-size: 1.2rem;
+      }
+
+      .news-content {
+        padding: 1.5rem;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="endowed-header">
+    <h1>Endowed Research Division: Nanomaterial Process Data Science</h1>
+  </header>
+
+  <nav class="endowed-nav">
+    <ul>
+      <li><a href="nanomaterial-data-science.html">Home</a></li>
+      <li><a href="nanomaterial-news.html" class="active">News</a></li>
+      <li><a href="nanomaterial-purpose.html">Research Purpose</a></li>
+      <li><a href="nanomaterial-members.html">Members</a></li>
+      <li><a href="nanomaterial-location.html">Location & Contact</a></li>
+      <li><a href="nanomaterial-access.html">Access</a></li>
+      <li class="nav-lang-switch"><a href="../jp/nanomaterial-news.html">JP</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-content">
+    <section class="news-intro">
+      <h2>Latest News</h2>
+      <p>Stay updated with the latest news, research achievements, and event reports from the Endowed Research Division of Nanomaterial Process Data Science.</p>
+    </section>
+
+    <div class="news-list">
+      <!-- Robot Innovation Week 2024 -->
+      <article class="news-item">
+        <div class="news-header">
+          <div class="news-date">December 11, 2024</div>
+          <h3 class="news-title">Associate Professor Hashimoto Speaks at Robot Innovation Week 2024</h3>
+        </div>
+        <div class="news-content">
+          <p>At the invitation of TechShare Inc., Associate Professor Hashimoto delivered a lecture on laboratory automation using robotic arms.</p>
+          <p>The presentation covered practical examples of automated experimental systems developed in our laboratory and demonstrated low-cost automation methods that can be implemented in research settings.</p>
+          <p><a href="https://techshare.co.jp/riw2024-top/dobot-user-conference2024/" target="_blank" rel="noopener noreferrer">View event details</a></p>
+        </div>
+      </article>
+
+      <!-- Development of Automated Experimental Equipment -->
+      <article class="news-item">
+        <div class="news-header">
+          <div class="news-date">November 1, 2024</div>
+          <h3 class="news-title">Development of Automated Experimental Equipment</h3>
+        </div>
+        <div class="news-content">
+          <p>Our laboratory is developing an automated experimental system that combines an affordable robotic arm (approximately 200,000 yen) with electronic pipettes.</p>
+          
+          <p>The first prototype features a high-throughput mixing system integrated with a conveyor belt for efficient sample processing.</p>
+          <img src="../images/image.png" alt="First prototype of automated experimental equipment" class="news-image">
+          
+          <p>We are currently developing a second prototype that combines an electronic balance with a magnetic stirrer.</p>
+          <video controls class="news-video">
+            <source src="../images/20241027_16%E5%80%8D%E9%80%9F.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          
+          <p>As a proof of concept, we successfully demonstrated fully automated mixing of colored water with systematically varying ratios of red and blue.</p>
+          <img src="../images/image%201.png" alt="Results of colored water mixing experiment" class="news-image">
+          
+          <p>We plan to apply this system to various chemical experiments in the future. Stay tuned for more updates!</p>
+        </div>
+      </article>
+
+      <!-- Establishment Commemorative Symposium -->
+      <article class="news-item">
+        <div class="news-header">
+          <div class="news-date">August 4, 2024</div>
+          <h3 class="news-title">Commemorative Symposium for Establishment of Endowed Research Division</h3>
+        </div>
+        <div class="news-content">
+          <p>We held a commemorative symposium for the establishment of the Endowed Research Division within the Frontier Research Institute for Interdisciplinary Sciences.</p>
+          <p>The symposium featured presentations on the founding principles of our research division and future research directions, fostering active discussions with numerous participants.</p>
+          <p>The importance of industry-academia collaboration in creating the new interdisciplinary field of Materials Process Data Science was reaffirmed.</p>
+        </div>
+      </article>
+
+      <!-- Robot Arm Drawing Tohoku University Logo -->
+      <article class="news-item">
+        <div class="news-header">
+          <div class="news-date">June 22, 2024</div>
+          <h3 class="news-title">Automated Drawing of Tohoku University Logo Using Robot Arm</h3>
+        </div>
+        <div class="news-content">
+          <p>The Tomai Laboratory is advancing experimental automation using robotic arms and other technologies.</p>
+          <p>A fourth-year student demonstrated the robot arm's capabilities by programming it to draw the Tohoku University logo. Through improved precision control technology, the system can now accurately draw complex figures.</p>
+          <p><a href="https://youtu.be/bAKQEyDEoZ4" target="_blank" rel="noopener noreferrer">Watch the video here</a></p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>© 2025 Tohoku University Endowed Research Division: Nanomaterial Process Data Science</footer>
+  
+  <script src="../../navigation.js" defer></script>
+</body>
+</html>

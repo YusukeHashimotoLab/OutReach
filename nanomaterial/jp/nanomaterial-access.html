@@ -12,7 +12,6 @@
   <link rel="alternate" hreflang="en" href="https://yusukehashimotolab.github.io/OutReach/nanomaterial/en/nanomaterial-access.html">
   <link rel="alternate" hreflang="x-default" href="https://yusukehashimotolab.github.io/OutReach/nanomaterial/jp/nanomaterial-access.html">
   <link rel="stylesheet" href="../../all-styles.css">
-  <script src="../../lang-switcher.js" defer></script>
   <style>
     .endowed-nav {
       background: #2c3e50;
@@ -180,6 +179,40 @@
       font-size: 1.2rem;
     }
 
+    .map-section {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .map-section h2 {
+      font-size: 1.8rem;
+      color: #1a252f;
+      margin-bottom: 2rem;
+    }
+
+    .map-container {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .access-map {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .map-description {
+      color: #5d6d7e;
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
     .additional-info {
       margin-top: 3rem;
       padding: 2rem;
@@ -233,19 +266,21 @@
 <body>
   <a href="#main-content" class="skip-to-content">Skip to content</a>
   
+  <header class="endowed-header">
+    <h1>寄付研究部門：ナノ材料プロセスデータ科学</h1>
+  </header>
+
   <nav class="endowed-nav">
     <ul>
       <li><a href="nanomaterial-data-science.html">トップ</a></li>
+      <li><a href="nanomaterial-news.html">ニュース</a></li>
       <li><a href="nanomaterial-purpose.html">研究目的</a></li>
       <li><a href="nanomaterial-members.html">メンバー</a></li>
       <li><a href="nanomaterial-location.html">所在地・連絡先</a></li>
       <li><a href="nanomaterial-access.html" class="active">アクセス</a></li>
+      <li class="nav-lang-switch"><a href="../en/nanomaterial-access.html">EN</a></li>
     </ul>
   </nav>
-
-  <header class="endowed-header">
-    <h1>アクセス</h1>
-  </header>
 
   <main id="main-content" class="main-content">
     <section class="access-section">
@@ -299,6 +334,17 @@
       </div>
     </section>
 
+    <section class="map-section">
+      <h2>キャンパスマップ</h2>
+      <div class="map-container">
+        <img src="../images/map.png" alt="東北大学 学際科学フロンティア研究所 アクセスマップ" class="access-map">
+        <p class="map-description">
+          学際科学フロンティア研究所は、青葉山キャンパス内のG06棟に位置しています。<br>
+          地下鉄東西線「青葉山駅」北出口から徒歩約4分です。
+        </p>
+      </div>
+    </section>
+
     <section class="additional-info">
       <h3>ご来訪時の注意事項</h3>
       <ul>
@@ -320,5 +366,7 @@
   </main>
 
   <footer>© 2025 東北大学 寄付研究部門：ナノ材料プロセスデータ科学</footer>
+  
+  <script src="../../navigation.js" defer></script>
 </body>
 </html>

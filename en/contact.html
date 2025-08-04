@@ -7,14 +7,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
   <link rel="stylesheet" href="../all-styles.css">
-  <script src="../lang-switcher.js" defer></script>
+  <script src="../theme-toggle.js" defer></script>
+  <script src="../lazy-load.js" defer></script>
+  <script src="../navigation.js" defer></script>
   
   <!-- Hreflang tags for SEO -->
   <link rel="alternate" hreflang="ja" href="https://yusukehashimotolab.github.io/OutReach/jp/contact.html">
   <link rel="alternate" hreflang="en" href="https://yusukehashimotolab.github.io/OutReach/en/contact.html">
   <link rel="alternate" hreflang="x-default" href="https://yusukehashimotolab.github.io/OutReach/jp/contact.html">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Contact | Yusuke Hashimoto">
+  <meta property="og:description" content="Contact Dr. Yusuke Hashimoto for research collaboration, technical consultation, and technology transfer opportunities in materials science and data science.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yusukehashimotolab.github.io/OutReach/en/contact.html">
+  <meta property="og:image" content="https://yusuke-hashimoto.jp/assets/ogp.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Yusuke Hashimoto">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact | Yusuke Hashimoto">
+  <meta name="twitter:description" content="Contact Dr. Yusuke Hashimoto for research collaboration, technical consultation, and technology transfer opportunities in materials science and data science.">
+  <meta name="twitter:image" content="https://yusuke-hashimoto.jp/assets/ogp.jpg">
+  <meta name="twitter:image:width" content="1200">
+  <meta name="twitter:image:height" content="630">
   
   <style>
+    *, *::before, *::after { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
     /* Page specific styles */
     main {
       margin: 3rem auto;
@@ -214,7 +241,7 @@
 <header>
   <div class="header-content">
     <h1>Yusuke Hashimoto, PhD</h1>
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="news.html">News</a>
       <a href="research.html">Research</a>

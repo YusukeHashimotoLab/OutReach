@@ -12,7 +12,6 @@
   <link rel="alternate" hreflang="en" href="https://yusukehashimotolab.github.io/OutReach/nanomaterial/en/nanomaterial-purpose.html">
   <link rel="alternate" hreflang="x-default" href="https://yusukehashimotolab.github.io/OutReach/nanomaterial/jp/nanomaterial-purpose.html">
   <link rel="stylesheet" href="../../all-styles.css">
-  <script src="../../lang-switcher.js" defer></script>
   <style>
     .endowed-nav {
       background: #2c3e50;
@@ -49,6 +48,25 @@
       background: #1a252f;
     }
 
+    .nav-lang-switch {
+      margin-left: auto;
+    }
+
+    .nav-lang-switch a {
+      background: transparent;
+      border: 2px solid white;
+      border-radius: 20px;
+      padding: 0.5rem 1rem !important;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .nav-lang-switch a:hover {
+      background: white;
+      color: #2c3e50;
+    }
+
+    /* Page specific styles */
     .endowed-header {
       background: #1a252f;
       color: white;
@@ -64,7 +82,7 @@
 
     .main-content {
       max-width: 1000px;
-      margin: 3rem auto;
+      margin: 0 auto 3rem auto;
       padding: 0 2rem;
     }
 
@@ -144,21 +162,21 @@
   </style>
 </head>
 <body>
-  <a href="#main-content" class="skip-to-content">Skip to content</a>
-  
+  <header class="endowed-header">
+    <h1>Endowed Research Division: Nanomaterial Process Data Science</h1>
+  </header>
+
   <nav class="endowed-nav">
     <ul>
       <li><a href="nanomaterial-data-science.html">Home</a></li>
+      <li><a href="nanomaterial-news.html">News</a></li>
       <li><a href="nanomaterial-purpose.html" class="active">Research Purpose</a></li>
       <li><a href="nanomaterial-members.html">Members</a></li>
       <li><a href="nanomaterial-location.html">Location & Contact</a></li>
       <li><a href="nanomaterial-access.html">Access</a></li>
+      <li class="nav-lang-switch"><a href="../jp/nanomaterial-purpose.html">JP</a></li>
     </ul>
   </nav>
-
-  <header class="endowed-header">
-    <h1>Research Purpose</h1>
-  </header>
 
   <main id="main-content" class="main-content">
     <section class="purpose-section">
@@ -206,5 +224,7 @@
   </main>
 
   <footer>© 2025 Tohoku University Endowed Research Division: Nanomaterial Process Data Science</footer>
+  
+  <script src="../../navigation.js" defer></script>
 </body>
 </html>

@@ -30,7 +30,10 @@
   <link rel="alternate" hreflang="x-default" href="https://yusukehashimotolab.github.io/OutReach/jp/index.html">
   <link rel="stylesheet" href="../all-styles.css">
   <link rel="stylesheet" href="../home-styles.css">
-  <script src="../lang-switcher.js" defer></script>
+  <link rel="stylesheet" href="../cool-animations.css">
+  <script src="../theme-toggle.js" defer></script>
+  <script src="../lazy-load.js" defer></script>
+  <script src="../navigation.js" defer></script>
 
   <style>
     *, *::before, *::after { 
@@ -822,16 +825,17 @@
           </div>
         </div>
       </div>
+      <div class="scroll-indicator" onclick="document.getElementById('research-areas').scrollIntoView({behavior: 'smooth'})"></div>
     </section>
 
     <!-- Research Areas Section -->
-    <section class="research-areas-section" aria-label="研究分野">
+    <section id="research-areas" class="research-areas-section" aria-label="研究分野">
       <div class="section-header">
         <h2>Research Areas</h2>
         <p>材料科学とデータサイエンスを融合した学際的研究で次世代材料開発を推進</p>
       </div>
       <div class="research-grid">
-        <div class="research-area-card primary">
+        <div class="research-area-card primary tilt-card">
           <div class="area-icon">📊</div>
           <h3>Materials Informatics & AI</h3>
           <p>実験ビッグデータと機械学習を融合した材料特性予測モデル構築と次世代材料探索</p>
@@ -843,7 +847,7 @@
           </ul>
         </div>
 
-        <div class="research-area-card">
+        <div class="research-area-card tilt-card">
           <div class="area-icon">🤖</div>
           <h3>Research DX & IoT Innovation</h3>
           <p>次世代研究環境構築のための包括的デジタル変革支援と学際研究推進</p>
@@ -855,7 +859,7 @@
           </ul>
         </div>
         
-        <div class="research-area-card">
+        <div class="research-area-card tilt-card">
           <div class="area-icon">🔬</div>
           <h3>超高速磁気光学分光 & スピントロニクス</h3>
           <p>TRMOI技術とスピン波トモグラフィー法による磁性体ダイナミクス解明</p>
