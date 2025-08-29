@@ -248,6 +248,49 @@
         justify-content: center;
       }
     }
+
+    /* Press release section styling */
+    .press-release-section {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      background: #f8f9fa;
+      border-radius: 6px;
+      border-left: 3px solid #007bff;
+    }
+
+    .press-release-section h4 {
+      margin: 0 0 0.5rem 0;
+      color: #2c3e50;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .press-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .press-link {
+      background: #007bff;
+      color: white;
+      text-decoration: none;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .press-link:hover {
+      background: #0056b3;
+      text-decoration: none;
+    }
+
+    .press-link::before {
+      content: '📰 ';
+      margin-right: 0.2rem;
+    }
   </style>
 </head>
 <body>
@@ -301,6 +344,15 @@
           <div class="news-meta">
             <span>APL Machine Learning 3, 036104 (2025)</span>
             <span>著者: Y. Hashimoto, X. Jia, H. Li, T. Tomai</span>
+            <a href="https://pubs.aip.org/aip/aml/article/3/3/036104/3355901/A-materials-map-integrating-experimental-and" class="news-link" target="_blank" rel="noopener noreferrer">論文詳細</a>
+          </div>
+          <div class="press-release-section">
+            <h4>プレスリリース</h4>
+            <div class="press-links">
+              <a href="https://www.tohoku.ac.jp/japanese/2025/07/press20250731-01-ai.html" class="press-link" target="_blank" rel="noopener noreferrer">東北大学（本部）</a>
+              <a href="https://www.wpi-aimr.tohoku.ac.jp/jp/achievements/press/2025/20250731_002017.html" class="press-link" target="_blank" rel="noopener noreferrer">AIMR</a>
+              <a href="https://www.fris.tohoku.ac.jp/feature/topics/detail---id-1602.html" class="press-link" target="_blank" rel="noopener noreferrer">FRIS</a>
+            </div>
           </div>
         </div>
       </article>
