@@ -225,6 +225,51 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Press release links styling */
+    .press-release-links {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #f8f9fa;
+      border-radius: 8px;
+      border-left: 4px solid #2c3e50;
+    }
+
+    .press-release-links h4 {
+      margin: 0 0 0.5rem 0;
+      color: #2c3e50;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .press-release-links ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .press-release-links li {
+      margin: 0.3rem 0;
+    }
+
+    .press-release-links a {
+      color: #2c3e50;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.2rem 0;
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+
+    .press-release-links a:hover {
+      color: #e74c3c;
+      text-decoration: underline;
+    }
+
+    .press-release-links a::before {
+      content: '📰 ';
+      margin-right: 0.3rem;
+    }
   </style>
 </head>
 <body>
@@ -262,7 +307,15 @@
           <p>This research developed a materials map that integrates experimental and computational data using message-passing graph neural networks. The map visually represents structural similarities between materials and enables rapid extraction of unknown high-performance materials.</p>
           <p>These findings are expected to significantly reduce new material development timelines and accelerate innovation in materials research.</p>
           <p><a href="https://pubs.aip.org/aip/aml/article/3/3/036104/3355901/A-materials-map-integrating-experimental-and" target="_blank" rel="noopener noreferrer">View paper details</a></p>
-          <p><a href="https://www.tohoku.ac.jp/japanese/2025/07/press20250731-01-ai.html" target="_blank" rel="noopener noreferrer">Tohoku University Press Release</a></p>
+          <div class="press-release-links">
+            <h4>Press Releases</h4>
+            <ul>
+              <li><a href="https://www.tohoku.ac.jp/en/press/ai_powered_materials_map_speeds_up_materials_discovery.html" target="_blank" rel="noopener noreferrer">Tohoku University (Main Campus)</a></li>
+              <li><a href="https://www.wpi-aimr.tohoku.ac.jp/en/achievements/press/2025/20250731_002017.html" target="_blank" rel="noopener noreferrer">AIMR (Advanced Institute for Materials Research)</a></li>
+              <li><a href="https://www.fris.tohoku.ac.jp/en/feature/topics/detail---id-1610.html" target="_blank" rel="noopener noreferrer">FRIS (Frontier Research Institute for Interdisciplinary Sciences)</a></li>
+              <li><a href="https://www.eurekalert.org/news-releases/1096090" target="_blank" rel="noopener noreferrer">EurekAlert!</a></li>
+            </ul>
+          </div>
         </div>
       </article>
 
