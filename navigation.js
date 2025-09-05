@@ -6,13 +6,14 @@
   const navConfig = {
     jp: {
       items: [
-        { href: 'index.html', text: 'Home' },
-        { href: 'news.html', text: 'News' },
-        { href: 'research.html', text: 'Research' },
-        { href: 'research-dx.html', text: 'Research DX' },
-        { href: 'publications.html', text: 'Publications' },
-        { href: 'talks.html', text: 'Talks' },
-        { href: 'contact.html', text: 'Contact' }
+        { href: 'index.html', text: 'ホーム' },
+        { href: 'news.html', text: 'ニュース' },
+        { href: 'research.html', text: '研究' },
+        { href: 'research-dx.html', text: '研究DX' },
+        { href: 'publications.html', text: '論文' },
+        { href: 'talks.html', text: '発表' },
+        { href: 'links.html', text: 'リンク' },
+        { href: 'contact.html', text: '連絡先' }
       ],
       langSwitch: { href: '../en/', text: 'EN' }
     },
@@ -119,6 +120,18 @@
       nav.appendChild(langSwitch);
     }
 
+    // Localize existing nav item texts on JP pages based on href mapping
+    if (lang === 'jp' && nav && langConfig && Array.isArray(langConfig.items)) {
+      const map = new Map(langConfig.items.map(item => [item.href, item.text]));
+      nav.querySelectorAll('a').forEach(a => {
+        if (a.classList.contains('nav-lang-switch')) return;
+        const href = a.getAttribute('href') || '';
+        if (map.has(href)) {
+          a.textContent = map.get(href);
+        }
+      });
+    }
+
     // Mobile menu toggle
     mobileMenuBtn.addEventListener('click', () => {
       const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
@@ -196,7 +209,7 @@
         display: block;
         width: 100%;
         height: 3px;
-        background: var(--color-text-primary);
+        background: var(--color-text-inverse);
         transition: all var(--transition-base);
         border-radius: 2px;
       }
