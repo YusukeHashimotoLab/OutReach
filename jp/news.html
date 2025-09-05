@@ -291,6 +291,49 @@
       content: '📰 ';
       margin-right: 0.2rem;
     }
+
+    /* Media coverage section styling */
+    .media-coverage-section {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      background: #f0f8f0;
+      border-radius: 6px;
+      border-left: 3px solid #28a745;
+    }
+
+    .media-coverage-section h4 {
+      margin: 0 0 0.5rem 0;
+      color: #2c3e50;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .media-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .media-link {
+      background: #28a745;
+      color: white;
+      text-decoration: none;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .media-link:hover {
+      background: #1e7e34;
+      text-decoration: none;
+    }
+
+    .media-link::before {
+      content: '📺 ';
+      margin-right: 0.2rem;
+    }
   </style>
 </head>
 <body>
@@ -352,6 +395,13 @@
               <a href="https://www.tohoku.ac.jp/japanese/2025/07/press20250731-01-ai.html" class="press-link" target="_blank" rel="noopener noreferrer">東北大学（本部）</a>
               <a href="https://www.wpi-aimr.tohoku.ac.jp/jp/achievements/press/2025/20250731_002017.html" class="press-link" target="_blank" rel="noopener noreferrer">AIMR</a>
               <a href="https://www.fris.tohoku.ac.jp/feature/topics/detail---id-1602.html" class="press-link" target="_blank" rel="noopener noreferrer">FRIS</a>
+            </div>
+          </div>
+          <div class="media-coverage-section">
+            <h4>メディア報道</h4>
+            <div class="media-links">
+              <a href="https://www.nikkan.co.jp/articles/view/00756425" class="media-link" target="_blank" rel="noopener noreferrer">日刊工業新聞</a>
+              <a href="https://research-er.jp/articles/view/146930" class="media-link" target="_blank" rel="noopener noreferrer">リサーチャー</a>
             </div>
           </div>
         </div>
