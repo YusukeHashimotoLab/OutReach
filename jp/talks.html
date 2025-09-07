@@ -215,6 +215,22 @@
         flex-direction: column;
       }
     }
+
+    /* Session and authors styling */
+    .talk-session {
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    .talk-authors {
+      color: #555;
+      font-size: 0.85rem;
+      font-style: italic;
+      margin: 0.5rem 0;
+      line-height: 1.4;
+    }
   </style>
 </head>
 <body>
@@ -247,68 +263,11 @@
       <h2>今後の講演予定</h2>
     </div>
     <div class="talks-timeline">
-      <!-- Laboratory Automation月例勉強会 -->
-      <div class="talk-card upcoming">
-        <div class="talk-type contributed">一般講演</div>
-        <div class="talk-header">
-          <div class="talk-date">2025年6月28日</div>
-          <div class="talk-title">1から作る化学自動実験</div>
-          <div class="talk-event">Laboratory Automation月例勉強会</div>
-          <div class="talk-venue">オンサイト開催</div>
-        </div>
-        <div class="talk-content">
-          <div class="talk-description">
-            実験自動化・研究DXに関する月例勉強会にて講演予定です。詳細は決定次第更新いたします。
-          </div>
-          <div class="talk-links">
-            <a href="https://laboratoryautomation.connpass.com/event/347664/" class="talk-link" target="_blank" rel="noopener noreferrer">イベント詳細</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- APS Global Physics Summit 2025 -->
-      <div class="talk-card upcoming">
-        <div class="talk-type contributed">一般講演</div>
-        <div class="talk-header">
-          <div class="talk-date">2025年3月-4月</div>
-          <div class="talk-title">Material Map Constructed from Experimental and Computational Datasets with Graph Based Material Structural Representation</div>
-          <div class="talk-event">Joint March Meeting and April Meeting: Global Physics Summit 2025</div>
-          <div class="talk-venue">Anaheim Convention Center & Disneyland Hotel, California, USA</div>
-        </div>
-        <div class="talk-content">
-          <div class="talk-description">
-            実験データと計算データを統合し、グラフベースの材料構造表現を用いた材料マップ構築に関する研究成果を発表予定です。
-          </div>
-          <div class="talk-links">
-            <a href="https://www.aps.org/events/2025/joint-meeting" class="talk-link" target="_blank" rel="noopener noreferrer">イベント詳細</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 第86回応用物理学会秋季学術講演会 -->
-      <div class="talk-card upcoming">
-        <div class="talk-type contributed">一般講演</div>
-        <div class="talk-header">
-          <div class="talk-date">2025年9月7日-10日</div>
-          <div class="talk-title">講演タイトル未定</div>
-          <div class="talk-event">第86回応用物理学会秋季学術講演会</div>
-          <div class="talk-venue">会場未定</div>
-        </div>
-        <div class="talk-content">
-          <div class="talk-description">
-            応用物理学会の秋季学術講演会にて講演予定です。詳細は決定次第更新いたします。
-          </div>
-          <div class="talk-links">
-            <a href="https://meeting.jsap.or.jp/" class="talk-link" target="_blank" rel="noopener noreferrer">応用物理学会</a>
-          </div>
-        </div>
-      </div>
-
       <!-- 現在予定なしの場合のメッセージ -->
-      <!-- <div class="no-talks">
+      <div class="no-talks">
         現在、確定している講演予定はありません。<br>
         新しい講演予定が決まり次第、こちらに掲載いたします。
-      </div> -->
+      </div>
     </div>
   </section>
 
@@ -318,6 +277,68 @@
       <h2>過去の講演実績</h2>
     </div>
     <div class="talks-timeline">
+      <!-- Laboratory Automation月例勉強会 -->
+      <div class="talk-card past">
+        <div class="talk-type contributed">一般講演</div>
+        <div class="talk-header">
+          <div class="talk-date">2025年6月28日</div>
+          <div class="talk-title">1から作る化学自動実験</div>
+          <div class="talk-event">Laboratory Automation月例勉強会</div>
+          <div class="talk-venue">オンサイト開催</div>
+        </div>
+        <div class="talk-content">
+          <div class="talk-description">
+            化学実験自動化システムの開発について、初心者向けの講演を、実験自動化・研究DXに関する月例勉強会にて講演しました。
+          </div>
+          <div class="talk-links">
+            <a href="https://laboratoryautomation.connpass.com/event/347664/" class="talk-link" target="_blank" rel="noopener noreferrer">イベント詳細</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第86回応用物理学会秋季学術講演会 -->
+      <div class="talk-card past">
+        <div class="talk-type contributed">一般講演</div>
+        <div class="talk-header">
+          <div class="talk-date">2025年9月7日</div>
+          <div class="talk-title">材料構造類似度マップの材料プロセス探索への応用</div>
+          <div class="talk-session">[7p-S202-2] 13:15-13:30</div>
+          <div class="talk-event">第86回応用物理学会秋季学術講演会</div>
+          <div class="talk-venue">会場未定</div>
+        </div>
+        <div class="talk-content">
+          <div class="talk-description">
+            材料構造類似度マップを用いた材料プロセス探索に関する研究成果を発表しました。
+            機械学習を用いて材料の構造類似性を可視化し、效率的な材料プロセス探索を実現する手法を提案しました。
+          </div>
+          <div class="talk-authors">橋本佑介（東北大学際研）, Xue Jia（東北大AIMR）, Hao Li（東北大AIMR）, 笘居高明（東北大学際研）</div>
+          <div class="talk-links">
+            <a href="https://pub.confit.atlas.jp/ja/event/jsap2025a/session/7p-S202-1-12" class="talk-link" target="_blank" rel="noopener noreferrer">発表詳細</a>
+            <a href="https://meeting.jsap.or.jp/" class="talk-link" target="_blank" rel="noopener noreferrer">応用物理学会</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- APS Global Physics Summit 2025 -->
+      <div class="talk-card past">
+        <div class="talk-type contributed">一般講演</div>
+        <div class="talk-header">
+          <div class="talk-date">2025年3月20日</div>
+          <div class="talk-session">[MAR-S37:8]</div>
+          <div class="talk-title">Material Map Constructed from Experimental and Computational Datasets with Graph Based Material Structural Representation</div>
+          <div class="talk-event">Joint March Meeting and April Meeting: Global Physics Summit 2025</div>
+          <div class="talk-venue">Anaheim Convention Center & Disneyland Hotel, California, USA</div>
+        </div>
+        <div class="talk-content">
+          <div class="talk-description">
+            実験データと計算データを統合し、グラフベースの材料構造表現を用いた材料マップ構築に関する研究成果を発表しました。
+          </div>
+          <div class="talk-links">
+            <a href="https://www.aps.org/events/2025/joint-meeting" class="talk-link" target="_blank" rel="noopener noreferrer">イベント詳細</a>
+          </div>
+        </div>
+      </div>
+
       <!-- Robot Innovation Week 2024 -->
       <div class="talk-card past">
         <div class="talk-type invited">招待講演</div>

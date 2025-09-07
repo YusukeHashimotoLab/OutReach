@@ -236,6 +236,22 @@
         flex-direction: column;
       }
     }
+
+    /* Session and authors styling */
+    .talk-session {
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    .talk-authors {
+      color: #555;
+      font-size: 0.85rem;
+      font-style: italic;
+      margin: 0.5rem 0;
+      line-height: 1.4;
+    }
   </style>
 </head>
 <body>
@@ -268,69 +284,11 @@
       <h2>Upcoming Talks</h2>
     </div>
     <div class="talks-timeline">
-      <!-- Laboratory Automation Monthly Study Group -->
-      <div class="talk-card upcoming">
-        <div class="talk-type contributed">Contributed Talk</div>
-        <div class="talk-header">
-          <div class="talk-date">June 28, 2025</div>
-          <div class="talk-title">Building Chemical Automation from Scratch</div>
-          <div class="talk-event">Laboratory Automation Monthly Study Group</div>
-          <div class="talk-venue">On-site</div>
-        </div>
-        <div class="talk-content">
-          <div class="talk-description">
-            Scheduled presentation at the monthly study group on laboratory automation and research DX. Details will be updated as they become available.
-          </div>
-          <div class="talk-links">
-            <a href="https://laboratoryautomation.connpass.com/event/347664/" class="talk-link" target="_blank" rel="noopener noreferrer">Event Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- APS Global Physics Summit 2025 -->
-      <div class="talk-card upcoming">
-        <div class="talk-type contributed">Contributed Talk</div>
-        <div class="talk-header">
-          <div class="talk-date">March-April 2025</div>
-          <div class="talk-title">Material Map Constructed from Experimental and Computational Datasets with Graph Based Material Structural Representation</div>
-          <div class="talk-event">Joint March Meeting and April Meeting: Global Physics Summit 2025</div>
-          <div class="talk-venue">Anaheim Convention Center & Disneyland Hotel, California, USA</div>
-        </div>
-        <div class="talk-content">
-          <div class="talk-description">
-            Will present research on constructing material maps by integrating experimental and computational datasets 
-            using graph-based material structural representation.
-          </div>
-          <div class="talk-links">
-            <a href="https://www.aps.org/events/2025/joint-meeting" class="talk-link" target="_blank" rel="noopener noreferrer">Event Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 86th JSAP Autumn Meeting -->
-      <div class="talk-card upcoming">
-        <div class="talk-type contributed">Contributed Talk</div>
-        <div class="talk-header">
-          <div class="talk-date">September 7-10, 2025</div>
-          <div class="talk-title">Title to be determined</div>
-          <div class="talk-event">86th JSAP Autumn Meeting</div>
-          <div class="talk-venue">Venue TBD</div>
-        </div>
-        <div class="talk-content">
-          <div class="talk-description">
-            Scheduled presentation at the Japan Society of Applied Physics Autumn Meeting. Details will be updated as they become available.
-          </div>
-          <div class="talk-links">
-            <a href="https://meeting.jsap.or.jp/" class="talk-link" target="_blank" rel="noopener noreferrer">JSAP Website</a>
-          </div>
-        </div>
-      </div>
-
       <!-- Message for no upcoming talks -->
-      <!-- <div class="no-talks">
+      <div class="no-talks">
         No confirmed upcoming talks at this time.<br>
         New talk schedules will be posted here as they are confirmed.
-      </div> -->
+      </div>
     </div>
   </section>
 
@@ -340,6 +298,71 @@
       <h2>Past Presentations</h2>
     </div>
     <div class="talks-timeline">
+      <!-- Laboratory Automation Monthly Study Group -->
+      <div class="talk-card past">
+        <div class="talk-type contributed">Contributed Talk</div>
+        <div class="talk-header">
+          <div class="talk-date">June 28, 2025</div>
+          <div class="talk-title">Building Chemical Automation from Scratch</div>
+          <div class="talk-event">Laboratory Automation Monthly Study Group</div>
+          <div class="talk-venue">On-site</div>
+        </div>
+        <div class="talk-content">
+          <div class="talk-description">
+            Presented an introductory talk on developing chemical experiment automation systems for beginners
+            at the monthly study group on laboratory automation and research DX.
+          </div>
+          <div class="talk-links">
+            <a href="https://laboratoryautomation.connpass.com/event/347664/" class="talk-link" target="_blank" rel="noopener noreferrer">Event Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 86th JSAP Autumn Meeting -->
+      <div class="talk-card past">
+        <div class="talk-type contributed">Contributed Talk</div>
+        <div class="talk-header">
+          <div class="talk-date">September 7, 2025</div>
+          <div class="talk-title">Application of a Material Structural Similarity Map to Materials Process Exploration</div>
+          <div class="talk-session">[7p-S202-2] 13:15-13:30</div>
+          <div class="talk-event">86th JSAP Autumn Meeting</div>
+          <div class="talk-venue">Venue TBD</div>
+        </div>
+        <div class="talk-content">
+          <div class="talk-description">
+            Presented research on the application of material structural similarity maps for materials process exploration.
+            We proposed a method to visualize material structural similarities using machine learning techniques
+            for efficient materials process discovery.
+          </div>
+          <div class="talk-authors">Y. Hashimoto (FRIS Tohoku Univ.), X. Jia (AIMR Tohoku Univ.), H. Li (AIMR Tohoku Univ.), T. Tomai (FRIS Tohoku Univ.)</div>
+          <div class="talk-links">
+            <a href="https://pub.confit.atlas.jp/ja/event/jsap2025a/session/7p-S202-1-12" class="talk-link" target="_blank" rel="noopener noreferrer">Session Details</a>
+            <a href="https://meeting.jsap.or.jp/" class="talk-link" target="_blank" rel="noopener noreferrer">JSAP Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- APS Global Physics Summit 2025 -->
+      <div class="talk-card past">
+        <div class="talk-type contributed">Contributed Talk</div>
+        <div class="talk-header">
+          <div class="talk-date">March 20, 2025</div>
+          <div class="talk-session">[MAR-S37:8]</div>
+          <div class="talk-title">Material Map Constructed from Experimental and Computational Datasets with Graph Based Material Structural Representation</div>
+          <div class="talk-event">Joint March Meeting and April Meeting: Global Physics Summit 2025</div>
+          <div class="talk-venue">Anaheim Convention Center & Disneyland Hotel, California, USA</div>
+        </div>
+        <div class="talk-content">
+          <div class="talk-description">
+            Presented research on constructing material maps by integrating experimental and computational datasets 
+            using graph-based material structural representation.
+          </div>
+          <div class="talk-links">
+            <a href="https://www.aps.org/events/2025/joint-meeting" class="talk-link" target="_blank" rel="noopener noreferrer">Event Details</a>
+          </div>
+        </div>
+      </div>
+
       <!-- Robot Innovation Week 2024 -->
       <div class="talk-card past">
         <div class="talk-type invited">Invited Talk</div>
