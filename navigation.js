@@ -81,6 +81,58 @@
       return;
     }
     
+    // Utility: robust mobile link handlers (incl. iOS Safari)
+    const attachMobileLinkHandlers = (navEl) => {
+      if (!navEl) return;
+      navEl.querySelectorAll('a').forEach(link => {
+        // Close slide-out menu on click if present
+        link.addEventListener('click', () => {
+          document.body.classList.remove('nav-open');
+          const navWithRole = document.querySelector('nav[role="navigation"]');
+          if (navWithRole) navWithRole.classList.remove('nav--open');
+        });
+
+        // iOS Safari sometimes drops click inside transformed/fixed panels.
+        // Ensure navigation on touchend (tap) without interfering with scrolling.
+        let startX = 0, startY = 0, moved = false;
+        link.addEventListener('touchstart', (e) => {
+          const t = e.touches && e.touches[0];
+          startX = t ? t.clientX : 0;
+          startY = t ? t.clientY : 0;
+          moved = false;
+        }, { passive: true });
+        link.addEventListener('touchmove', (e) => {
+          const t = e.touches && e.touches[0];
+          if (!t) return;
+          if (Math.abs(t.clientX - startX) > 10 || Math.abs(t.clientY - startY) > 10) {
+            moved = true;
+          }
+        }, { passive: true });
+        link.addEventListener('touchend', (e) => {
+          // Only treat as a tap if the finger didn't move significantly
+          if (moved) return;
+          // Guard: ignore modified taps
+          if (e.defaultPrevented) return;
+          // Prevent the sometimes-missing click on iOS and navigate manually
+          e.preventDefault();
+          e.stopPropagation();
+          const href = link.getAttribute('href');
+          if (!href) return;
+          // Close any open menu
+          document.body.classList.remove('nav-open');
+          const navWithRole = document.querySelector('nav[role="navigation"]');
+          if (navWithRole) navWithRole.classList.remove('nav--open');
+          // Handle target
+          const target = link.getAttribute('target');
+          if (target === '_blank') {
+            window.open(href, '_blank');
+          } else {
+            window.location.href = href;
+          }
+        }, { passive: false });
+      });
+    };
+
     // If we only have nav (nanomaterial pages), just add language switcher
     if (!header && nav) {
       const lang = getCurrentLang();
@@ -90,6 +142,8 @@
         langSwitch.innerHTML = `<a href="${langConfig.langSwitch.href}${getCurrentPage()}" class="nav-lang-switch">${langConfig.langSwitch.text}</a>`;
         nav.appendChild(langSwitch);
       }
+      // Ensure links respond to taps on iOS as expected
+      attachMobileLinkHandlers(nav);
       return;
     }
     
@@ -147,21 +201,8 @@
       document.body.classList.remove('nav-open');
     };
 
-    // Add click handler to all navigation links
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', (e) => {
-        // Close menu immediately when link is clicked
-        if (nav.classList.contains('nav--open')) {
-          closeMenu();
-        }
-      });
-      
-      // Also handle touch events for better mobile support
-      link.addEventListener('touchstart', (e) => {
-        // Mark that a touch event occurred
-        link.dataset.touched = 'true';
-      });
-    });
+    // Add robust mobile handlers to all navigation links
+    attachMobileLinkHandlers(nav);
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
