@@ -140,12 +140,33 @@
       document.body.classList.toggle('nav-open');
     });
 
+    // Close menu when clicking on a navigation link
+    const closeMenu = () => {
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('nav--open');
+      document.body.classList.remove('nav-open');
+    };
+
+    // Add click handler to all navigation links
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        // Close menu immediately when link is clicked
+        if (nav.classList.contains('nav--open')) {
+          closeMenu();
+        }
+      });
+      
+      // Also handle touch events for better mobile support
+      link.addEventListener('touchstart', (e) => {
+        // Mark that a touch event occurred
+        link.dataset.touched = 'true';
+      });
+    });
+
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
       if (!header.contains(e.target) && nav.classList.contains('nav--open')) {
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('nav--open');
-        document.body.classList.remove('nav-open');
+        closeMenu();
       }
     });
 
@@ -305,7 +326,8 @@
           flex-direction: column;
           padding: 80px 2rem 2rem;
           overflow-y: auto;
-          z-index: var(--z-index-fixed);
+          z-index: calc(var(--z-index-fixed) + 1);
+          -webkit-overflow-scrolling: touch;
         }
 
         nav[role="navigation"].nav--open {
@@ -314,14 +336,20 @@
 
         nav[role="navigation"] a {
           display: block;
-          padding: 1rem 0;
+          padding: 1.2rem 1rem;
           font-size: 1.1rem;
           border-bottom: 1px solid var(--color-border);
           color: var(--color-text-primary);
           background: transparent;
+          pointer-events: auto;
+          cursor: pointer;
+          min-height: 44px;
+          touch-action: manipulation;
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
         }
 
-        nav[role="navigation"] a:hover {
+        nav[role="navigation"] a:hover,
+        nav[role="navigation"] a:active {
           background: var(--color-border);
         }
 
@@ -354,8 +382,10 @@
           right: 0;
           bottom: 0;
           background: rgba(0, 0, 0, 0.5);
-          z-index: calc(var(--z-index-fixed) - 1);
+          z-index: var(--z-index-fixed);
           animation: fadeIn var(--transition-base);
+          pointer-events: auto;
+          cursor: pointer;
         }
 
         @keyframes fadeIn {
