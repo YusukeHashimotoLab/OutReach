@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ボトムナビゲーション例</title>
+  <style>
+    /* ボトムナビゲーションのスタイル */
+    .bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #1a252f;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    
+    .bottom-nav ul {
+      display: flex;
+      justify-content: space-around;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .bottom-nav a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px 12px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 12px;
+      min-width: 60px;
+      transition: background 0.3s;
+    }
+    
+    .bottom-nav a:active,
+    .bottom-nav a.active {
+      background: rgba(255,255,255,0.1);
+    }
+    
+    .bottom-nav .icon {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+    
+    /* モバイルでのみ表示 */
+    @media (max-width: 768px) {
+      .bottom-nav {
+        display: block;
+      }
+      
+      /* メインコンテンツの下部にパディングを追加 */
+      body {
+        padding-bottom: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>ボトムナビゲーション例</h1>
+  <p>モバイルサイズ（768px以下）で画面下部に固定ナビゲーションが表示されます。</p>
+  
+  <!-- ボトムナビゲーション -->
+  <nav class="bottom-nav">
+    <ul>
+      <li>
+        <a href="index.html" class="active">
+          <span class="icon">🏠</span>
+          <span>ホーム</span>
+        </a>
+      </li>
+      <li>
+        <a href="research.html">
+          <span class="icon">🔬</span>
+          <span>研究</span>
+        </a>
+      </li>
+      <li>
+        <a href="publications.html">
+          <span class="icon">📚</span>
+          <span>論文</span>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <span class="icon">✉️</span>
+          <span>連絡</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</body>
+</html>

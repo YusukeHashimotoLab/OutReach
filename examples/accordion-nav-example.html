@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>アコーディオンナビゲーション例</title>
+  <style>
+    /* アコーディオンメニューのスタイル */
+    .accordion-nav {
+      background: #f8f9fa;
+      padding: 20px;
+    }
+    
+    .menu-section {
+      margin-bottom: 10px;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .menu-header {
+      background: #1a252f;
+      color: white;
+      padding: 15px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    
+    .menu-header:active {
+      background: #2c3e50;
+    }
+    
+    .menu-header .arrow {
+      transition: transform 0.3s;
+    }
+    
+    .menu-section.open .arrow {
+      transform: rotate(180deg);
+    }
+    
+    .menu-content {
+      display: none;
+      background: white;
+    }
+    
+    .menu-section.open .menu-content {
+      display: block;
+    }
+    
+    .menu-content a {
+      display: block;
+      padding: 12px 20px;
+      color: #1a252f;
+      text-decoration: none;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .menu-content a:last-child {
+      border-bottom: none;
+    }
+    
+    .menu-content a:active {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <h1>アコーディオンナビゲーション例</h1>
+  
+  <nav class="accordion-nav">
+    <div class="menu-section">
+      <div class="menu-header" onclick="toggleSection(this)">
+        <span>基本情報</span>
+        <span class="arrow">▼</span>
+      </div>
+      <div class="menu-content">
+        <a href="index.html">ホーム</a>
+        <a href="news.html">ニュース</a>
+        <a href="contact.html">連絡先</a>
+      </div>
+    </div>
+    
+    <div class="menu-section">
+      <div class="menu-header" onclick="toggleSection(this)">
+        <span>研究活動</span>
+        <span class="arrow">▼</span>
+      </div>
+      <div class="menu-content">
+        <a href="research.html">研究概要</a>
+        <a href="research-dx.html">研究DX</a>
+        <a href="publications.html">論文</a>
+        <a href="talks.html">発表</a>
+      </div>
+    </div>
+    
+    <div class="menu-section">
+      <div class="menu-header" onclick="toggleSection(this)">
+        <span>ナノマテリアル</span>
+        <span class="arrow">▼</span>
+      </div>
+      <div class="menu-content">
+        <a href="nanomaterial/purpose.html">目的</a>
+        <a href="nanomaterial/members.html">メンバー</a>
+        <a href="nanomaterial/location.html">場所</a>
+        <a href="nanomaterial/access.html">アクセス</a>
+      </div>
+    </div>
+  </nav>
+  
+  <script>
+    function toggleSection(header) {
+      const section = header.parentElement;
+      section.classList.toggle('open');
+      
+      // 他のセクションを閉じる（オプション）
+      const allSections = document.querySelectorAll('.menu-section');
+      allSections.forEach(s => {
+        if (s !== section && s.classList.contains('open')) {
+          s.classList.remove('open');
+        }
+      });
+    }
+  </script>
+</body>
+</html>

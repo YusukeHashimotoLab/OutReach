@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>タブナビゲーション例</title>
+  <style>
+    /* タブナビゲーションのスタイル */
+    .tab-nav {
+      display: none;
+      background: #1a252f;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    
+    .tab-nav::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .tab-nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      white-space: nowrap;
+    }
+    
+    .tab-nav a {
+      display: block;
+      padding: 12px 20px;
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s;
+    }
+    
+    .tab-nav a:active,
+    .tab-nav a.active {
+      border-bottom-color: #3498db;
+      background: rgba(255,255,255,0.1);
+    }
+    
+    /* モバイルでのみ表示 */
+    @media (max-width: 768px) {
+      .tab-nav {
+        display: block;
+      }
+      
+      /* デスクトップナビゲーションを非表示 */
+      .desktop-nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="tab-nav">
+    <ul>
+      <li><a href="index.html" class="active">ホーム</a></li>
+      <li><a href="news.html">ニュース</a></li>
+      <li><a href="research.html">研究</a></li>
+      <li><a href="research-dx.html">研究DX</a></li>
+      <li><a href="publications.html">論文</a></li>
+      <li><a href="talks.html">発表</a></li>
+      <li><a href="links.html">リンク</a></li>
+      <li><a href="contact.html">連絡先</a></li>
+    </ul>
+  </nav>
+  
+  <h1>タブナビゲーション例</h1>
+  <p>モバイルサイズで上部に横スクロール可能なタブが表示されます。</p>
+  <p>多数のリンクがある場合、横にスワイプしてスクロールできます。</p>
+</body>
+</html>
