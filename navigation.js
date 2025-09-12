@@ -562,26 +562,35 @@
       @media (min-width: 969px) {
         /* Nanomaterial pages: vertical sidebar layout */
         body.endowed-layout {
+          --endowed-sidebar-width: 280px;
           display: grid;
-          grid-template-columns: 260px 1fr;
+          grid-template-columns: var(--endowed-sidebar-width) 1fr;
           grid-template-rows: auto 1fr;
           grid-template-areas:
             'header header'
             'sidebar content';
-          column-gap: 24px;
+          column-gap: 32px;
+          align-items: start;
         }
 
         body.endowed-layout .endowed-header { grid-area: header; }
         body.endowed-layout .endowed-nav {
           grid-area: sidebar;
           align-self: start;
+          position: sticky;
+          top: 24px;
+          max-height: calc(100svh - 24px);
+          overflow: auto;
+          -webkit-overflow-scrolling: touch;
         }
         body.endowed-layout .endowed-nav ul {
           display: flex;
           flex-direction: column;
           gap: 0;
+          margin: 0;
         }
         body.endowed-layout .endowed-nav a {
+          display: block;
           border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         }
         body.endowed-layout .main-content { grid-area: content; }
