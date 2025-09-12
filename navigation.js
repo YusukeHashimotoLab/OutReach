@@ -95,17 +95,22 @@
 
         // iOS Safari sometimes drops click inside transformed/fixed panels.
         // Ensure navigation on touchend (tap) without interfering with scrolling.
-        let startX = 0, startY = 0, moved = false;
+        let startX = 0, startY = 0, moved = false, touchStartTime = 0;
         link.addEventListener('touchstart', (e) => {
           const t = e.touches && e.touches[0];
           startX = t ? t.clientX : 0;
           startY = t ? t.clientY : 0;
           moved = false;
+          touchStartTime = Date.now();
         }, { passive: true });
         link.addEventListener('touchmove', (e) => {
           const t = e.touches && e.touches[0];
           if (!t) return;
-          if (Math.abs(t.clientX - startX) > 10 || Math.abs(t.clientY - startY) > 10) {
+          const deltaX = Math.abs(t.clientX - startX);
+          const deltaY = Math.abs(t.clientY - startY);
+          const touchDuration = Date.now() - touchStartTime;
+          // Increased threshold to 20px and add time limit for better touch detection
+          if (touchDuration > 500 || deltaX > 20 || deltaY > 20) {
             moved = true;
           }
         }, { passive: true });
@@ -269,9 +274,11 @@
         background: none;
         border: none;
         cursor: pointer;
-        padding: 0;
-        z-index: calc(var(--z-index-fixed) + 10);
+        padding: 12px; /* Expanded touch area */
+        z-index: 1001; /* Higher z-index for reliable touch */
         margin-left: auto;
+        min-width: 44px; /* iOS accessibility requirement */
+        min-height: 44px;
       }
 
       .nav-toggle__bar {
@@ -367,6 +374,7 @@
           max-width: 400px;
           height: 100vh;
           background: var(--color-surface);
+          z-index: 1000; /* Ensure nav is above overlay */
           box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
           transition: right var(--transition-base);
           display: flex !important;
@@ -382,17 +390,20 @@
         }
 
         nav[role="navigation"] a {
-          display: block;
-          padding: 1.2rem 1rem;
+          display: flex;
+          align-items: center;
+          padding: 16px 20px; /* Increased padding for better touch */
           font-size: 1.1rem;
           border-bottom: 1px solid var(--color-border);
           color: var(--color-text-primary);
           background: transparent;
           pointer-events: auto;
           cursor: pointer;
-          min-height: 44px;
+          min-height: 48px; /* Increased from 44px for better accessibility */
           touch-action: manipulation;
           -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+          text-decoration: none;
+          transition: background-color 0.2s ease;
         }
 
         nav[role="navigation"] a:hover,
@@ -429,7 +440,7 @@
           right: 0;
           bottom: 0;
           background: rgba(0, 0, 0, 0.5);
-          z-index: var(--z-index-fixed);
+          z-index: 999; /* Below nav but above content */
           animation: fadeIn var(--transition-base);
           pointer-events: auto;
           cursor: pointer;
