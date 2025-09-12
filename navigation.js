@@ -89,6 +89,7 @@
         // Close slide-out menu on click if present
         link.addEventListener('click', () => {
           document.body.classList.remove('nav-open');
+          document.body.classList.remove('nav-open-scroll-lock');
           const navWithRole = document.querySelector('nav[role="navigation"]');
           if (navWithRole) navWithRole.classList.remove('nav--open');
         });
@@ -124,9 +125,23 @@
           const navWithRole = document.querySelector('nav[role="navigation"]');
           if (navWithRole && navWithRole.classList.contains('nav--open')) {
             document.body.classList.remove('nav-open');
+            document.body.classList.remove('nav-open-scroll-lock');
             navWithRole.classList.remove('nav--open');
             // Let the default link behavior work after closing menu
             // Don't prevent default - allow normal navigation
+          }
+
+          // iOS Safari fallback: explicitly navigate after closing menus
+          const href = link.getAttribute('href');
+          const target = link.getAttribute('target');
+          if (href && href !== '#' && !href.startsWith('javascript:')) {
+            setTimeout(() => {
+              if (target === '_blank') {
+                window.open(href, '_blank');
+              } else {
+                window.location.assign(href);
+              }
+            }, 0);
           }
         }, { passive: true });
       });
@@ -169,7 +184,8 @@
           nav.classList.toggle('nav--open');
           // Prevent background scroll only if panel overlays content (mobile)
           if (window.innerWidth <= 968) {
-            document.body.classList.toggle('nav-open', !isExpanded);
+            // Use scroll-lock class without overlay to avoid blocking taps
+            document.body.classList.toggle('nav-open-scroll-lock', !isExpanded);
           }
         });
       }
@@ -182,6 +198,7 @@
         toggle.setAttribute('aria-expanded', 'false');
         nav.classList.remove('nav--open');
         document.body.classList.remove('nav-open');
+        document.body.classList.remove('nav-open-scroll-lock');
       }));
       return;
     }
@@ -429,6 +446,8 @@
           flex-direction: column;
           width: 100%;
           margin: 48px 0 8px 0; /* leave space for toggle */
+          position: relative;
+          z-index: 1002; /* Above body overlay if present */
           -webkit-overflow-scrolling: touch;
         }
 
@@ -537,6 +556,11 @@
         body.nav-open {
           overflow: hidden;
           touch-action: none;
+        }
+
+        /* Scroll lock without overlay (used by endowed-nav) */
+        body.nav-open-scroll-lock {
+          overflow: hidden;
         }
 
         /* Smooth collapsing when menu closes */
