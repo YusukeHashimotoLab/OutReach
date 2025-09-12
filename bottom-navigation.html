@@ -1,0 +1,109 @@
+<!-- Bottom Navigation Component - 主要4項目への高速アクセス -->
+<!-- 各HTMLファイルの</body>タグの直前に追加 -->
+
+<nav class="bottom-nav" role="navigation" aria-label="主要ナビゲーション">
+  <ul>
+    <li>
+      <a href="index.html" aria-current="page">
+        <span class="nav-icon" aria-hidden="true">🏠</span>
+        <span>ホーム</span>
+      </a>
+    </li>
+    <li>
+      <a href="research.html">
+        <span class="nav-icon" aria-hidden="true">🔬</span>
+        <span>研究</span>
+      </a>
+    </li>
+    <li>
+      <a href="publications.html">
+        <span class="nav-icon" aria-hidden="true">📚</span>
+        <span>論文</span>
+      </a>
+    </li>
+    <li>
+      <a href="contact.html">
+        <span class="nav-icon" aria-hidden="true">✉️</span>
+        <span>連絡</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- JavaScript for Bottom Navigation -->
+<script>
+(function() {
+  'use strict';
+  
+  // 現在のページをハイライト
+  const currentPath = window.location.pathname;
+  const bottomNavLinks = document.querySelectorAll('.bottom-nav a');
+  
+  bottomNavLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (currentPath.includes(href) || 
+        (href === 'index.html' && currentPath.endsWith('/'))) {
+      link.setAttribute('aria-current', 'page');
+    }
+  });
+  
+  // スクロール時にボトムナビを隠す/表示する（オプション）
+  let lastScrollTop = 0;
+  let isScrolling = false;
+  const bottomNav = document.querySelector('.bottom-nav');
+  
+  function handleScroll() {
+    if (!isScrolling) {
+      window.requestAnimationFrame(() => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          // 下にスクロール - ナビを隠す
+          bottomNav.style.transform = 'translateY(100%)';
+        } else {
+          // 上にスクロール - ナビを表示
+          bottomNav.style.transform = 'translateY(0)';
+        }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        isScrolling = false;
+      });
+      
+      isScrolling = true;
+    }
+  }
+  
+  // スクロールイベントのパフォーマンス最適化
+  let scrollTimeout;
+  window.addEventListener('scroll', () => {
+    if (scrollTimeout) {
+      window.cancelAnimationFrame(scrollTimeout);
+    }
+    scrollTimeout = window.requestAnimationFrame(handleScroll);
+  }, { passive: true });
+  
+  // ボトムナビのスムーズな表示/非表示トランジション
+  if (bottomNav) {
+    bottomNav.style.transition = 'transform 0.3s ease-in-out';
+  }
+})();
+</script>
+
+<!-- 使用方法 -->
+<!-- 
+1. mobile-optimizations.css をHTMLファイルに読み込む
+   <link rel="stylesheet" href="../mobile-optimizations.css">
+
+2. このボトムナビゲーションコンポーネントを</body>タグの直前に追加
+
+3. 各ページで現在のページに応じてaria-current="page"を設定
+
+例: research.htmlの場合
+<nav class="bottom-nav">
+  <ul>
+    <li><a href="index.html">...</a></li>
+    <li><a href="research.html" aria-current="page">...</a></li>
+    ...
+  </ul>
+</nav>
+-->

@@ -1,0 +1,60 @@
+<!-- Mobile Meta Tags Template - すべてのHTMLファイルに追加推奨 -->
+
+<!-- 基本のビューポート設定（既存） -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- iOS Safari固有の設定 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="橋本研究室">
+
+<!-- iOS用アイコン設定 -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+
+<!-- Android/Chrome設定 -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1a252f">
+
+<!-- タッチアイコンのハイライト色 -->
+<meta name="msapplication-tap-highlight" content="no">
+
+<!-- フォーマット検出の無効化（電話番号の自動リンク化を防ぐ） -->
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="address=no">
+<meta name="format-detection" content="email=no">
+
+<!-- プリコネクト（パフォーマンス向上） -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+<!-- ページ遷移のプリフェッチ（主要ページ） -->
+<link rel="prefetch" href="research.html">
+<link rel="prefetch" href="publications.html">
+<link rel="prefetch" href="contact.html">
+
+<!-- マニフェストファイル（PWA対応） -->
+<link rel="manifest" href="/manifest.json">
+
+<!-- スタイルシートの読み込み順序最適化 -->
+<link rel="stylesheet" href="../all-styles.css">
+<link rel="stylesheet" href="../mobile-optimizations.css">
+
+<!-- 使用例: jp/index.html の<head>内に追加 -->
+<!-- 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="橋本研究室">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#1a252f">
+  <meta name="format-detection" content="telephone=no">
+  ... 既存のメタタグ ...
+  <link rel="stylesheet" href="../all-styles.css">
+  <link rel="stylesheet" href="../mobile-optimizations.css">
+  ... その他のスタイルシート ...
+</head>
+-->

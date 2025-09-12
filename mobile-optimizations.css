@@ -1,0 +1,316 @@
+/* Mobile Optimizations - Based on Best Practices Guide */
+
+/* ===================================
+   1. Hover効果をPCのみに限定
+   ダブルタップ問題の解決
+   =================================== */
+
+/* PCのみhover効果を適用 */
+@media (hover: hover) and (pointer: fine) {
+  /* Navigation hover effects */
+  nav a:hover {
+    background: var(--color-secondary);
+    color: var(--color-white);
+  }
+  
+  /* Button hover effects */
+  .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .btn--primary:hover {
+    background: var(--color-primary-light);
+  }
+  
+  .btn--secondary:hover {
+    background: var(--color-background);
+    color: var(--color-primary);
+  }
+  
+  /* Card hover effects */
+  .card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  
+  /* Research area card hover */
+  .research-area-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+  }
+  
+  .research-area-card:hover .area-icon {
+    transform: scale(1.1) rotate(5deg);
+  }
+  
+  /* Tag hover effects */
+  .tag:hover {
+    background: var(--color-secondary);
+    color: var(--color-white);
+  }
+  
+  /* Footer link hover */
+  footer a:hover {
+    text-decoration: none;
+    opacity: 0.8;
+  }
+}
+
+/* モバイル/タブレット用のタップスタイル */
+@media (hover: none) and (pointer: coarse) {
+  /* タップ時のフィードバック */
+  nav a:active,
+  .btn:active,
+  .card:active,
+  .tag:active {
+    opacity: 0.8;
+    transform: scale(0.98);
+  }
+  
+  /* タップハイライトを削除 */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* 長押しメニューを無効化 */
+  a, button {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+/* ===================================
+   2. タッチターゲットの最適化
+   Apple/Google推奨サイズの確保
+   =================================== */
+
+/* 最小タップエリア 44px × 44px */
+a, button, input, select, textarea {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* ナビゲーションリンクのタップエリア拡大 */
+nav a {
+  padding: 12px 16px;
+  margin: 2px; /* 隣接リンクとの最小間隔 */
+}
+
+/* ボタンの最適化 */
+.btn {
+  padding: 12px 24px;
+  min-height: 48px; /* Google推奨値 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* フォーム要素の最適化 */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+textarea,
+select {
+  padding: 12px;
+  min-height: 48px;
+  font-size: 16px; /* iOS自動ズーム防止 */
+}
+
+/* ===================================
+   3. ボトムナビゲーション（主要4項目）
+   固定位置での高速アクセス
+   =================================== */
+
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  z-index: 900;
+  padding-bottom: env(safe-area-inset-bottom); /* iPhone X以降対応 */
+}
+
+@media (max-width: 768px) {
+  .bottom-nav {
+    display: block;
+  }
+  
+  /* メインコンテンツの下部パディング調整 */
+  main {
+    padding-bottom: calc(60px + env(safe-area-inset-bottom));
+  }
+}
+
+.bottom-nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 60px;
+}
+
+.bottom-nav li {
+  flex: 1;
+}
+
+.bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 8px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 11px;
+  transition: color 0.2s ease;
+}
+
+.bottom-nav a[aria-current="page"],
+.bottom-nav a:active {
+  color: var(--color-primary);
+}
+
+.bottom-nav .nav-icon {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+/* ===================================
+   4. スワイプジェスチャー対応
+   =================================== */
+
+.swipeable {
+  touch-action: pan-y pinch-zoom;
+}
+
+.carousel {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-item {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+}
+
+/* ===================================
+   5. アクセシビリティ向上
+   =================================== */
+
+/* フォーカス状態の明確化 */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* スキップリンク */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 8px;
+  text-decoration: none;
+  z-index: 9999;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* 高コントラストモード対応 */
+@media (prefers-contrast: high) {
+  * {
+    border-width: 2px !important;
+  }
+  
+  a, button {
+    text-decoration: underline;
+  }
+}
+
+/* ===================================
+   6. パフォーマンス最適化
+   =================================== */
+
+/* 重要なCSSのみインライン化を推奨 */
+/* 以下は遅延読み込み可能 */
+
+/* アニメーションの削減 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===================================
+   7. iPhone固有の最適化
+   =================================== */
+
+/* ステータスバーの処理 */
+@supports (padding-top: env(safe-area-inset-top)) {
+  header {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* ランドスケープモード対応 */
+@media (orientation: landscape) and (max-height: 500px) {
+  header {
+    position: static;
+  }
+  
+  .bottom-nav {
+    position: static;
+  }
+}
+
+/* ===================================
+   8. デバッグ用スタイル（開発時のみ）
+   =================================== */
+
+/* タップエリアの可視化（開発時のみ使用） */
+.debug-tap-areas a,
+.debug-tap-areas button {
+  position: relative;
+}
+
+.debug-tap-areas a::after,
+.debug-tap-areas button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border: 2px dashed red;
+  pointer-events: none;
+  opacity: 0.3;
+}

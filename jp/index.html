@@ -2,10 +2,17 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="橋本佑介 - 東北大学特任准教授、マテリアルズインフォマティクス・スピントロニクス研究者。材料科学とデータサイエンスを融合した革新的研究を展開">
   <meta name="keywords" content="橋本佑介,マテリアルズインフォマティクス,スピントロニクス,機械学習,材料科学,研究DX,東北大学">
   <meta name="author" content="Yusuke Hashimoto">
+  <!-- Mobile Optimizations -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="橋本研究室">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#1a252f">
+  <meta name="format-detection" content="telephone=no">
   <!-- Open Graph -->
   <meta property="og:title" content="橋本佑介 | 材料科学研究者">
   <meta property="og:description" content="東北大学特任准教授。材料科学とデータサイエンスを融合した革新的研究">
@@ -29,6 +36,7 @@
   <link rel="alternate" hreflang="en" href="https://yusukehashimotolab.github.io/OutReach/en/index.html">
   <link rel="alternate" hreflang="x-default" href="https://yusukehashimotolab.github.io/OutReach/jp/index.html">
   <link rel="stylesheet" href="../all-styles.css">
+  <link rel="stylesheet" href="../mobile-optimizations.css">
   <link rel="stylesheet" href="../home-styles.css">
   <link rel="stylesheet" href="../cool-animations.css">
   <script src="../theme-toggle.js" defer></script>
@@ -925,5 +933,35 @@
       </a>
     </address>
   </footer>
+  
+  <!-- Bottom Navigation for Mobile -->
+  <nav class="bottom-nav" role="navigation" aria-label="主要ナビゲーション">
+    <ul>
+      <li>
+        <a href="index.html" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">🏠</span>
+          <span>ホーム</span>
+        </a>
+      </li>
+      <li>
+        <a href="research.html">
+          <span class="nav-icon" aria-hidden="true">🔬</span>
+          <span>研究</span>
+        </a>
+      </li>
+      <li>
+        <a href="publications.html">
+          <span class="nav-icon" aria-hidden="true">📚</span>
+          <span>論文</span>
+        </a>
+      </li>
+      <li>
+        <a href="contact.html">
+          <span class="nav-icon" aria-hidden="true">✉️</span>
+          <span>連絡</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </body>
 </html>
