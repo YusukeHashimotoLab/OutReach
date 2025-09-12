@@ -134,6 +134,8 @@
 
     // If we only have nav (nanomaterial pages), add language switcher and mobile toggle
     if (!header && nav) {
+      // Enable layout grid on nanomaterial pages for vertical sidebar
+      document.body.classList.add('endowed-layout');
       const lang = getCurrentLang();
       const langConfig = navConfig[lang];
       if (langConfig && langConfig.langSwitch && !nav.querySelector('.nav-lang-switch')) {
@@ -558,6 +560,32 @@
 
       /* Ensure nav is visible on desktop */
       @media (min-width: 969px) {
+        /* Nanomaterial pages: vertical sidebar layout */
+        body.endowed-layout {
+          display: grid;
+          grid-template-columns: 260px 1fr;
+          grid-template-rows: auto 1fr;
+          grid-template-areas:
+            'header header'
+            'sidebar content';
+          column-gap: 24px;
+        }
+
+        body.endowed-layout .endowed-header { grid-area: header; }
+        body.endowed-layout .endowed-nav {
+          grid-area: sidebar;
+          align-self: start;
+        }
+        body.endowed-layout .endowed-nav ul {
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+        }
+        body.endowed-layout .endowed-nav a {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        body.endowed-layout .main-content { grid-area: content; }
+
         nav[role="navigation"] {
           display: flex !important;
           gap: 1.5rem;
