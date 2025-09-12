@@ -119,23 +119,16 @@
           if (moved) return;
           // Guard: ignore modified taps
           if (e.defaultPrevented) return;
-          // Prevent the sometimes-missing click on iOS and navigate manually
-          e.preventDefault();
-          e.stopPropagation();
-          const href = link.getAttribute('href');
-          if (!href) return;
-          // Close any open menu
-          document.body.classList.remove('nav-open');
+          
+          // Close any open menu immediately on tap
           const navWithRole = document.querySelector('nav[role="navigation"]');
-          if (navWithRole) navWithRole.classList.remove('nav--open');
-          // Handle target
-          const target = link.getAttribute('target');
-          if (target === '_blank') {
-            window.open(href, '_blank');
-          } else {
-            window.location.href = href;
+          if (navWithRole && navWithRole.classList.contains('nav--open')) {
+            document.body.classList.remove('nav-open');
+            navWithRole.classList.remove('nav--open');
+            // Let the default link behavior work after closing menu
+            // Don't prevent default - allow normal navigation
           }
-        }, { passive: false });
+        }, { passive: true });
       });
     };
 
@@ -374,14 +367,13 @@
           max-width: 400px;
           height: 100vh;
           background: var(--color-surface);
-          z-index: 1000; /* Ensure nav is above overlay */
           box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
           transition: right var(--transition-base);
           display: flex !important;
           flex-direction: column;
           padding: 80px 2rem 2rem;
           overflow-y: auto;
-          z-index: calc(var(--z-index-fixed) + 1);
+          z-index: 1001; /* Above overlay (999) */
           -webkit-overflow-scrolling: touch;
         }
 
@@ -390,10 +382,10 @@
         }
 
         nav[role="navigation"] a {
-          display: flex;
-          align-items: center;
+          display: block;
           padding: 16px 20px; /* Increased padding for better touch */
           font-size: 1.1rem;
+          line-height: 1.5;
           border-bottom: 1px solid var(--color-border);
           color: var(--color-text-primary);
           background: transparent;
@@ -404,6 +396,8 @@
           -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
           text-decoration: none;
           transition: background-color 0.2s ease;
+          -webkit-user-select: none;
+          user-select: none;
         }
 
         nav[role="navigation"] a:hover,

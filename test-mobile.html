@@ -66,13 +66,15 @@
       <li>メニュー内のリンクをクリック</li>
       <li>ページが遷移し、メニューが自動的に閉じることを確認</li>
     </ol>
-    <h4>修正内容</h4>
+    <h4>最新の修正内容（iPhone対応）</h4>
     <ul>
-      <li>✅ リンククリック時にメニューを自動で閉じる処理を追加</li>
-      <li>✅ タッチイベントの処理を改善</li>
-      <li>✅ z-indexの階層を整理</li>
-      <li>✅ タッチターゲットサイズを44px以上に設定</li>
+      <li>✅ display:flexをblockに変更（iOS互換性向上）</li>
+      <li>✅ z-index設定を統一（1001に固定）</li>
+      <li>✅ touchendイベントを簡略化（preventDefault削除）</li>
+      <li>✅ リンクのline-heightとuser-select追加</li>
+      <li>✅ nav--openの表示をblock!importantに変更</li>
     </ul>
+    <p style="color: green; font-weight: bold;">iPhoneでのリンクタップ問題を修正しました。</p>
   </div>
   
   <script>
