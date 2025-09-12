@@ -13,6 +13,12 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Prevent horizontal scrolling on mobile */
+html, body {
+  overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -34,7 +40,9 @@ body {
   line-height: 1.7;
   color: #2c3e50;
   background: #f8f9fa;
+  /* Use dynamic viewport height where supported */
   min-height: 100vh;
+  min-height: 100svh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;

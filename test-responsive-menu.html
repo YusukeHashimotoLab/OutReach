@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>レスポンシブメニューテスト</title>
+  <link rel="stylesheet" href="all-styles.css">
+  <script src="navigation.js" defer></script>
+  <style>
+    /* デバイスサイズシミュレーション用 */
+    .device-frame {
+      margin: 20px auto;
+      border: 2px solid #333;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: width 0.3s ease, height 0.3s ease;
+    }
+    
+    .controls {
+      text-align: center;
+      margin: 20px;
+    }
+    
+    .controls button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .controls button:hover {
+      background: #2980b9;
+    }
+    
+    .device-info {
+      text-align: center;
+      margin: 10px;
+      font-family: sans-serif;
+      color: #666;
+    }
+
+    .test-info {
+      margin: 20px;
+      padding: 20px;
+      background: #f0f0f0;
+      border-radius: 5px;
+    }
+
+    .test-controls {
+      display: flex;
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .test-controls button {
+      padding: 8px 16px;
+      background: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .test-controls button:hover {
+      background: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button onclick="setDeviceSize(375, 667)">iPhone SE (モバイル)</button>
+    <button onclick="setDeviceSize(768, 1024)">iPad (タブレット)</button>
+    <button onclick="setDeviceSize(1200, 800)">デスクトップ</button>
+    <button onclick="setDeviceSize('100%', '100%')">フルサイズ</button>
+  </div>
+  
+  <div class="device-info" id="deviceInfo">フルサイズ</div>
+  
+  <div class="device-frame" id="deviceFrame" style="width: 100%; height: 800px;">
+    <iframe id="testFrame" src="jp/index.html" style="width: 100%; height: 100%; border: none;"></iframe>
+  </div>
+  
+  <div class="test-info">
+    <h3>レスポンシブメニュー テスト手順</h3>
+    <ol>
+      <li><strong>モバイル表示でテスト</strong>：「iPhone SE」をクリック</li>
+      <li>ハンバーガーメニューボタン（三本線）をクリックしてメニューを開く</li>
+      <li><strong>デスクトップに切り替え</strong>：「デスクトップ」ボタンをクリック</li>
+      <li>メニューが自動的に閉じることを確認 ✅</li>
+      <li><strong>タブレット表示でテスト</strong>：「iPad」をクリック</li>
+      <li>メニューの動作を確認</li>
+    </ol>
+    
+    <h4>新機能：自動レスポンシブ対応</h4>
+    <ul>
+      <li>✅ デスクトップサイズに変更時、開いているモバイルメニューが自動で閉じる</li>
+      <li>✅ 画面サイズ変更時のスムーズなトランジション</li>
+      <li>✅ 既存のモバイルナビゲーション機能を保持</li>
+      <li>✅ タッチイベントとクリックイベントの両方に対応</li>
+    </ul>
+    
+    <div class="test-controls">
+      <button onclick="testAutoCollapse()">自動折りたたみテスト</button>
+      <button onclick="testTransitions()">トランジションテスト</button>
+    </div>
+    
+    <p style="color: green; font-weight: bold;">
+      レスポンシブメニューの自動折りたたみ機能が実装されました！
+    </p>
+  </div>
+  
+  <script>
+    function setDeviceSize(width, height) {
+      const frame = document.getElementById('deviceFrame');
+      const info = document.getElementById('deviceInfo');
+      const iframe = document.getElementById('testFrame');
+      
+      if (width === '100%') {
+        frame.style.width = '100%';
+        frame.style.height = height;
+        info.textContent = 'フルサイズ';
+      } else {
+        frame.style.width = width + 'px';
+        frame.style.height = height + 'px';
+        info.textContent = `${width} x ${height}px`;
+      }
+      
+      // フレームサイズ変更後、iframe内でresizeイベントを発火
+      setTimeout(() => {
+        iframe.contentWindow.dispatchEvent(new Event('resize'));
+      }, 300);
+    }
+
+    function testAutoCollapse() {
+      alert('テスト手順:\n1. モバイルサイズでメニューを開く\n2. デスクトップサイズに変更\n3. メニューが自動で閉じることを確認');
+      setDeviceSize(375, 667);
+    }
+
+    function testTransitions() {
+      const frame = document.getElementById('deviceFrame');
+      const sizes = [
+        [375, 667],  // Mobile
+        [768, 1024], // Tablet
+        [1200, 800], // Desktop
+        [375, 667]   // Back to mobile
+      ];
+      
+      let index = 0;
+      const interval = setInterval(() => {
+        if (index >= sizes.length) {
+          clearInterval(interval);
+          return;
+        }
+        setDeviceSize(sizes[index][0], sizes[index][1]);
+        index++;
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

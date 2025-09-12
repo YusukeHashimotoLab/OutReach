@@ -208,6 +208,20 @@
     // Add robust mobile handlers to all navigation links
     attachMobileLinkHandlers(nav);
 
+    // Responsive menu state management
+    const checkResponsiveState = () => {
+      const isDesktop = window.innerWidth > 968;
+      const menuIsOpen = nav.classList.contains('nav--open');
+      
+      if (isDesktop && menuIsOpen) {
+        // Auto-close menu when transitioning to desktop
+        closeMenu();
+      }
+    };
+
+    // Listen for resize events to handle responsive state changes
+    window.addEventListener('resize', checkResponsiveState);
+
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
       if (!header.contains(e.target) && nav.classList.contains('nav--open')) {
@@ -215,29 +229,35 @@
       }
     });
 
-    // Sticky header functionality
+    // Sticky header functionality with iOS-safe fallback
+    const isIOS = /iP(hone|ad|od)/.test(navigator.platform) || (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
     let lastScroll = 0;
     const scrollThreshold = 100;
 
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      
-      // Add/remove sticky class
-      if (currentScroll > scrollThreshold) {
-        header.classList.add('header--sticky');
+    if (isIOS) {
+      // On iOS, avoid fixed+transform glitches; use CSS sticky instead
+      header.classList.add('header--ios-sticky');
+    } else {
+      window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
         
-        // Hide/show based on scroll direction
-        if (currentScroll > lastScroll && currentScroll > header.offsetHeight) {
-          header.classList.add('header--hidden');
+        // Add/remove sticky class
+        if (currentScroll > scrollThreshold) {
+          header.classList.add('header--sticky');
+          
+          // Hide/show based on scroll direction
+          if (currentScroll > lastScroll && currentScroll > header.offsetHeight) {
+            header.classList.add('header--hidden');
+          } else {
+            header.classList.remove('header--hidden');
+          }
         } else {
-          header.classList.remove('header--hidden');
+          header.classList.remove('header--sticky', 'header--hidden');
         }
-      } else {
-        header.classList.remove('header--sticky', 'header--hidden');
-      }
-      
-      lastScroll = currentScroll;
-    });
+        
+        lastScroll = currentScroll;
+      });
+    }
 
     // Add scroll progress indicator
     const progress = document.createElement('div');
@@ -330,6 +350,7 @@
         right: 0;
         z-index: var(--z-index-sticky);
         box-shadow: var(--shadow-md);
+        padding-top: env(safe-area-inset-top);
       }
 
       .header--hidden {
@@ -365,16 +386,19 @@
           right: -100%;
           width: 80%;
           max-width: 400px;
+          /* Use dynamic viewport height to avoid iOS 100vh issues */
           height: 100vh;
+          height: 100svh;
           background: var(--color-surface);
           box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-          transition: right var(--transition-base);
+          transition: right var(--transition-base), transform var(--transition-base), opacity var(--transition-base);
           display: flex !important;
           flex-direction: column;
-          padding: 80px 2rem 2rem;
+          padding: calc(80px + env(safe-area-inset-top)) 2rem 2rem;
           overflow-y: auto;
           z-index: 1001; /* Above overlay (999) */
           -webkit-overflow-scrolling: touch;
+          overscroll-behavior: contain; /* Prevent background rubber-banding */
         }
 
         nav[role="navigation"].nav--open {
@@ -435,15 +459,35 @@
           bottom: 0;
           background: rgba(0, 0, 0, 0.5);
           z-index: 999; /* Below nav but above content */
-          animation: fadeIn var(--transition-base);
+          transition: opacity var(--transition-base);
+          opacity: 1;
           pointer-events: auto;
           cursor: pointer;
+        }
+
+        /* Lock background scroll when nav is open */
+        body.nav-open {
+          overflow: hidden;
+          touch-action: none;
+        }
+
+        /* Smooth collapsing when menu closes */
+        body:not(.nav-open) nav[role="navigation"] {
+          transition: right var(--transition-base), opacity var(--transition-base);
         }
 
         @keyframes fadeIn {
           from { opacity: 0; }
           to { opacity: 1; }
         }
+      }
+
+      /* iOS sticky header fallback */
+      header.header--ios-sticky {
+        position: sticky;
+        top: 0;
+        z-index: var(--z-index-sticky);
+        padding-top: env(safe-area-inset-top);
       }
 
       /* Ensure nav is visible on desktop */
