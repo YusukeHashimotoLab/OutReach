@@ -1,7 +1,7 @@
 /* Common Components - Yusuke Hashimoto Website */
 
 /* Import CSS Variables */
-@import url('variables.css');
+/* Variables are loaded via all-styles.css */
 
 /* ===== Page Container ===== */
 .container {

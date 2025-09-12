@@ -58,11 +58,12 @@
     button.className = 'nav-toggle';
     button.setAttribute('aria-label', 'Toggle navigation menu');
     button.setAttribute('aria-expanded', 'false');
-    button.innerHTML = `
-      <span class="nav-toggle__bar"></span>
-      <span class="nav-toggle__bar"></span>
-      <span class="nav-toggle__bar"></span>
-    `;
+    // Create hamburger menu bars using createElement for security
+    for (let i = 0; i < 3; i++) {
+      const bar = document.createElement('span');
+      bar.className = 'nav-toggle__bar';
+      button.appendChild(bar);
+    }
     return button;
   };
 
@@ -139,7 +140,12 @@
       const langConfig = navConfig[lang];
       if (langConfig && langConfig.langSwitch && !nav.querySelector('.nav-lang-switch')) {
         const langSwitch = document.createElement('li');
-        langSwitch.innerHTML = `<a href="${langConfig.langSwitch.href}${getCurrentPage()}" class="nav-lang-switch">${langConfig.langSwitch.text}</a>`;
+        // Create language switch link using createElement for security
+        const langLink = document.createElement('a');
+        langLink.href = langConfig.langSwitch.href + getCurrentPage();
+        langLink.className = 'nav-lang-switch';
+        langLink.textContent = langConfig.langSwitch.text;
+        langSwitch.appendChild(langLink);
         nav.appendChild(langSwitch);
       }
       // Ensure links respond to taps on iOS as expected
