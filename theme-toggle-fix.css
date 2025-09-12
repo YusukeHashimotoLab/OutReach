@@ -1,0 +1,70 @@
+/* Theme Toggle Mobile Fix - Proper z-index and positioning */
+
+/* Override theme toggle z-index to work with mobile navigation */
+.theme-toggle {
+  /* Use a z-index that's above the content but below the mobile nav */
+  z-index: 900 !important; /* Below nav (1001) but above content */
+}
+
+/* On mobile, adjust positioning to avoid conflicts */
+@media (max-width: 968px) {
+  .theme-toggle {
+    /* Move it higher on mobile to avoid bottom navigation */
+    bottom: 5rem !important; /* Above bottom nav */
+    right: 1rem !important;
+    
+    /* Ensure it's visible and clickable */
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    
+    /* Smaller size on mobile */
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+  }
+  
+  .theme-toggle svg {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+  }
+  
+  /* When bottom nav exists, adjust position */
+  body:has(.bottom-nav) .theme-toggle {
+    bottom: 6rem !important; /* Further up when bottom nav is present */
+  }
+}
+
+/* Ensure theme toggle is always visible in both themes */
+[data-theme="light"] .theme-toggle,
+[data-theme="dark"] .theme-toggle {
+  display: flex !important;
+  visibility: visible !important;
+}
+
+/* Fix potential color issues */
+.theme-toggle {
+  background: var(--color-surface, #ffffff) !important;
+  border-color: var(--color-border, #e9ecef) !important;
+  color: var(--color-text-primary, #1a252f) !important;
+}
+
+/* Dark mode specific colors */
+[data-theme="dark"] .theme-toggle {
+  background: #2c3e50 !important;
+  border-color: #34495e !important;
+  color: #ecf0f1 !important;
+}
+
+/* Ensure the button is clickable and above other elements */
+.theme-toggle:hover,
+.theme-toggle:focus {
+  z-index: 901 !important; /* Slightly higher on interaction */
+}
+
+/* Fix for when mobile nav is open */
+.nav--open ~ .theme-toggle,
+body:has(.nav--open) .theme-toggle {
+  /* Hide or move theme toggle when mobile nav is open to avoid conflicts */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}

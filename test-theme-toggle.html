@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Theme Toggle Test</title>
+  <link rel="stylesheet" href="all-styles.css">
+  <link rel="stylesheet" href="mobile-optimizations.css">
+  <link rel="stylesheet" href="theme-toggle-fix.css">
+  <script src="theme-toggle.js" defer></script>
+  <script src="navigation.js" defer></script>
+  
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      padding: 2rem;
+      background: var(--color-background, #f8f9fa);
+      color: var(--color-text-primary, #1a252f);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    
+    [data-theme="dark"] {
+      --color-background: #1a1a1a;
+      --color-surface: #2c2c2c;
+      --color-text-primary: #ecf0f1;
+      --color-text-secondary: #bdc3c7;
+      --color-border: #444;
+    }
+    
+    .test-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: var(--color-surface, #fff);
+      border: 1px solid var(--color-border, #e9ecef);
+      border-radius: 8px;
+    }
+    
+    h1 {
+      color: var(--color-text-primary, #1a252f);
+      margin-bottom: 1rem;
+    }
+    
+    p {
+      color: var(--color-text-secondary, #5d6d7e);
+      line-height: 1.6;
+    }
+    
+    .status {
+      margin: 2rem 0;
+      padding: 1rem;
+      background: var(--color-background, #f8f9fa);
+      border: 1px solid var(--color-border, #e9ecef);
+      border-radius: 4px;
+    }
+    
+    .button-test {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .btn-test {
+      padding: 0.75rem 1.5rem;
+      background: var(--color-primary, #34495e);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      min-height: 44px;
+    }
+    
+    /* Mobile navigation test */
+    .mobile-menu-toggle {
+      display: none;
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      width: 3rem;
+      height: 3rem;
+      background: var(--color-surface, #fff);
+      border: 2px solid var(--color-border, #e9ecef);
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    
+    @media (max-width: 968px) {
+      .mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    
+    .z-index-info {
+      background: #f0f0f0;
+      padding: 1rem;
+      border-radius: 4px;
+      font-family: monospace;
+      margin: 1rem 0;
+    }
+    
+    [data-theme="dark"] .z-index-info {
+      background: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Theme Toggle Test Page</h1>
+      <nav role="navigation">
+        <a href="jp/index.html">Home</a>
+        <a href="jp/news.html">News</a>
+        <a href="jp/research.html">Research</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="test-container">
+    <h1>テーマ切り替えテスト</h1>
+    
+    <div class="status">
+      <h2>現在の状態</h2>
+      <p id="theme-status">テーマ: <span id="current-theme">検出中...</span></p>
+      <p id="toggle-status">トグルボタン: <span id="toggle-visible">検出中...</span></p>
+    </div>
+    
+    <div class="z-index-info">
+      <h3>Z-Index Values:</h3>
+      <ul>
+        <li>Mobile Navigation: z-index: 1001</li>
+        <li>Theme Toggle: z-index: 900 (below nav)</li>
+        <li>Bottom Navigation: z-index: 1000</li>
+        <li>Content: z-index: auto</li>
+      </ul>
+    </div>
+    
+    <p>このページでは、ダークモード切り替えボタンが正しく動作することを確認できます。</p>
+    
+    <div class="button-test">
+      <button class="btn-test" onclick="testThemeToggle()">テーマ切り替えテスト</button>
+      <button class="btn-test" onclick="checkVisibility()">可視性チェック</button>
+    </div>
+    
+    <h2>テスト項目</h2>
+    <ul>
+      <li>✓ 右下にテーマ切り替えボタンが表示される</li>
+      <li>✓ クリックでダーク/ライトモードが切り替わる</li>
+      <li>✓ モバイルメニューと競合しない（z-index: 900 < 1001）</li>
+      <li>✓ モバイルではボタンが上に移動（bottom: 5rem）</li>
+      <li>✓ ボトムナビゲーションがある場合はさらに上（bottom: 6rem）</li>
+    </ul>
+  </div>
+
+  <!-- Bottom Navigation (Mobile) -->
+  <nav class="bottom-nav" role="navigation" aria-label="主要ナビゲーション">
+    <ul>
+      <li>
+        <a href="jp/index.html">
+          <span class="nav-icon">🏠</span>
+          <span>ホーム</span>
+        </a>
+      </li>
+      <li>
+        <a href="jp/research.html">
+          <span class="nav-icon">🔬</span>
+          <span>研究</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <script>
+    // Check current theme
+    function updateStatus() {
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      document.getElementById('current-theme').textContent = theme;
+      
+      const toggleBtn = document.querySelector('.theme-toggle');
+      const isVisible = toggleBtn && window.getComputedStyle(toggleBtn).display !== 'none';
+      document.getElementById('toggle-visible').textContent = isVisible ? '表示中' : '非表示';
+    }
+    
+    // Test theme toggle
+    function testThemeToggle() {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateStatus();
+      alert(`テーマを ${newTheme} モードに切り替えました`);
+    }
+    
+    // Check visibility
+    function checkVisibility() {
+      const toggleBtn = document.querySelector('.theme-toggle');
+      if (toggleBtn) {
+        const rect = toggleBtn.getBoundingClientRect();
+        const computedStyle = window.getComputedStyle(toggleBtn);
+        alert(`
+          ボタン位置:
+          - Bottom: ${computedStyle.bottom}
+          - Right: ${computedStyle.right}
+          - Z-Index: ${computedStyle.zIndex}
+          - Display: ${computedStyle.display}
+          - Visibility: ${computedStyle.visibility}
+          - 実際の位置: (${rect.left}, ${rect.top})
+        `);
+      } else {
+        alert('テーマ切り替えボタンが見つかりません');
+      }
+    }
+    
+    // Update status on load and theme change
+    window.addEventListener('DOMContentLoaded', updateStatus);
+    
+    // Watch for theme changes
+    const observer = new MutationObserver(updateStatus);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+  </script>
+</body>
+</html>
