@@ -132,7 +132,7 @@
       });
     };
 
-    // If we only have nav (nanomaterial pages), just add language switcher
+    // If we only have nav (nanomaterial pages), add language switcher and mobile toggle
     if (!header && nav) {
       const lang = getCurrentLang();
       const langConfig = navConfig[lang];
@@ -146,8 +146,41 @@
         langSwitch.appendChild(langLink);
         nav.appendChild(langSwitch);
       }
+
+      // Add a mobile menu toggle button for endowed-nav sidebar/header pattern
+      const endowedContainer = document.querySelector('.endowed-nav');
+      if (endowedContainer && !endowedContainer.querySelector('.nav-toggle')) {
+        const toggle = createMobileMenuButton();
+        // Accessibility wiring
+        let listId = nav.getAttribute('id');
+        if (!listId) {
+          listId = 'endowed-nav-list';
+          nav.setAttribute('id', listId);
+        }
+        toggle.setAttribute('aria-controls', listId);
+        // Insert toggle into container
+        endowedContainer.appendChild(toggle);
+
+        toggle.addEventListener('click', () => {
+          const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!isExpanded));
+          nav.classList.toggle('nav--open');
+          // Prevent background scroll only if panel overlays content (mobile)
+          if (window.innerWidth <= 968) {
+            document.body.classList.toggle('nav-open', !isExpanded);
+          }
+        });
+      }
       // Ensure links respond to taps on iOS as expected
       attachMobileLinkHandlers(nav);
+      // Close the dropdown when a link is tapped (mobile)
+      nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        const toggle = document.querySelector('.endowed-nav .nav-toggle');
+        if (!toggle) return;
+        toggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('nav--open');
+        document.body.classList.remove('nav-open');
+      }));
       return;
     }
     
@@ -375,6 +408,39 @@
 
       /* Mobile styles */
       @media (max-width: 968px) {
+        /* Endowed (nanomaterial) pages: collapse list under a toggle */
+        .endowed-nav {
+          display: block !important;
+          position: relative;
+          padding: 8px 8px 0 8px;
+        }
+
+        .endowed-nav .nav-toggle {
+          display: flex;
+          position: absolute;
+          right: 8px;
+          top: 8px;
+        }
+
+        .endowed-nav ul {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          margin: 48px 0 8px 0; /* leave space for toggle */
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .endowed-nav ul.nav--open {
+          display: flex;
+        }
+
+        .endowed-nav a {
+          display: block;
+          padding: 14px 16px;
+          min-height: 44px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
         .nav-toggle {
           display: flex;
           position: relative;
