@@ -340,7 +340,7 @@
         border: none;
         cursor: pointer;
         padding: 12px; /* Expanded touch area */
-        z-index: 1001; /* Higher z-index for reliable touch */
+        z-index: 1101; /* Above slide-out panels */
         margin-left: auto;
         min-width: 44px; /* iOS accessibility requirement */
         min-height: 44px;
@@ -439,13 +439,14 @@
           position: absolute;
           right: 8px;
           top: 8px;
+          z-index: 1103; /* Above endowed list */
         }
 
         .endowed-nav ul {
           display: none;
           flex-direction: column;
           width: 100%;
-          margin: 48px 0 8px 0; /* leave space for toggle */
+          margin: 56px 0 8px 0; /* leave space for toggle */
           position: relative;
           z-index: 1002; /* Above body overlay if present */
           -webkit-overflow-scrolling: touch;
