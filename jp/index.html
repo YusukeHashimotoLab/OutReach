@@ -36,6 +36,7 @@
   <link rel="alternate" hreflang="en" href="https://yusukehashimotolab.github.io/OutReach/en/index.html">
   <link rel="alternate" hreflang="x-default" href="https://yusukehashimotolab.github.io/OutReach/jp/index.html">
   <link rel="stylesheet" href="../all-styles.css">
+  <link rel="stylesheet" href="../responsive-system.css">
   <link rel="stylesheet" href="../mobile-optimizations.css">
   <link rel="stylesheet" href="../home-styles.css">
   <link rel="stylesheet" href="../cool-animations.css">
@@ -147,7 +148,7 @@
     }
 
     #hero h2 {
-      font-size: 3.2rem;
+      font-size: clamp(2rem, 5vw + 1rem, 3.2rem);
       color: #1a252f;
       margin-bottom: 1.5rem;
       font-weight: 400;
@@ -163,7 +164,7 @@
     }
 
     .hero-description {
-      font-size: 1.3rem;
+      font-size: clamp(1rem, 2vw + 0.5rem, 1.3rem);
       color: #5d6d7e;
       margin-bottom: 3rem;
       line-height: 1.8;
@@ -533,7 +534,7 @@
       text-decoration: underline;
     }
 
-    @media (max-width: 968px) {
+    @media (max-width: 1023px) {
       .hero-content {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -570,7 +571,7 @@
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       #hero {
         padding: 0.5rem 0 3rem 0;
       }
@@ -706,7 +707,7 @@
       text-align: center;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       .news-preview-item {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -724,7 +725,7 @@
       }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 479px) {
       #hero {
         padding: 0.5rem 0 2rem 0;
       }
@@ -785,6 +786,7 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-to-content">コンテンツへスキップ</a>
   <a href="#main-content" class="skip-to-content">本文へスキップ</a>
   <header>
     <div class="header-content">

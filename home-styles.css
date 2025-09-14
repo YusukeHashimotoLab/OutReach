@@ -58,7 +58,7 @@
 }
 
 #hero h2 {
-  font-size: 3.2rem;
+  font-size: clamp(2rem, 5vw + 1rem, 3.2rem);
   color: #1a252f;
   margin-bottom: 1.5rem;
   font-weight: 400;
@@ -67,7 +67,7 @@
 }
 
 .hero-description {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2vw + 0.5rem, 1.3rem);
   color: #5d6d7e;
   margin-bottom: 3rem;
   line-height: 1.8;
@@ -198,7 +198,7 @@
 }
 
 .section-header h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw + 0.5rem, 2.5rem);
   color: #1a252f;
   margin-bottom: 1rem;
   font-weight: 400;
@@ -371,7 +371,7 @@
 }
 
 /* Responsive styles for home page */
-@media (max-width: 968px) {
+@media (max-width: 1023px) {
   .hero-content {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -406,7 +406,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   #hero {
     padding: 4rem 0;
   }
@@ -459,7 +459,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 479px) {
   #hero {
     padding: 3rem 0;
   }
